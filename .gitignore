@@ -1,0 +1,4 @@
+node_modules/
+dist/
+*.kpz
+.DS_Store

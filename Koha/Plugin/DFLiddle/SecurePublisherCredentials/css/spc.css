@@ -1,0 +1,56 @@
+.spc-modal.hidden { display: none; }
+.spc-modal { position: fixed; inset: 0; z-index: 10000; }
+.spc-modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
+.spc-modal-dialog {
+  position: relative; max-width: 32rem; margin: 10vh auto; background: #fff;
+  padding: 1.25rem 1.5rem; border-radius: 6px; box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+.spc-modal-dialog h2 { margin-top: 0; font-size: 1.25rem; }
+.spc-field { margin: 0.75rem 0; }
+.spc-field code { word-break: break-all; }
+.spc-toolbar .btn { margin-right: 0.35rem; }
+.spc-toolbar .btn .fa { margin-right: 0.25rem; }
+.spc-access-scope-item .spc-access-scope {
+  float: left;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+}
+fieldset.rows li.spc-access-scope-item .spc-access-scope .spc-scope-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.35rem 0.5rem;
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+  width: 100%;
+}
+fieldset.rows li.spc-access-scope-item .spc-access-scope .spc-scope-row:last-child {
+  margin-bottom: 0;
+}
+fieldset.rows li.spc-access-scope-item .spc-access-scope .spc-scope-row input[type="radio"] {
+  margin: 0;
+  flex: 0 0 auto;
+}
+fieldset.rows li.spc-access-scope-item .spc-access-scope .spc-scope-row label {
+  float: none !important;
+  width: auto !important;
+  text-align: left !important;
+  font-weight: normal !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+fieldset.rows li.spc-access-scope-item .spc-access-scope .spc-scope-row select {
+  float: none !important;
+  width: auto !important;
+  max-width: 100%;
+  margin: 0 !important;
+  flex: 0 1 auto;
+}
+.spc-health-errors { color: #a94442; background: #f2dede; padding: 0.75rem; margin-bottom: 1rem; border-radius: 4px; }
+.spc-health-warnings { color: #8a6d3b; background: #fcf8e3; padding: 0.75rem; margin-bottom: 1rem; border-radius: 4px; }

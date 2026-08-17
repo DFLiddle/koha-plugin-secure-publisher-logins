@@ -1,0 +1,28 @@
+# French translations for Secure publisher logins plugin
+
+msgid "View login info"
+msgstr "Voir les identifiants"
+
+msgid "Manage login info"
+msgstr "Gérer les identifiants"
+
+msgid "Secure Publisher Logins"
+msgstr "Identifiants éditeur sécurisés"
+
+msgid "Publisher name"
+msgstr "Nom de l'éditeur"
+
+msgid "Accessible by"
+msgstr "Accessible par"
+
+msgid "All libraries"
+msgstr "Toutes les bibliothèques"
+
+msgid "Library"
+msgstr "Bibliothèque"
+
+msgid "Library group"
+msgstr "Groupe de bibliothèques"
+
+msgid "None (inactive)"
+msgstr "Aucun (inactif)"

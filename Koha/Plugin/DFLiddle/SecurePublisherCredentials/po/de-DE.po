@@ -1,0 +1,29 @@
+# German translations for Secure publisher logins plugin
+# Install with standard Koha translation tools after extraction.
+
+msgid "View login info"
+msgstr "Anmeldedaten anzeigen"
+
+msgid "Manage login info"
+msgstr "Anmeldedaten verwalten"
+
+msgid "Secure Publisher Logins"
+msgstr "Sichere Verlag-Anmeldedaten"
+
+msgid "Publisher name"
+msgstr "Verlagsname"
+
+msgid "Accessible by"
+msgstr "Zugänglich für"
+
+msgid "All libraries"
+msgstr "Alle Bibliotheken"
+
+msgid "Library"
+msgstr "Bibliothek"
+
+msgid "Library group"
+msgstr "Bibliotheksgruppe"
+
+msgid "None (inactive)"
+msgstr "Keine (inaktiv)"

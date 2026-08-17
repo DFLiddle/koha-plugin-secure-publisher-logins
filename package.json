@@ -1,0 +1,15 @@
+{
+  "name": "koha-secure-publisher-logins",
+  "version": "1.2.4",
+  "kpzFilename": "koha-plugin-secure-publisher-logins.kpz",
+  "description": "Koha plugin for secure publisher login sharing",
+  "private": true,
+  "scripts": {
+    "build": "gulp build"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-replace": "^1.1.4",
+    "gulp-zip": "^5.1.0"
+  }
+}

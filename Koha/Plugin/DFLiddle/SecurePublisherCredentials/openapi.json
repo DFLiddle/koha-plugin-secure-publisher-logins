@@ -1,0 +1,152 @@
+{
+  "/biblios/{biblionumber}/availability": {
+    "get": {
+      "x-mojo-to": "DFLiddle::SecurePublisherCredentials::Controller#availability",
+      "operationId": "spcAvailability",
+      "tags": ["secure_publisher_credentials"],
+      "summary": "Check if login info link should appear",
+      "produces": ["application/json"],
+      "parameters": [
+        {
+          "name": "biblionumber",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "description": "Bibliographic record identifier"
+        },
+        {
+          "name": "interface",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "enum": ["opac", "staff"],
+          "default": "opac"
+        },
+        {
+          "name": "debug",
+          "in": "query",
+          "required": false,
+          "type": "integer",
+          "enum": [0, 1]
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Availability",
+          "schema": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "show": { "type": "integer", "enum": [0, 1] },
+              "label": { "type": "string" },
+              "debug": { "type": "object" }
+            },
+            "required": ["show", "label"]
+          }
+        }
+      }
+    }
+  },
+  "/biblios/{biblionumber}/view": {
+    "get": {
+      "x-mojo-to": "DFLiddle::SecurePublisherCredentials::Controller#view",
+      "operationId": "spcView",
+      "tags": ["secure_publisher_credentials"],
+      "summary": "Retrieve publisher login for modal display",
+      "produces": ["application/json"],
+      "parameters": [
+        {
+          "name": "biblionumber",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "description": "Bibliographic record identifier"
+        },
+        {
+          "name": "interface",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "enum": ["opac", "staff"],
+          "default": "opac"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Login info payload",
+          "schema": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "publisher_name": { "type": "string" },
+              "username": { "type": "string" },
+              "password": { "type": "string" },
+              "patron_note": { "type": "string" },
+              "staff_note": { "type": "string" },
+              "url": { "type": "string" },
+              "url_valid_link": { "type": "integer", "enum": [0, 1] }
+            },
+            "required": [
+              "publisher_name",
+              "username",
+              "password",
+              "patron_note",
+              "staff_note",
+              "url",
+              "url_valid_link"
+            ]
+          }
+        },
+        "403": {
+          "description": "Forbidden",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "error": { "type": "string" }
+            },
+            "required": ["error"]
+          }
+        },
+        "404": {
+          "description": "No matching login",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "error": { "type": "string" }
+            },
+            "required": ["error"]
+          }
+        }
+      }
+    }
+  },
+  "/health": {
+    "get": {
+      "x-mojo-to": "DFLiddle::SecurePublisherCredentials::Controller#health",
+      "operationId": "spcHealth",
+      "tags": ["secure_publisher_credentials"],
+      "summary": "Deployment prerequisite check",
+      "produces": ["application/json"],
+      "responses": {
+        "200": {
+          "description": "Health status",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "ok": { "type": "integer", "enum": [0, 1] },
+              "errors": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "warnings": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "required": ["ok", "errors", "warnings"]
+          }
+        }
+      }
+    }
+  }
+}

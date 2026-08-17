@@ -1,0 +1,132 @@
+[% INCLUDE 'doc-head-open.inc' %]
+<title>Koha: [% IF credential && credential.id %]Edit[% ELSE %]Add[% END %] login info</title>
+[% INCLUDE 'doc-head-close.inc' %]
+<body id="intranet-main" class="intranet-main">
+[% INCLUDE 'header.inc' %]
+[% INCLUDE 'cat-search.inc' %]
+
+<div class="breadcrumb">
+  <a href="/cgi-bin/koha/mainpage.pl">Home</a> &rsaquo;
+  <a href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool">Secure Publisher Logins</a> &rsaquo;
+  [% IF credential && credential.id %]Edit[% ELSE %]Add[% END %]
+</div>
+
+<div class="container-fluid">
+  <h1>[% IF credential && credential.id %]Edit[% ELSE %]Add[% END %] login info</h1>
+
+  [% IF save_error %]
+  <div class="alert alert-danger">[% save_error | html %]</div>
+  [% END %]
+
+  <form method="post" action="/cgi-bin/koha/plugins/run.pl">
+    <input type="hidden" name="class" value="[% CLASS | html %]" />
+    <input type="hidden" name="method" value="tool" />
+    <input type="hidden" name="action" value="save" />
+    [% IF credential && credential.id %]<input type="hidden" name="id" value="[% credential.id | html %]" />[% END %]
+    [% INCLUDE 'csrf-token.inc' %]
+
+    <fieldset class="rows">
+      <ol>
+        <li>
+          <label for="publisher_name">Publisher name:</label>
+          <input type="text" id="publisher_name" name="publisher_name" required="required"
+            value="[% IF credential %][% credential.publisher_name | html %][% END %]" />
+        </li>
+        <li>
+          <label for="domains">Registrable domains (comma-separated):</label>
+          <input type="text" id="domains" name="domains" required="required"
+            value="[% IF credential %][% credential.domains | html %][% END %]" />
+        </li>
+        <li>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required="required"
+            value="[% IF credential %][% credential.username | html %][% END %]" />
+        </li>
+        <li>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" [% IF !credential || !credential.id %]required="required"[% END %]
+            autocomplete="new-password" placeholder="[% IF credential && credential.id %]Leave blank to keep unchanged[% END %]" />
+        </li>
+        <li class="spc-access-scope-item">
+          <label for="spc-access-scope">Accessible by:</label>
+          <div class="spc-access-scope" id="spc-access-scope">
+            <div class="spc-scope-row">
+              <input type="radio" id="access_scope_all" name="access_scope_type" value="all"
+                [% IF credential && credential.access_scope_type == 'all' %]checked="checked"[% END %]
+                [% IF !is_superlib %]disabled="disabled"[% END %] />
+              <label for="access_scope_all">All libraries:</label>
+            </div>
+            <div class="spc-scope-row">
+              <input type="radio" id="access_scope_library" name="access_scope_type" value="library"
+                [% IF !credential || credential.access_scope_type == 'library' %]checked="checked"[% END %] />
+              <label for="access_scope_library">Library:</label>
+              <select name="access_scope_code_library" id="access_scope_code_library">
+                [% FOREACH lib IN libraries %]
+                <option value="[% lib.branchcode | html %]"
+                  [% IF credential && credential.access_scope_code == lib.branchcode %]selected="selected"[% END %]>[% lib.branchname | html %]</option>
+                [% END %]
+              </select>
+            </div>
+            <div class="spc-scope-row">
+              <input type="radio" id="access_scope_library_group" name="access_scope_type" value="library_group"
+                [% IF credential && credential.access_scope_type == 'library_group' %]checked="checked"[% END %] />
+              <label for="access_scope_library_group">Library group:</label>
+              <select name="access_scope_code_group" id="access_scope_code_group">
+                [% FOREACH g IN groups %]
+                <option value="[% g.id | html %]"
+                  [% IF credential && credential.access_scope_code == g.id %]selected="selected"[% END %]>[% g.title | html %]</option>
+                [% END %]
+              </select>
+            </div>
+            <div class="spc-scope-row">
+              <input type="radio" id="access_scope_inactive" name="access_scope_type" value="inactive"
+                [% IF credential && credential.access_scope_type == 'inactive' %]checked="checked"[% END %] />
+              <label for="access_scope_inactive">None (inactive):</label>
+            </div>
+          </div>
+        </li>
+        <li>
+          <label for="patron_note">Patron note:</label>
+          <textarea id="patron_note" name="patron_note" rows="3">[% IF credential %][% credential.patron_note | html %][% END %]</textarea>
+        </li>
+        <li>
+          <label for="staff_note">Staff note:</label>
+          <textarea id="staff_note" name="staff_note" rows="3">[% IF credential %][% credential.staff_note | html %][% END %]</textarea>
+        </li>
+      </ol>
+    </fieldset>
+
+    <fieldset class="action">
+      <input type="submit" class="btn btn-primary" value="Save" />
+      <a class="btn btn-link" href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool">Cancel</a>
+    </fieldset>
+  </form>
+</div>
+
+<script>
+(function () {
+  var form = document.querySelector('form');
+  if (!form) return;
+  form.addEventListener('submit', function () {
+    var typeEl = form.querySelector('input[name=access_scope_type]:checked');
+    if (!typeEl) return;
+    var type = typeEl.value;
+    var hidden = form.querySelector('input[name=access_scope_code]');
+    if (!hidden) {
+      hidden = document.createElement('input');
+      hidden.type = 'hidden';
+      hidden.name = 'access_scope_code';
+      form.appendChild(hidden);
+    }
+    if (type === 'library') {
+      hidden.value = form.querySelector('[name=access_scope_code_library]').value;
+    } else if (type === 'library_group') {
+      hidden.value = form.querySelector('[name=access_scope_code_group]').value;
+    } else {
+      hidden.value = '';
+    }
+  });
+})();
+</script>
+
+[% INCLUDE 'intranet-bottom.inc' %]
