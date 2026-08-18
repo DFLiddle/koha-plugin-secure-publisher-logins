@@ -42,6 +42,8 @@ For `Koha::Plugin::DFLiddle::SecurePublisherCredentials`:
 
 **Index:** `(logged_on)` for purge job.
 
+**Retention:** 1100 days (`AccessLogs::RETENTION_DAYS`). Purged by the plugin `cronjob_nightly` hook via `plugins_nightly.pl`.
+
 ## plugin_data keys
 
 | Key | Purpose |

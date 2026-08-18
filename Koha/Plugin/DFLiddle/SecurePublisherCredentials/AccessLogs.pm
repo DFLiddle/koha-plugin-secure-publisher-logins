@@ -13,6 +13,13 @@ Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs
 
 =cut
 
+use constant RETENTION_DAYS => 1100;
+
+sub retention_days {
+    my ($class) = @_;
+    return $class->RETENTION_DAYS;
+}
+
 sub table_name {
     my ($class) = @_;
     return Koha::Plugin::DFLiddle::SecurePublisherCredentials::TableNames->access_log;
@@ -93,9 +100,25 @@ sub search {
     return \@rows;
 }
 
+sub count_older_than_days {
+    my ( $class, $days ) = @_;
+    $days //= $class->retention_days;
+    my $dbh   = Koha::Database->dbh;
+    my $table = $class->table_name;
+    my ($count) = $dbh->selectrow_array(
+        qq{
+        SELECT COUNT(*) FROM $table
+        WHERE logged_on < DATE_SUB(NOW(), INTERVAL ? DAY)
+    },
+        undef,
+        $days
+    );
+    return $count // 0;
+}
+
 sub purge_older_than_days {
     my ( $class, $days ) = @_;
-    $days //= 1100;
+    $days //= $class->retention_days;
     my $dbh   = Koha::Database->dbh;
     my $table = $class->table_name;
     my $sth   = $dbh->prepare(

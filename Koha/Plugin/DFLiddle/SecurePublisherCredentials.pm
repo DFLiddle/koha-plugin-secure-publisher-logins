@@ -8,7 +8,7 @@ use Koha::Database;
 
 use base qw(Koha::Plugins::Base);
 
-our $VERSION = '1.2.4';
+our $VERSION = '1.2.5';
 
 our $metadata = {
     name            => 'Secure Publisher Logins',
@@ -555,6 +555,27 @@ sub intranet_js {
 sub _plugin_enabled {
     my ($self) = @_;
     return $self->retrieve_data('__ENABLED__') // 1;
+}
+
+=head3 cronjob_nightly
+
+Purge access log entries older than L<AccessLogs/RETENTION_DAYS>.
+Invoked by Koha's C<plugins_nightly.pl> (included in C<koha-common> daily cron).
+
+=cut
+
+sub cronjob_nightly {
+    my ($self) = @_;
+
+    return 1 unless $self->_plugin_enabled;
+
+    require Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs;
+
+    my $days    = Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->retention_days;
+    my $deleted = Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->purge_older_than_days($days);
+
+    print "Secure Publisher Logins: purged $deleted access log entries older than $days days.\n";
+    return 1;
 }
 
 1;

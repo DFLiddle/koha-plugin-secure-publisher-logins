@@ -24,7 +24,7 @@ Complete this checklist on **each** Koha instance (`library` on production and d
 
 - [ ] Apache/Plack restarted after koha-conf changes
 - [ ] HTTPS on OPAC and staff URLs
-- [ ] Daily cron can run log purge script (see CONFIGURATION.md)
+- [ ] `plugins_nightly.pl` runs from daily Koha cron (standard on Debian packages; see [CONFIGURATION.md](CONFIGURATION.md))
 
 ## Optional but recommended
 
@@ -34,8 +34,9 @@ Complete this checklist on **each** Koha instance (`library` on production and d
 ## Post-install verification
 
 ```bash
-# On Koha server — adjust path to your instance
-sudo koha-shell library -c "perl -MKoha::Plugin::DFLiddle::SecurePublisherCredentials::Health -e 'use Data::Dumper; print Dumper(Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health->check)'"
+# On Koha server — adjust instance name and plugin path if needed
+SPC_HEALTH='perl -I/var/lib/koha/library/plugins -MKoha::Script -MKoha::Plugin::DFLiddle::SecurePublisherCredentials::Health -e '\''use Data::Dumper; print Dumper(Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health->check)'\'''
+sudo koha-shell library -c "$SPC_HEALTH"
 ```
 
 Expect `ok => 1` with empty `errors`.

@@ -32,16 +32,10 @@ Full steps: [docs/INSTALLATION.md](docs/INSTALLATION.md)
 | [docs/GITHUB_GUIDE.md](docs/GITHUB_GUIDE.md) | Repo and releases |
 | [docs/MANUAL_TEST_PLAN.md](docs/MANUAL_TEST_PLAN.md) | Acceptance testing |
 
-## Cron (log retention)
+## Log retention
 
-Add to `/etc/cron.daily/koha-common` on each server:
-
-```bash
-$KOHA_HOME/misc/cronjobs/purge_secure_publisher_credentials_log.pl
-```
-
-(Copy the script from this repo’s `misc/cronjobs/` into your Koha tree, or invoke by full path after plugin install.)
+Access log entries older than **1100 days** are purged automatically via Koha's `plugins_nightly.pl` when the plugin is enabled (`cronjob_nightly` hook). No custom cron script is required.
 
 ## License
 
-GPL-3.0-or-later (consistent with Koha). See [LICENSE](LICENSE).
+GPL-3.0-or-later (consistent with Koha). Confirm before public release.

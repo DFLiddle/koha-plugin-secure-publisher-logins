@@ -68,7 +68,7 @@ When prerequisites fail (`AnonymousPatron` invalid, `encryption_key` missing, et
 
 ## Log retention
 
-Daily cron invokes `misc/cronjobs/purge_secure_publisher_credentials_log.pl` (1100 days).
+When the plugin is enabled, Koha's nightly plugin cron (`plugins_nightly.pl`) calls `cronjob_nightly`, which purges `access_log` rows older than 1100 days.
 
 ## Out of scope (v1)
 
