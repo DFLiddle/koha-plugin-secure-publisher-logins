@@ -8,7 +8,7 @@ use Koha::Database;
 
 use base qw(Koha::Plugins::Base);
 
-our $VERSION = '1.2.8';
+our $VERSION = '1.2.10';
 
 our $metadata = {
     name            => 'Secure Publisher Logins',
