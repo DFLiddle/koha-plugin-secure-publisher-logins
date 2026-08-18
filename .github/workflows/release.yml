@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish .kpz
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Verify package.json and plugin version match
+        run: npm run version:check
+
+      - name: Verify tag matches package version
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          TAG_VERSION="${TAG#v}"
+          PKG_VERSION="$(node -p "require('./package.json').version")"
+          if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
+            echo "Tag $TAG does not match package.json version $PKG_VERSION"
+            exit 1
+          fi
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Confirm kpz artifact exists
+        run: test -f dist/koha-plugin-secure-publisher-logins.kpz
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/koha-plugin-secure-publisher-logins.kpz
+          generate_release_notes: true

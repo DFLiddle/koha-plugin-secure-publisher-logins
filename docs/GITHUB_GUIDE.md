@@ -1,6 +1,6 @@
 # GitHub Repository Guide (non-developers)
 
-Repository: **https://github.com/DFLiddle/koha-erm-publisher-credentials** (create this repo and push this project)
+Repository: **https://github.com/DFLiddle/koha-plugin-secure-publisher-logins**
 
 ## Development environment (WSL / Debian)
 
@@ -8,13 +8,13 @@ Teamwork Library builds and publishes the plugin from **WSL (Debian)** on a Wind
 
 | Role | Where |
 |------|--------|
-| Edit source, `git`, `npm run build` | WSL Debian |
+| Edit source, `git`, `npm run build` | WSL Debian (`~/Projects/koha-plugin-secure-publisher-logins`) |
 | Install `.kpz`, configure Koha | Koha servers via staff UI + SSH |
 
-**Project path in WSL** (files created on the Windows side are visible here):
+**Canonical project path in WSL:**
 
 ```bash
-cd /mnt/c/Users/dflid/Projects/koha-erm-publisher-credentials
+cd ~/Projects/koha-plugin-secure-publisher-logins
 ```
 
 If `nvm` is not loaded in a new shell:
@@ -24,55 +24,73 @@ source ~/.nvm/nvm.sh
 node --version
 ```
 
-Build the installable package:
+Build the installable package locally:
 
 ```bash
-npm install
+npm ci
 npm run build
 # Output: dist/koha-plugin-secure-publisher-logins.kpz
 ```
 
-**Optional:** If `npm install` is slow on `/mnt/c/`, clone or copy the repo to the Linux filesystem (e.g. `~/Projects/koha-erm-publisher-credentials`), build there, and copy the `.kpz` back to Windows or upload directly.
+**GitHub authentication from WSL:** SSH (`git@github.com:DFLiddle/koha-plugin-secure-publisher-logins.git`) or HTTPS with a Personal Access Token.
 
-**GitHub authentication from WSL:** Use HTTPS with a Personal Access Token, or SSH (`git@github.com:DFLiddle/koha-erm-publisher-credentials.git`) if you have keys configured in WSL.
+## What is in git vs Releases
 
-## Initial setup (one time)
+| Location | Contains |
+|----------|----------|
+| `main` branch | Source code only (Perl, templates, JS, docs) |
+| [GitHub Releases](https://github.com/DFLiddle/koha-plugin-secure-publisher-logins/releases) | Built `.kpz` files for Koha upload |
+| `dist/` locally | Build output; listed in `.gitignore` |
 
-1. Create a new **public** or **private** repository on GitHub named `koha-erm-publisher-credentials`
-2. In **WSL**, from the project directory (see path above):
+Do **not** commit `.kpz` files to `main`. GitHub Actions attaches them to Releases when you push a version tag.
+
+## Releasing a new version (automated)
+
+### 1. Bump the version in both places
+
+Edit these to the **same** version (e.g. `1.2.5`):
+
+- `package.json` → `"version"`
+- `Koha/Plugin/DFLiddle/SecurePublisherCredentials.pm` → `our $VERSION`
+
+Verify:
 
 ```bash
-git init
-git add .
-git commit -m "Initial release: Secure Publisher Credentials plugin v1.1.0"
-git branch -M main
-git remote add origin https://github.com/DFLiddle/koha-erm-publisher-credentials.git
-git push -u origin main
+npm run version:check
 ```
 
-## Releasing a new `.kpz` version
-
-1. Edit version in `package.json` and `Koha/Plugin/DFLiddle/SecurePublisherCredentials.pm` (`$VERSION`)
-2. Build:
-
-```bash
-npm install
-npm run build
-```
-
-3. Commit and tag:
+### 2. Commit and push
 
 ```bash
 git add -A
-git commit -m "Release v1.0.1"
-git tag v1.0.1
-git push origin main --tags
+git commit -m "Release v1.2.5"
+git push origin main
 ```
 
-4. On GitHub: **Releases → Draft a new release**
-   - Choose tag `v1.0.1`
-   - Attach `dist/koha-plugin-secure-publisher-logins.kpz`
-   - Publish
+### 3. Create and push a matching tag
+
+The tag must match `package.json` with a `v` prefix:
+
+```bash
+git tag v1.2.5
+git push origin v1.2.5
+```
+
+### 4. Wait for GitHub Actions
+
+1. Open **Actions** on GitHub
+2. The **Release** workflow runs on the tag
+3. When it succeeds, open **Releases** — the `.kpz` is attached automatically
+
+### Manual release fallback
+
+If Actions is unavailable, build locally and upload with GitHub CLI:
+
+```bash
+npm run build
+gh release create v1.2.5 dist/koha-plugin-secure-publisher-logins.kpz \
+  --title "Secure Publisher Logins v1.2.5"
+```
 
 ## Branching (optional)
 
@@ -85,8 +103,9 @@ git push origin main --tags
 
 - `.env` or secrets
 - Local Koha config with encryption keys
-- `node_modules/` (listed in `.gitignore`)
+- `node_modules/` and `dist/` (listed in `.gitignore`)
+- Built `.kpz` files
 
 ## Installing from GitHub on a server
 
-Staff with server access only need the **Release `.kpz` file**, not the full Git history. Use [INSTALLATION.md](INSTALLATION.md).
+Koha administrators only need the **Release `.kpz` file**, not the full Git history. See [INSTALLATION.md](INSTALLATION.md).

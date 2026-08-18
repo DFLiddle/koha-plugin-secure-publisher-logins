@@ -1,4 +1,4 @@
-# Secure Publisher Credentials — Koha Plugin
+# Secure Publisher Logins — Koha Plugin
 
 Secure storage and controlled sharing of publisher login credentials for e-resources, matched to bibliographic records via `856$u` registrable domains.
 
@@ -6,12 +6,18 @@ Secure storage and controlled sharing of publisher login credentials for e-resou
 **Target:** Koha 24.11 LTS+  
 **Author:** David F Liddle
 
-## Quick start
+## Install
+
+Download the latest `.kpz` from **[Releases](https://github.com/DFLiddle/koha-plugin-secure-publisher-logins/releases)** and upload via **Administration → Plugins**.
+
+Full steps: [docs/INSTALLATION.md](docs/INSTALLATION.md)
+
+## Quick start (developers)
 
 1. Complete [prerequisites](docs/PREREQUISITES.md)
-2. Build: `npm install && npm run build` → `dist/koha-plugin-secure-publisher-logins.kpz`
+2. Build: `npm ci && npm run build` → `dist/koha-plugin-secure-publisher-logins.kpz`
 3. Install via **Administration → Plugins → Upload**
-4. Manage credentials: **Tools → Tool plugins → Secure Publisher Credentials**
+4. Manage logins: **Tools → Tool plugins → Secure Publisher Logins**
 5. Follow [MANUAL_TEST_PLAN.md](docs/MANUAL_TEST_PLAN.md) on your dev instance first
 
 ## Documentation
@@ -38,4 +44,4 @@ $KOHA_HOME/misc/cronjobs/purge_secure_publisher_credentials_log.pl
 
 ## License
 
-GPL-3.0-or-later (consistent with Koha). Confirm before public release.
+GPL-3.0-or-later (consistent with Koha). See [LICENSE](LICENSE).

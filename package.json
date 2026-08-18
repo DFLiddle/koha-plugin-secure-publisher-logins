@@ -5,7 +5,8 @@
   "description": "Koha plugin for secure publisher login sharing",
   "private": true,
   "scripts": {
-    "build": "gulp build"
+    "build": "gulp build",
+    "version:check": "node scripts/check-version.js"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

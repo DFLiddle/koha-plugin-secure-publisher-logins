@@ -8,17 +8,17 @@ Complete every item in [PREREQUISITES.md](PREREQUISITES.md) before installing th
 
 ## 2. Obtain the `.kpz` file
 
-**Option A — Download from GitHub**
+**Option A — Download from GitHub (recommended)**
 
-1. Open https://github.com/DFLiddle/koha-erm-publisher-credentials/releases
-2. Download the latest `koha-plugin-secure-publisher-logins.kpz`
+1. Open https://github.com/DFLiddle/koha-plugin-secure-publisher-logins/releases
+2. Download the latest `koha-plugin-secure-publisher-logins.kpz` from the release assets
 
 **Option B — Build from source** (requires Node.js on a workstation)
 
 ```bash
-git clone https://github.com/DFLiddle/koha-erm-publisher-credentials.git
-cd koha-erm-publisher-credentials
-npm install
+git clone https://github.com/DFLiddle/koha-plugin-secure-publisher-logins.git
+cd koha-plugin-secure-publisher-logins
+npm ci
 npm run build
 ```
 
@@ -33,7 +33,7 @@ The file appears in `dist/koha-plugin-secure-publisher-logins.kpz`.
 
 ## 4. Enable the plugin
 
-1. On the Plugins list, find **Secure Publisher Credentials**
+1. On the Plugins list, find **Secure Publisher Logins**
 2. Ensure it is **Enabled**
 3. If you see configuration warnings, resolve them (see [CONFIGURATION.md](CONFIGURATION.md))
 
@@ -50,16 +50,16 @@ sudo systemctl restart apache2
 
 Run [MANUAL_TEST_PLAN.md](MANUAL_TEST_PLAN.md) on `dev.teamwork-global.net` before production.
 
-## 7. Add credentials
+## 7. Add logins
 
-1. **Tools → Tool plugins → Secure Publisher Credentials**
-2. **Add credential**
+1. **Tools → Tool plugins → Secure Publisher Logins**
+2. **Add login info**
 3. Enter publisher name, domains, username, password, and **Accessible by** scope
 4. Save
 
 ## 8. Test on a bibliographic record
 
-1. Ensure the record has an `856$u` URL whose registrable domain matches a credential
+1. Ensure the record has an `856$u` URL whose registrable domain matches a login
 2. OPAC (logged-in patron): **View login info** in the actions menu
 3. Staff **detail.pl**: **View login info** in the toolbar
 

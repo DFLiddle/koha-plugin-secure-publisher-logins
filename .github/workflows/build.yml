@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: npm ci and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm run version:check
+      - run: npm ci
+      - run: npm run build
+      - run: test -f dist/koha-plugin-secure-publisher-logins.kpz
