@@ -40,7 +40,7 @@ Securely store shared publisher login credentials (encrypted at rest), match the
 | OPAC action link | `opac_js` hook + JavaScript inserts link into `#ulactioncontainer ul#action` | [Bug 26890](https://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=26890) OPAC toolbar hooks not in 24.11 |
 | Staff / OPAC assets | `<link>` / `<script src>` via plugin `static_routes` at `/api/v1/contrib/secure_publisher_credentials/static/...` | Avoids inlining JS/CSS; no Apache `/plugin/` alias required. Do not append query strings — Koha OpenAPI rejects undeclared params. |
 | Staff toolbar | `intranet_catalog_biblio_enhancements_toolbar_button` | Native Koha hook on `detail.pl` |
-| Credential management | `tool()` plugin page (Tools → Tool plugins) with ERM-style navigation link | ERM native embedding is heavy; spec allows Tools fallback |
+| Credential management | `tool()` plugin page using `wrapper-staff-tool-plugin.inc` | Matches native Tools layout (header, breadcrumbs, side menu) |
 | Data access | Koha::Object subclasses + `Koha::Database->dbh` | Modern Koha plugin practice |
 | Encryption | `Koha::Encryption` (`encrypt_hex` / `decrypt_hex`) | Uses `<encryption_key>` from koha-conf.xml |
 | Auth for API | Koha REST OAuth2 / session; patron OPAC cookie session | Standard plugin API auth |
