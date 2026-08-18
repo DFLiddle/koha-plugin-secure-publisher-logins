@@ -74,7 +74,7 @@ If your Koha package installs cron scripts under `misc/cronjobs` instead of `bin
 Secure Publisher Logins: purged 0 access log entries older than 1100 days.
 ```
 
-`purged 0` is normal when no rows are older than 1100 days.
+`purged 0` is normal when no rows are older than 1100 days. `purged 1` (or more) is also success if you previously planted a 1200-day-old test row — that row is then gone.
 
 **If you see no output at all**, check:
 
@@ -85,31 +85,37 @@ Secure Publisher Logins: purged 0 access log entries older than 1100 days.
 
 ### Test purge without waiting 1100 days
 
-Production retention stays at 1100 days. On **dev**, use the helper script shipped with the plugin (after v1.2.5 is installed):
+Production retention stays at 1100 days. On **dev**, use the helper script shipped with the plugin (after v1.2.5 is installed).
+
+Do this **after** the 1100-day nightly smoke test, and plant a **new** row. A 1200-day plant is already in range of the nightly hook, so running that hook first will delete it and the 30-day helper will then correctly report `0`.
+
+Plant a row that is older than 30 days but **younger than 1100 days** (60 days), so the nightly hook cannot consume it:
+
+**1. Create and confirm the test row** (use `koha-mysql`, not `koha-shell` + `mysql`):
 
 ```bash
-# Adjust if your instance name is not library
-SPC_BIN=/var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/bin/spc_log_purge.pl
+sudo koha-mysql library <<'SQL'
+INSERT INTO koha_plugin_dfliddle_securepublishercredentials_access_log
+  (credential_id, borrowernumber, action, logged_on)
+SELECT NULL, borrowernumber, 'view', DATE_SUB(NOW(), INTERVAL 60 DAY)
+FROM borrowers LIMIT 1;
+SELECT id, action, logged_on
+FROM koha_plugin_dfliddle_securepublishercredentials_access_log
+ORDER BY logged_on ASC LIMIT 5;
+SQL
 ```
 
-**1. Create an artificially old log row** (adjust database name if needed):
+`koha-shell` switches to the Unix user `library-koha`. Bare `mysql` then tries to log in as that MySQL user and fails (`ERROR 1698`). `koha-mysql library` reads the real database user and password from `koha-conf.xml`. If `koha-mysql` is unavailable, `sudo mysql koha_library` as root often works on Debian.
 
-```bash
-sudo koha-shell library -c "mysql koha_library -e \"
-  INSERT INTO koha_plugin_dfliddle_securepublishercredentials_access_log
-    (credential_id, borrowernumber, action, logged_on)
-  SELECT NULL, borrowernumber, 'view', DATE_SUB(NOW(), INTERVAL 1200 DAY)
-  FROM borrowers LIMIT 1;
-\""
-```
+You should see a `logged_on` date about two months ago.
 
-**2. Dry-run with a 30-day test window:**
+**2. Dry-run with a 30-day test window** — expect `Would purge 1 ...`:
 
 ```bash
 sudo koha-shell library -c "perl /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/bin/spc_log_purge.pl --dry-run --days 30"
 ```
 
-**3. Purge with the test window:**
+**3. Purge with the test window** — expect `Purged 1 ...`:
 
 ```bash
 sudo koha-shell library -c "perl /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/bin/spc_log_purge.pl --days 30"
