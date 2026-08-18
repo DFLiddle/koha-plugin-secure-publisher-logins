@@ -68,6 +68,7 @@ Run [MANUAL_TEST_PLAN.md](MANUAL_TEST_PLAN.md) on `dev.teamwork-global.net` befo
 | Symptom | Check |
 |---------|--------|
 | No OPAC link | Patron logged in? Home library matches scope? `856$u` domain matches? Health checks pass? |
+| View login info missing after upgrade | Restart Plack (`sudo koha-plack --restart library`) so new static JS/CSS routes load |
 | Plugin upload fails | `enable_plugins=1`, `plugins_restricted=0` |
 | Decrypt errors after DB restore | Same `encryption_key` in dev and prod `koha-conf.xml` |
 | Staff cannot manage | `erm` permission; for **All** scope need superlibrarian |

@@ -1,0 +1,62 @@
+{
+  "/css/spc.css": {
+    "get": {
+      "x-mojo-to": "Static#get",
+      "operationId": "spcStaticCss",
+      "tags": ["pluginStatic"],
+      "responses": {
+        "200": {
+          "description": "File found",
+          "schema": { "type": "file" }
+        },
+        "404": {
+          "description": "File not found",
+          "schema": {
+            "type": "object",
+            "properties": { "error": { "type": "string" } }
+          }
+        }
+      }
+    }
+  },
+  "/js/spc-staff.js": {
+    "get": {
+      "x-mojo-to": "Static#get",
+      "operationId": "spcStaticStaffJs",
+      "tags": ["pluginStatic"],
+      "responses": {
+        "200": {
+          "description": "File found",
+          "schema": { "type": "file" }
+        },
+        "404": {
+          "description": "File not found",
+          "schema": {
+            "type": "object",
+            "properties": { "error": { "type": "string" } }
+          }
+        }
+      }
+    }
+  },
+  "/js/spc-opac.js": {
+    "get": {
+      "x-mojo-to": "Static#get",
+      "operationId": "spcStaticOpacJs",
+      "tags": ["pluginStatic"],
+      "responses": {
+        "200": {
+          "description": "File found",
+          "schema": { "type": "file" }
+        },
+        "404": {
+          "description": "File not found",
+          "schema": {
+            "type": "object",
+            "properties": { "error": { "type": "string" } }
+          }
+        }
+      }
+    }
+  }
+}

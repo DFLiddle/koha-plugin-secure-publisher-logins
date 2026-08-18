@@ -8,14 +8,14 @@ use Koha::Database;
 
 use base qw(Koha::Plugins::Base);
 
-our $VERSION = '1.2.5';
+our $VERSION = '1.2.7';
 
 our $metadata = {
     name            => 'Secure Publisher Logins',
     author          => 'David F Liddle',
     description     => 'Securely store and share publisher login details for e-resources matched via 856$u domains.',
     date_authored   => '2026-08-14',
-    date_updated    => '2026-08-14',
+    date_updated    => '2026-08-18',
     minimum_version => '24.11',
     maximum_version => undef,
     version         => $VERSION,
@@ -113,6 +113,12 @@ sub api_namespace {
 sub api_routes {
     my ($self) = @_;
     my $spec_str = $self->mbf_read('openapi.json');
+    return decode_json($spec_str);
+}
+
+sub static_routes {
+    my ($self) = @_;
+    my $spec_str = $self->mbf_read('staticapi.json');
     return decode_json($spec_str);
 }
 
@@ -250,19 +256,7 @@ sub _tool_form {
         plugin_class => $self->{class},
         save_error   => $save_result ? $self->_save_error_message($save_result) : undef,
     );
-    my $html = $template->output();
-    $html = $self->_inject_plugin_css($html);
-    $self->output_html($html);
-}
-
-sub _inject_plugin_css {
-    my ( $self, $html ) = @_;
-    my $css = eval { $self->mbf_read('css/spc.css') } // '';
-    return $html if $css eq '';
-    $css =~ s{\Q</style>\E}{<\\/style}gi;
-    my $style = qq{<style type="text/css">$css</style>};
-    $html =~ s{(</title>)}{$1\n$style}i;
-    return $html;
+    $self->output_html( $template->output() );
 }
 
 sub _scope_from_cgi {
@@ -436,7 +430,7 @@ sub _biblionumber_from_context {
     }
     $self->{cgi} ||= CGI->new;
     my $bn = scalar $self->{cgi}->param('biblionumber');
-    return $bn if defined $bn && $bn ne '';
+    return $bn if defined $bn && $bn =~ /\A\d+\z/;
     if ( my $uri = $ENV{REQUEST_URI} // '' ) {
         return $1 if $uri =~ /[?&]biblionumber=(\d+)/;
     }
@@ -449,7 +443,7 @@ sub _biblionumber_from_context {
 sub intranet_catalog_biblio_enhancements_toolbar_button {
     my ( $self, $params ) = @_;
     my $biblionumber = $self->_biblionumber_from_context($params);
-    return unless $biblionumber;
+    return unless defined $biblionumber && $biblionumber =~ /\A\d+\z/;
 
     return unless $self->_plugin_enabled;
 
@@ -470,27 +464,18 @@ sub intranet_catalog_biblio_enhancements_toolbar_button {
         || Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_may_manage_scope( $staff, $cred )
         );
 
-    my $tool_url = $self->_plugin_page_url;
-    my $manage_url = $tool_url . '&amp;edit_id=' . $cred->id;
-
-    my $html = '';
-    unless ( $self->{spc_staff_assets_loaded} ) {
-        my $js  = $self->mbf_read('js/spc-staff.js');
-        my $css = $self->mbf_read('css/spc.css');
-        $html .= qq{<style type="text/css">$css</style><script type="text/javascript">$js</script>};
-        $self->{spc_staff_assets_loaded} = 1;
-    }
-
-    $html .= qq{
+    my $biblio_attr = CGI::escapeHTML($biblionumber);
+    my $html        = qq{
         <span class="spc-toolbar">
-          <a class="btn btn-default spc-view-login" data-biblionumber="$biblionumber" href="#">
+          <a class="btn btn-default spc-view-login" data-biblionumber="$biblio_attr" href="#">
             <i class="fa fa-lock" aria-hidden="true"></i> View login info
           </a>
     };
 
     if ($manage) {
+        my $manage_href = CGI::escapeHTML( $self->_plugin_page_url . '&edit_id=' . ( 0 + $cred->id ) );
         $html .= qq{
-          <a class="btn btn-default" href="$manage_url">
+          <a class="btn btn-default" href="$manage_href">
             <i class="fa fa-pencil" aria-hidden="true"></i> Manage login info
           </a>
         };
@@ -507,9 +492,7 @@ sub opac_head {
     require Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
     return unless Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->system_healthy_for_opac;
 
-    my $css = $self->mbf_read('css/spc.css');
-
-    return qq{<style type="text/css">$css</style>};
+    return $self->_stylesheet_tag('css/spc.css');
 }
 
 sub opac_js {
@@ -519,37 +502,41 @@ sub opac_js {
     require Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
     return unless Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->system_healthy_for_opac;
 
-    my $js = $self->mbf_read('js/spc-opac.js');
-    return qq{<script type="text/javascript">$js</script>};
+    return $self->_script_tag('js/spc-opac.js');
 }
 
 sub intranet_head {
     my ($self) = @_;
     return unless $self->_plugin_enabled;
 
-    my $css = $self->mbf_read('css/spc.css');
-    return qq{<style type="text/css">$css</style>};
-}
-
-sub intranet_catalog_biblio_enhancements {
-    my ($self) = @_;
-    return unless $self->_plugin_enabled;
-
-    my $js  = $self->mbf_read('js/spc-staff.js');
-    my $css = $self->mbf_read('css/spc.css');
-
-    return qq{
-      <style type="text/css">$css</style>
-      <script type="text/javascript">$js</script>
-    };
+    return $self->_stylesheet_tag('css/spc.css');
 }
 
 sub intranet_js {
     my ($self) = @_;
     return unless $self->_plugin_enabled;
 
-    my $js = $self->mbf_read('js/spc-staff.js');
-    return qq{<script type="text/javascript">$js</script>};
+    return $self->_script_tag('js/spc-staff.js');
+}
+
+sub _static_url {
+    my ( $self, $rel ) = @_;
+
+    # No query string: Koha's OpenAPI validator rejects undeclared params
+    # (a ?v= cache-buster 400s and the browser never executes the file).
+    return '/api/v1/contrib/' . $self->api_namespace . '/static/' . $rel;
+}
+
+sub _stylesheet_tag {
+    my ( $self, $rel ) = @_;
+    my $href = CGI::escapeHTML( $self->_static_url($rel) );
+    return qq{<link rel="stylesheet" type="text/css" href="$href">};
+}
+
+sub _script_tag {
+    my ( $self, $rel ) = @_;
+    my $src = CGI::escapeHTML( $self->_static_url($rel) );
+    return qq{<script src="$src"></script>};
 }
 
 sub _plugin_enabled {
