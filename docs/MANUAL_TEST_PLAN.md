@@ -52,6 +52,8 @@ Run on **dev** (`dev.teamwork-global.net`) before production. Check each box.
 
 ## i18n
 
+Currently **failing** — see [NEXT.md](NEXT.md). `.po` files exist; UI still shows English.
+
 - [ ] Switch OPAC to **de-DE** or **fr-FR**; **View login info** string appears translated (after `.po` install)
 
 ## Plugin disable/re-enable
