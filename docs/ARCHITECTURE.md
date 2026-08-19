@@ -41,7 +41,7 @@ Securely store shared publisher login credentials (encrypted at rest), match the
 | Staff / OPAC assets | `<link>` / `<script src>` via plugin `static_routes` at `/api/v1/contrib/secure_publisher_credentials/static/...` | Avoids inlining JS/CSS; no Apache `/plugin/` alias required. Do not append query strings — Koha OpenAPI rejects undeclared params. |
 | Login info modal | Bootstrap `modal` / `modal-dialog modal-lg` / `modal-content` markup; `btn btn-default` actions | Matches Pages / HTML customization previews; no custom overlay CSS |
 | Staff toolbar | `intranet_catalog_biblio_enhancements_toolbar_button` | Native Koha hook on `detail.pl` |
-| Credential management | `tool()` plugin page using `wrapper-staff-tool-plugin.inc` | Matches native Tools layout (header, breadcrumbs, side menu) |
+| Credential management | Thin `tool()` hook delegates to `Tool.pm`; templates use `wrapper-staff-tool-plugin.inc` | Koha requires `tool` on the plugin class; CRUD lives in a dedicated module |
 | Data access | Koha::Object subclasses + `Koha::Database->dbh` | Modern Koha plugin practice |
 | Encryption | `Koha::Encryption` (`encrypt_hex` / `decrypt_hex`) | Uses `<encryption_key>` from koha-conf.xml |
 | Auth for API | Koha REST OAuth2 / session; patron OPAC cookie session | Standard plugin API auth |
