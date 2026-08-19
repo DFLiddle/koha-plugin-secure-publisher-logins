@@ -24,6 +24,7 @@ Full steps: [docs/INSTALLATION.md](docs/INSTALLATION.md)
 
 | Document | Purpose |
 |----------|---------|
+| [REVIEW.md](REVIEW.md) | File map for code review |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Technical overview |
 | [docs/DATABASE_SCHEMA.md](docs/DATABASE_SCHEMA.md) | Table definitions |
 | [docs/INSTALLATION.md](docs/INSTALLATION.md) | Install steps |

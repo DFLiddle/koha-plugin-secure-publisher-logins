@@ -15,6 +15,11 @@ use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Domain qw(
     extract_registrable_domain domains_match
 );
 
+use constant {
+    Access      => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access',
+    Credentials => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials',
+};
+
 =head1 NAME
 
 Koha::Plugin::DFLiddle::SecurePublisherCredentials::Matcher - Match bibs to credentials
@@ -107,13 +112,11 @@ sub matching_credentials_for_biblio {
     }
     return unless @record_domains;
 
-    my $all = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials->search(
-        { not_inactive => 1 } );
+    my $all = Credentials->search( { not_inactive => 1 } );
 
     my @matches;
     for my $cred ( @{$all} ) {
-        next unless Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access
-            ->viewer_matches_credential_scope( $viewer, $cred );
+        next unless Access->viewer_matches_credential_scope( $viewer, $cred );
 
         for my $rd ( @record_domains ) {
             if ( domains_match( $rd, $cred->domain_list ) ) {
@@ -124,7 +127,7 @@ sub matching_credentials_for_biblio {
     }
 
     return unless @matches;
-    return Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->pick_most_restrictive(@matches);
+    return Access->pick_most_restrictive(@matches);
 }
 
 sub best_url_for_credential {

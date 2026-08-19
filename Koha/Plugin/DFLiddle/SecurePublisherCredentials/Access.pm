@@ -8,6 +8,8 @@ use Koha::Patrons;
 
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health;
 
+use constant Health => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health';
+
 =head1 NAME
 
 Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access - Permission and scope checks
@@ -132,7 +134,7 @@ sub pick_most_restrictive {
 
 sub system_healthy_for_opac {
     my ($class) = @_;
-    my $health = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health->check;
+    my $health = Health->check;
     return $health->{ok};
 }
 

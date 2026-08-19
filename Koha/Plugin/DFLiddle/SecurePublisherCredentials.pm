@@ -6,14 +6,20 @@ use Mojo::JSON qw(decode_json encode_json);
 
 use Koha::Database;
 
-use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants;
+use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants qw(
+    PLUGIN_NAME
+    VIEW_LOGIN_LABEL
+    MANAGE_LOGIN_LABEL
+    API_NAMESPACE
+    API_BASE_PATH
+);
 
 use base qw(Koha::Plugins::Base);
 
-our $VERSION = '1.2.13';
+our $VERSION = '1.2.14';
 
 our $metadata = {
-    name            => Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::PLUGIN_NAME,
+    name            => PLUGIN_NAME,
     author          => 'David F Liddle',
     description     => 'Securely store and share publisher login details for e-resources matched via 856$u domains.',
     date_authored   => '2026-08-14',
@@ -21,6 +27,13 @@ our $metadata = {
     minimum_version => '24.11',
     maximum_version => undef,
     version         => $VERSION,
+};
+
+use constant {
+    Access     => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access',
+    AccessLogs => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs',
+    Matcher    => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Matcher',
+    Tool       => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Tool',
 };
 
 =head1 NAME
@@ -109,7 +122,7 @@ sub upgrade {
 
 sub api_namespace {
     my ($self) = @_;
-    return Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::API_NAMESPACE;
+    return API_NAMESPACE;
 }
 
 sub api_routes {
@@ -127,7 +140,7 @@ sub static_routes {
 sub tool {
     my ($self) = @_;
     require Koha::Plugin::DFLiddle::SecurePublisherCredentials::Tool;
-    return Koha::Plugin::DFLiddle::SecurePublisherCredentials::Tool->dispatch($self);
+    return Tool->dispatch($self);
 }
 
 sub _plugin_page_url {
@@ -165,22 +178,18 @@ sub intranet_catalog_biblio_enhancements_toolbar_button {
     require Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
     require Koha::Plugin::DFLiddle::SecurePublisherCredentials::Matcher;
 
-    my $staff = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->current_staff_patron;
+    my $staff = Access->current_staff_patron;
     return unless $staff;
 
-    my $cred = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Matcher->matching_credentials_for_biblio(
-        $biblionumber, $staff );
+    my $cred = Matcher->matching_credentials_for_biblio( $biblionumber, $staff );
     return unless $cred;
 
-    my $has_erm = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_has_erm($staff);
+    my $has_erm = Access->staff_has_erm($staff);
     my $manage  = $has_erm
-        && (
-        $staff->is_superlibrarian
-        || Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_may_manage_scope( $staff, $cred )
-        );
+        && ( $staff->is_superlibrarian || Access->staff_may_manage_scope( $staff, $cred ) );
 
-    my $view_label   = CGI::escapeHTML(Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::VIEW_LOGIN_LABEL);
-    my $manage_label = CGI::escapeHTML(Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::MANAGE_LOGIN_LABEL);
+    my $view_label   = CGI::escapeHTML(VIEW_LOGIN_LABEL);
+    my $manage_label = CGI::escapeHTML(MANAGE_LOGIN_LABEL);
     my $biblio_attr  = CGI::escapeHTML($biblionumber);
     my $html         = qq{
         <span class="spc-toolbar">
@@ -207,7 +216,7 @@ sub opac_head {
     return unless $self->_plugin_enabled;
 
     require Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
-    return unless Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->system_healthy_for_opac;
+    return unless Access->system_healthy_for_opac;
 
     return $self->_stylesheet_tag('css/spc.css');
 }
@@ -217,7 +226,7 @@ sub opac_js {
     return unless $self->_plugin_enabled;
 
     require Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
-    return unless Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->system_healthy_for_opac;
+    return unless Access->system_healthy_for_opac;
 
     return $self->_script_tag('js/spc-config.js') . $self->_script_tag('js/spc-opac.js');
 }
@@ -241,7 +250,7 @@ sub _static_url {
 
     # No query string: Koha's OpenAPI validator rejects undeclared params
     # (a ?v= cache-buster 400s and the browser never executes the file).
-    return Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::API_BASE_PATH . '/static/' . $rel;
+    return API_BASE_PATH . '/static/' . $rel;
 }
 
 sub _stylesheet_tag {
@@ -296,11 +305,10 @@ sub cronjob_nightly {
 
     require Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs;
 
-    my $days    = Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->retention_days;
-    my $deleted = Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->purge_older_than_days($days);
+    my $days    = AccessLogs->retention_days;
+    my $deleted = AccessLogs->purge_older_than_days($days);
 
-    my $name    = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::PLUGIN_NAME;
-    print "$name: purged $deleted access log entries older than $days days.\n";
+    print PLUGIN_NAME . ": purged $deleted access log entries older than $days days.\n";
     return 1;
 }
 

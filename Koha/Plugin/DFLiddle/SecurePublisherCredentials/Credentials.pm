@@ -11,6 +11,11 @@ use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Domain qw(
     normalize_domain validate_registrable_domain
 );
 
+use constant {
+    Credential => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credential',
+    TableNames => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::TableNames',
+};
+
 =head1 NAME
 
 Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials - Credential persistence
@@ -19,7 +24,7 @@ Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials - Credential per
 
 sub table_name {
     my ($class) = @_;
-    return Koha::Plugin::DFLiddle::SecurePublisherCredentials::TableNames->credentials;
+    return TableNames->credentials;
 }
 
 sub find {
@@ -30,7 +35,7 @@ sub find {
     $sth->execute($id);
     my $row = $sth->fetchrow_hashref;
     return unless $row;
-    return Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credential->new($row);
+    return Credential->new($row);
 }
 
 sub search {
@@ -55,7 +60,7 @@ sub search {
 
     my @rows;
     while ( my $row = $sth->fetchrow_hashref ) {
-        push @rows, Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credential->new($row);
+        push @rows, Credential->new($row);
     }
     return \@rows;
 }

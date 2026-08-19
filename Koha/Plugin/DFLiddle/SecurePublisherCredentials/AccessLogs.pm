@@ -7,6 +7,11 @@ use Koha::Database;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::TableNames;
 
+use constant {
+    Access     => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access',
+    TableNames => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::TableNames',
+};
+
 =head1 NAME
 
 Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs
@@ -22,7 +27,7 @@ sub retention_days {
 
 sub table_name {
     my ($class) = @_;
-    return Koha::Plugin::DFLiddle::SecurePublisherCredentials::TableNames->access_log;
+    return TableNames->access_log;
 }
 
 sub log {
@@ -46,7 +51,7 @@ sub log {
 
 sub log_patron_view {
     my ( $class, $credential_id, $biblionumber ) = @_;
-    my $anon = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->anonymous_borrowernumber;
+    my $anon = Access->anonymous_borrowernumber;
     return unless $anon;
     return $class->log(
         {

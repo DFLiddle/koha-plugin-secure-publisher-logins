@@ -2,7 +2,8 @@
 
 **Plugin namespace:** `Koha::Plugin::DFLiddle::SecurePublisherCredentials`  
 **Target Koha:** 24.11 LTS and later  
-**Instance name:** `library`
+**Instance name:** `library`  
+**File map:** [REVIEW.md](../REVIEW.md)
 
 ## Purpose
 

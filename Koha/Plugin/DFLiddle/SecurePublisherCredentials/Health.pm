@@ -8,6 +8,8 @@ use Koha::Patrons;
 
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::TableNames;
 
+use constant TableNames => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::TableNames';
+
 =head1 NAME
 
 Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health - Deployment prerequisite checks
@@ -27,7 +29,7 @@ sub check {
         unless C4::Context->config('encryption_key');
 
     unless ( C4::Context->preference('ERMModule') ) {
-        push @warnings, 'Cataloguing module system preference is disabled';
+        push @warnings, 'ERM module system preference is disabled';
     }
 
     my $anonymous = C4::Context->preference('AnonymousPatron');
@@ -44,8 +46,8 @@ sub check {
 
     my $dbh = Koha::Database->dbh;
     for my $table (
-        Koha::Plugin::DFLiddle::SecurePublisherCredentials::TableNames->credentials,
-        Koha::Plugin::DFLiddle::SecurePublisherCredentials::TableNames->access_log,
+        TableNames->credentials,
+        TableNames->access_log,
     ) {
         my $sth = $dbh->prepare('SHOW TABLES LIKE ?');
         $sth->execute($table);

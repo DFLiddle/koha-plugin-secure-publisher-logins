@@ -8,11 +8,19 @@ use C4::Context;
 
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs;
-use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants;
+use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants qw( VIEW_LOGIN_LABEL );
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Domain qw(extract_registrable_domain);
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Matcher;
+
+use constant {
+    Access      => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access',
+    AccessLogs  => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs',
+    Credentials => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials',
+    Health      => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health',
+    Matcher     => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Matcher',
+};
 
 =head1 NAME
 
@@ -23,7 +31,7 @@ Koha::Plugin::DFLiddle::SecurePublisherCredentials::Controller - REST API
 sub health {
     my $c = shift->openapi->valid_input or return;
 
-    my $health = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health->check;
+    my $health = Health->check;
     return $c->render(
         status  => 200,
         openapi => {
@@ -49,10 +57,7 @@ sub availability {
     }
 
     if ( $interface eq 'opac' ) {
-        unless (
-            Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->system_healthy_for_opac
-            && Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->patron_may_access_opac($viewer)
-        ) {
+        unless ( Access->system_healthy_for_opac && Access->patron_may_access_opac($viewer) ) {
             return $c->render(
                 status  => 200,
                 openapi => { show => 0, label => '' }
@@ -60,17 +65,15 @@ sub availability {
         }
     }
 
-    my $cred = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Matcher
-        ->matching_credentials_for_biblio( $biblionumber, $viewer );
+    my $cred = Matcher->matching_credentials_for_biblio( $biblionumber, $viewer );
 
     my $payload = {
         show  => $cred ? 1 : 0,
-        label => $cred ? Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::VIEW_LOGIN_LABEL : '',
+        label => $cred ? VIEW_LOGIN_LABEL : '',
     };
 
     if ( $c->param('debug') && $viewer->is_superlibrarian ) {
-        my $urls = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Matcher
-            ->biblio_856_urls($biblionumber) || [];
+        my $urls = Matcher->biblio_856_urls($biblionumber) || [];
         my @domains = grep {$_} map { extract_registrable_domain($_) } @{$urls};
         $payload->{debug} = {
             biblionumber      => 0 + $biblionumber,
@@ -80,10 +83,7 @@ sub availability {
             is_superlibrarian => $viewer->is_superlibrarian ? 1 : 0,
             urls_from_856     => $urls,
             record_domains    => \@domains,
-            login_count  => scalar @{
-                Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials->search(
-                    { not_inactive => 1 } )
-            },
+            login_count       => scalar @{ Credentials->search( { not_inactive => 1 } ) },
         };
     }
 
@@ -105,10 +105,7 @@ sub view {
     }
 
     if ( $interface eq 'opac' ) {
-        unless (
-            Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->system_healthy_for_opac
-            && Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->patron_may_access_opac($viewer)
-        ) {
+        unless ( Access->system_healthy_for_opac && Access->patron_may_access_opac($viewer) ) {
             return $c->render(
                 status  => 403,
                 openapi => { error => 'forbidden' }
@@ -116,8 +113,7 @@ sub view {
         }
     }
 
-    my $cred = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Matcher
-        ->matching_credentials_for_biblio( $biblionumber, $viewer );
+    my $cred = Matcher->matching_credentials_for_biblio( $biblionumber, $viewer );
     unless ($cred) {
         return $c->render(
             status  => 404,
@@ -125,15 +121,12 @@ sub view {
         );
     }
 
-    my $url_info = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Matcher
-        ->best_url_for_credential( $biblionumber, $cred );
+    my $url_info = Matcher->best_url_for_credential( $biblionumber, $cred );
 
     if ( $interface eq 'opac' ) {
-        Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->log_patron_view(
-            $cred->id, $biblionumber );
+        AccessLogs->log_patron_view( $cred->id, $biblionumber );
     } else {
-        Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->log_staff_view(
-            $viewer, $cred->id, $biblionumber );
+        AccessLogs->log_staff_view( $viewer, $cred->id, $biblionumber );
     }
 
     return $c->render(
@@ -163,9 +156,9 @@ sub _viewer_from_context {
 sub _viewer_for_interface {
     my ($interface) = @_;
     if ( $interface eq 'staff' ) {
-        return Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->current_staff_patron;
+        return Access->current_staff_patron;
     }
-    return Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->current_patron;
+    return Access->current_patron;
 }
 
 1;

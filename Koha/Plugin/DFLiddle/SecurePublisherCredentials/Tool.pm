@@ -8,9 +8,18 @@ use Koha::Libraries;
 
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs;
-use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants;
+use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants qw( PLUGIN_NAME TOOL_LOG_LIMIT );
+use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credential;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health;
+
+use constant {
+    Access      => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access',
+    AccessLogs  => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs',
+    Credential  => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credential',
+    Credentials => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials',
+    Health      => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health',
+};
 
 =head1 NAME
 
@@ -25,16 +34,16 @@ sub dispatch {
     $plugin->{cgi} ||= CGI->new;
     my $cgi = $plugin->{cgi};
 
-    my $staff = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->current_staff_patron;
+    my $staff = Access->current_staff_patron;
     unless ($staff) {
         return _deny( $plugin, 'Login required' );
     }
 
-    unless ( Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_has_erm($staff) ) {
-        return _deny( $plugin, 'Cataloguing permission required' );
+    unless ( Access->staff_has_erm($staff) ) {
+        return _deny( $plugin, 'ERM permission required' );
     }
 
-    my $health = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health->check;
+    my $health = Health->check;
 
     if ( $cgi->param('action') eq 'save' ) {
         return $class->save( $plugin, $staff );
@@ -60,12 +69,10 @@ sub dispatch {
 sub list {
     my ( $class, $plugin, $staff, $health ) = @_;
 
-    my $all     = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials->search( {} );
+    my $all     = Credentials->search( {} );
     my @visible = grep {
-        Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_may_manage_scope( $staff, $_ )
-            || $staff->is_superlibrarian
-            || ( $_->access_scope_type ne 'inactive'
-            && Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_has_erm($staff) )
+        _staff_may_manage( $staff, $_ )
+            || ( $_->access_scope_type ne 'inactive' && Access->staff_has_erm($staff) )
     } @{$all};
 
     my ( $libraries, $groups ) = _libraries_and_groups();
@@ -83,10 +90,10 @@ sub list {
     $template->param(
         login_rows   => \@login_rows,
         health       => $health,
-        can_manage   => Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_has_erm($staff),
+        can_manage   => Access->staff_has_erm($staff),
         is_superlib  => $staff->is_superlibrarian,
         plugin_class => $plugin->{class},
-        plugin_title => Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::PLUGIN_NAME,
+        plugin_title => PLUGIN_NAME,
     );
     $plugin->output_html( $template->output() );
 }
@@ -96,20 +103,12 @@ sub form {
 
     my $credential;
     if ($edit_id) {
-        $credential = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials->find($edit_id);
-        unless (
-            $credential
-            && (
-                $staff->is_superlibrarian
-                || Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_may_manage_scope(
-                    $staff, $credential )
-            )
-        ) {
+        $credential = Credentials->find($edit_id);
+        unless ( _staff_may_manage( $staff, $credential ) ) {
             return _deny( $plugin, 'Not authorized' );
         }
     } elsif ($form_values) {
-        require Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credential;
-        $credential = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credential->new($form_values);
+        $credential = Credential->new($form_values);
     }
 
     my ( $libraries, $groups ) = _libraries_and_groups();
@@ -122,7 +121,7 @@ sub form {
         health       => $health,
         is_superlib  => $staff->is_superlibrarian,
         plugin_class => $plugin->{class},
-        plugin_title => Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::PLUGIN_NAME,
+        plugin_title => PLUGIN_NAME,
         save_error   => $save_result ? $class->_save_error_message($save_result) : undef,
         tool_form_js => $plugin->_static_url('js/spc-tool-form.js'),
         csp_nonce    => $plugin->_csp_nonce,
@@ -154,43 +153,29 @@ sub save {
     my $edit_id = scalar $cgi->param('id');
     my $result;
     if ($edit_id) {
-        my $existing = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials->find($edit_id);
-        unless (
-            $existing
-            && (
-                $staff->is_superlibrarian
-                || Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_may_manage_scope(
-                    $staff, $existing )
-            )
-        ) {
+        my $existing = Credentials->find($edit_id);
+        unless ( _staff_may_manage( $staff, $existing ) ) {
             return _deny( $plugin, 'Not authorized' );
         }
-        $result = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials->update( $edit_id, $params );
+        $result = Credentials->update( $edit_id, $params );
         if ( $result->{id} ) {
             eval {
-                Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->log_staff_action( $staff, 'update',
-                    $edit_id );
+                AccessLogs->log_staff_action( $staff, 'update', $edit_id );
                 1;
             };
         }
     } else {
-        $result = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials->create($params);
+        $result = Credentials->create($params);
         if ( $result->{id} ) {
             eval {
-                Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->log_staff_action(
-                    $staff, 'create', $result->{id} );
+                AccessLogs->log_staff_action( $staff, 'create', $result->{id} );
                 1;
             };
         }
     }
 
     if ( $result->{error} ) {
-        return $class->form(
-            $plugin,
-            $staff,
-            Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health->check,
-            $edit_id, $result, $params
-        );
+        return $class->form( $plugin, $staff, Health->check, $edit_id, $result, $params );
     }
 
     print $cgi->redirect( -uri => $plugin->_plugin_page_url );
@@ -199,38 +184,36 @@ sub save {
 sub delete {
     my ( $class, $plugin, $staff, $id ) = @_;
 
-    my $credential = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials->find($id);
-    unless (
-        $credential
-        && (
-            $staff->is_superlibrarian
-            || Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_may_manage_scope( $staff,
-                $credential )
-        )
-    ) {
+    my $credential = Credentials->find($id);
+    unless ( _staff_may_manage( $staff, $credential ) ) {
         return _deny( $plugin, 'Not authorized' );
     }
 
-    Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials->delete($id);
-    Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->log_staff_action( $staff, 'delete', $id );
+    Credentials->delete($id);
+    AccessLogs->log_staff_action( $staff, 'delete', $id );
     print $plugin->{cgi}->redirect( -uri => $plugin->_plugin_page_url );
 }
 
 sub log {
     my ( $class, $plugin, $staff ) = @_;
-    unless ( Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_may_view_log($staff) ) {
+    unless ( Access->staff_may_view_log($staff) ) {
         return _deny( $plugin, 'Not authorized' );
     }
-    my $logs     = Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->search(
-        Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::TOOL_LOG_LIMIT
-    );
+    my $logs     = AccessLogs->search(TOOL_LOG_LIMIT);
     my $template = $plugin->get_template( { file => 'templates/tool_log.tt' } );
     $template->param(
         logs         => $logs,
         plugin_class => $plugin->{class},
-        plugin_title => Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::PLUGIN_NAME,
+        plugin_title => PLUGIN_NAME,
     );
     $plugin->output_html( $template->output() );
+}
+
+sub _staff_may_manage {
+    my ( $staff, $credential ) = @_;
+    return unless $staff && $credential;
+    return 1 if $staff->is_superlibrarian;
+    return Access->staff_may_manage_scope( $staff, $credential );
 }
 
 sub _libraries_and_groups {
