@@ -8,6 +8,7 @@ use Koha::Libraries;
 
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs;
+use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health;
 
@@ -85,6 +86,7 @@ sub list {
         can_manage   => Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_has_erm($staff),
         is_superlib  => $staff->is_superlibrarian,
         plugin_class => $plugin->{class},
+        plugin_title => Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::PLUGIN_NAME,
     );
     $plugin->output_html( $template->output() );
 }
@@ -120,6 +122,7 @@ sub form {
         health       => $health,
         is_superlib  => $staff->is_superlibrarian,
         plugin_class => $plugin->{class},
+        plugin_title => Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::PLUGIN_NAME,
         save_error   => $save_result ? $class->_save_error_message($save_result) : undef,
     );
     $plugin->output_html( $template->output() );
@@ -216,9 +219,15 @@ sub log {
     unless ( Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_may_view_log($staff) ) {
         return _deny( $plugin, 'Not authorized' );
     }
-    my $logs     = Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->search(1000);
+    my $logs     = Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->search(
+        Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::TOOL_LOG_LIMIT
+    );
     my $template = $plugin->get_template( { file => 'templates/tool_log.tt' } );
-    $template->param( logs => $logs, plugin_class => $plugin->{class} );
+    $template->param(
+        logs         => $logs,
+        plugin_class => $plugin->{class},
+        plugin_title => Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::PLUGIN_NAME,
+    );
     $plugin->output_html( $template->output() );
 }
 

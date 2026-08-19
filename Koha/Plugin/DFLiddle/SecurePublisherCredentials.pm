@@ -6,12 +6,14 @@ use Mojo::JSON qw(decode_json encode_json);
 
 use Koha::Database;
 
+use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants;
+
 use base qw(Koha::Plugins::Base);
 
-our $VERSION = '1.2.11';
+our $VERSION = '1.2.12';
 
 our $metadata = {
-    name            => 'Secure Publisher Logins',
+    name            => Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::PLUGIN_NAME,
     author          => 'David F Liddle',
     description     => 'Securely store and share publisher login details for e-resources matched via 856$u domains.',
     date_authored   => '2026-08-14',
@@ -107,7 +109,7 @@ sub upgrade {
 
 sub api_namespace {
     my ($self) = @_;
-    return 'secure_publisher_credentials';
+    return Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::API_NAMESPACE;
 }
 
 sub api_routes {
@@ -177,11 +179,13 @@ sub intranet_catalog_biblio_enhancements_toolbar_button {
         || Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->staff_may_manage_scope( $staff, $cred )
         );
 
-    my $biblio_attr = CGI::escapeHTML($biblionumber);
-    my $html        = qq{
+    my $view_label   = CGI::escapeHTML(Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::VIEW_LOGIN_LABEL);
+    my $manage_label = CGI::escapeHTML(Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::MANAGE_LOGIN_LABEL);
+    my $biblio_attr  = CGI::escapeHTML($biblionumber);
+    my $html         = qq{
         <span class="spc-toolbar">
           <a class="btn btn-default spc-view-login" data-biblionumber="$biblio_attr" href="#">
-            <i class="fa fa-lock" aria-hidden="true"></i> View login info
+            <i class="fa fa-lock" aria-hidden="true"></i> $view_label
           </a>
     };
 
@@ -189,7 +193,7 @@ sub intranet_catalog_biblio_enhancements_toolbar_button {
         my $manage_href = CGI::escapeHTML( $self->_plugin_page_url . '&edit_id=' . ( 0 + $cred->id ) );
         $html .= qq{
           <a class="btn btn-default" href="$manage_href">
-            <i class="fa fa-pencil" aria-hidden="true"></i> Manage login info
+            <i class="fa fa-pencil" aria-hidden="true"></i> $manage_label
           </a>
         };
     }
@@ -215,7 +219,7 @@ sub opac_js {
     require Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
     return unless Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->system_healthy_for_opac;
 
-    return $self->_script_tag('js/spc-opac.js');
+    return $self->_script_tag('js/spc-config.js') . $self->_script_tag('js/spc-opac.js');
 }
 
 sub intranet_head {
@@ -229,7 +233,7 @@ sub intranet_js {
     my ($self) = @_;
     return unless $self->_plugin_enabled;
 
-    return $self->_script_tag('js/spc-staff.js');
+    return $self->_script_tag('js/spc-config.js') . $self->_script_tag('js/spc-staff.js');
 }
 
 sub _static_url {
@@ -237,7 +241,7 @@ sub _static_url {
 
     # No query string: Koha's OpenAPI validator rejects undeclared params
     # (a ?v= cache-buster 400s and the browser never executes the file).
-    return '/api/v1/contrib/' . $self->api_namespace . '/static/' . $rel;
+    return Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::API_BASE_PATH . '/static/' . $rel;
 }
 
 sub _stylesheet_tag {
@@ -274,7 +278,8 @@ sub cronjob_nightly {
     my $days    = Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->retention_days;
     my $deleted = Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs->purge_older_than_days($days);
 
-    print "Secure Publisher Logins: purged $deleted access log entries older than $days days.\n";
+    my $name    = Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::PLUGIN_NAME;
+    print "$name: purged $deleted access log entries older than $days days.\n";
     return 1;
 }
 

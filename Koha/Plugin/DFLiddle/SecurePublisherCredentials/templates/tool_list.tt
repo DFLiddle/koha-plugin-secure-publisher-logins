@@ -1,6 +1,6 @@
-[% WRAPPER "wrapper-staff-tool-plugin.inc" method="tool" plugin_title="Secure Publisher Logins" %]
+[% WRAPPER "wrapper-staff-tool-plugin.inc" method="tool" plugin_title=plugin_title %]
 
-<h1>Secure Publisher Logins</h1>
+<h1>[% plugin_title | html %]</h1>
 
 [% IF !health.ok %]
 <div class="alert alert-danger">

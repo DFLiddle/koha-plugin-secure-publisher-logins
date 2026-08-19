@@ -8,6 +8,7 @@ use C4::Context;
 
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs;
+use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Domain qw(extract_registrable_domain);
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health;
@@ -64,7 +65,7 @@ sub availability {
 
     my $payload = {
         show  => $cred ? 1 : 0,
-        label => $cred ? 'View login info' : '',
+        label => $cred ? Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::VIEW_LOGIN_LABEL : '',
     };
 
     if ( $c->param('debug') && $viewer->is_superlibrarian ) {

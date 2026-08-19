@@ -1,7 +1,8 @@
 (function () {
   "use strict";
 
-  var API_BASE = "/api/v1/contrib/secure_publisher_credentials";
+  var API_BASE = (window.SPC && window.SPC.API_BASE) || "/api/v1/contrib/secure_publisher_credentials";
+  var VIEW_LABEL = (window.SPC && window.SPC.VIEW_LABEL) || "View login info";
 
   function getBiblionumber() {
     var m = window.location.search.match(/[?&]biblionumber=(\d+)/);
@@ -164,7 +165,7 @@
         var a = document.createElement("a");
         a.className = "btn btn-link btn-lg spc-opac-login-link";
         a.href = "#";
-        a.innerHTML = '<i class="fa fa-lock" aria-hidden="true"></i> ' + (res.label || "View login info");
+        a.innerHTML = '<i class="fa fa-lock" aria-hidden="true"></i> ' + (res.label || VIEW_LABEL);
         a.addEventListener("click", function (e) {
           e.preventDefault();
           openView(biblionumber, "opac");

@@ -19,20 +19,22 @@ spc_log_purge.pl - Purge Secure Publisher Logins access log (manual / test use)
 
   spc_log_purge.pl [--days N] [--dry-run]
 
-Defaults to production retention (1100 days). Use --days with a small value on
+Defaults to the same retention as the nightly job
+(AccessLogs->retention_days). Use --days with a small value on
 dev to test without waiting. Use --dry-run to count rows only.
 
 =cut
 
 my $days;
 my $dry_run;
+my $logs = 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs';
+
 GetOptions(
     'days=i'    => \$days,
     'dry-run'   => \$dry_run,
     'help|h'    => sub { print_usage(); exit 0 },
 ) or exit 1;
 
-my $logs = 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs';
 $days //= $logs->retention_days;
 
 if ($dry_run) {
@@ -46,10 +48,11 @@ print "Purged $deleted access log entries older than $days days.\n";
 exit 0;
 
 sub print_usage {
-    print <<'USAGE';
+    my $default = $logs->retention_days;
+    print <<"USAGE";
 Usage: spc_log_purge.pl [--days N] [--dry-run]
 
-  --days N     Purge threshold in days (default: 1100)
+  --days N     Purge threshold in days (default: $default)
   --dry-run    Count matching rows without deleting
   --help       Show this help
 

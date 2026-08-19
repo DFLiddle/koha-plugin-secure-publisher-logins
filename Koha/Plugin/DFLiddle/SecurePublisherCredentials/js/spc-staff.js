@@ -1,7 +1,8 @@
 (function () {
   "use strict";
 
-  var API_BASE = "/api/v1/contrib/secure_publisher_credentials";
+  var API_BASE = (window.SPC && window.SPC.API_BASE) || "/api/v1/contrib/secure_publisher_credentials";
+  var VIEW_LABEL = (window.SPC && window.SPC.VIEW_LABEL) || "View login info";
 
   function getBiblionumber() {
     var m = window.location.search.match(/[?&]biblionumber=(\d+)/);
@@ -175,7 +176,7 @@
         a.className = "btn btn-default spc-view-login";
         a.href = "#";
         a.setAttribute("data-biblionumber", biblionumber);
-        a.innerHTML = '<i class="fa fa-lock" aria-hidden="true"></i> ' + (res.label || "View login info");
+        a.innerHTML = '<i class="fa fa-lock" aria-hidden="true"></i> ' + (res.label || VIEW_LABEL);
         span.appendChild(a);
         toolbar.appendChild(span);
         bindViewButtons();

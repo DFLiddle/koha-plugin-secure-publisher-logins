@@ -1,4 +1,4 @@
-[% WRAPPER "wrapper-staff-tool-plugin.inc" method="tool" plugin_title="Secure Publisher Logins" %]
+[% WRAPPER "wrapper-staff-tool-plugin.inc" method="tool" plugin_title=plugin_title %]
 
 <h1>Publisher login access log</h1>
 
