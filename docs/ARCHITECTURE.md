@@ -38,7 +38,8 @@ Securely store shared publisher login credentials (encrypted at rest), match the
 | Area | Approach | Rationale |
 |------|----------|-----------|
 | OPAC action link | `opac_js` hook + JavaScript inserts link into `#ulactioncontainer ul#action` | [Bug 26890](https://bugs.koha-community.org/bugzilla3/show_bug.cgi?id=26890) OPAC toolbar hooks not in 24.11 |
-| Staff / OPAC assets | `<link>` / `<script src>` via plugin `static_routes` at `/api/v1/contrib/secure_publisher_credentials/static/...`. `intranet_js` / `opac_js` load `js/spc-config.js` before staff/OPAC JS. | Avoids inlining JS/CSS; no Apache `/plugin/` alias required. Do not append query strings — Koha OpenAPI rejects undeclared params. |
+| Staff / OPAC assets | `<link>` / `<script src>` via plugin `static_routes` at `/api/v1/contrib/secure_publisher_credentials/static/...`. `intranet_js` / `opac_js` load `js/spc-config.js` before staff/OPAC JS. Script tags include a CSP `nonce` when `Koha::ContentSecurityPolicy` is enabled (not present on 24.11). | Avoids inlining JS/CSS; no Apache `/plugin/` alias required. Do not append query strings — Koha OpenAPI rejects undeclared params. Do not call `Koha.CSPNonce` in plugin templates (missing on 24.11). |
+| Tools form JS | External `js/spc-tool-form.js` (same static route pattern) | Inline `<script>` is blocked once CSP `script-src` drops `'unsafe-inline'` |
 | Shared labels / API path | `Constants.pm`; JS copies values in `js/spc-config.js` | One Perl source of truth; keep the JS file in sync. Do not inject config inline (CSP). |
 | Login info modal | Bootstrap `modal` / `modal-dialog modal-lg` / `modal-content` markup; `btn btn-default` actions | Matches Pages / HTML customization previews; no custom overlay CSS |
 | Staff toolbar | `intranet_catalog_biblio_enhancements_toolbar_button` | Native Koha hook on `detail.pl` |

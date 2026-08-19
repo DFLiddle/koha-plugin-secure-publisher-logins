@@ -10,7 +10,7 @@ use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants;
 
 use base qw(Koha::Plugins::Base);
 
-our $VERSION = '1.2.12';
+our $VERSION = '1.2.13';
 
 our $metadata = {
     name            => Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::PLUGIN_NAME,
@@ -250,10 +250,31 @@ sub _stylesheet_tag {
     return qq{<link rel="stylesheet" type="text/css" href="$href">};
 }
 
+sub _csp_nonce {
+
+    # Koha 24.11 has no CSP module. Later versions set a per-request nonce
+    # (Koha.CSPNonce); omit the attribute when it is missing or CSP is off.
+    return eval {
+        require Koha::ContentSecurityPolicy;
+        my $csp = Koha::ContentSecurityPolicy->new;
+        return unless $csp->can('get_nonce');
+        if ( $csp->can('is_enabled') ) {
+            return unless $csp->is_enabled;
+        }
+        my $nonce = $csp->get_nonce;
+        ( defined $nonce && $nonce ne '' ) ? $nonce : undef;
+    };
+}
+
 sub _script_tag {
     my ( $self, $rel ) = @_;
-    my $src = CGI::escapeHTML( $self->_static_url($rel) );
-    return qq{<script src="$src"></script>};
+    my $src   = CGI::escapeHTML( $self->_static_url($rel) );
+    my $nonce = $self->_csp_nonce;
+    my $attr  = '';
+    if ( defined $nonce && $nonce ne '' ) {
+        $attr = ' nonce="' . CGI::escapeHTML($nonce) . '"';
+    }
+    return qq{<script$attr src="$src"></script>};
 }
 
 sub _plugin_enabled {

@@ -124,6 +124,8 @@ sub form {
         plugin_class => $plugin->{class},
         plugin_title => Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::PLUGIN_NAME,
         save_error   => $save_result ? $class->_save_error_message($save_result) : undef,
+        tool_form_js => $plugin->_static_url('js/spc-tool-form.js'),
+        csp_nonce    => $plugin->_csp_nonce,
     );
     $plugin->output_html( $template->output() );
 }
