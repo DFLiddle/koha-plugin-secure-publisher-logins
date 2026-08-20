@@ -8,6 +8,7 @@ use lib "$Bin/../../../../../";
 use Koha::Script;
 
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants qw( PLUGIN_NAME );
+use Koha::Plugin::DFLiddle::SecurePublisherCredentials ();
 
 =head1 NAME
 
@@ -52,7 +53,32 @@ eval {
     require Koha::Plugins::Method;
     require Koha::Cache::Memory::Lite;
 
-    my $plugin = $class->new();
+    # utf8mb4_unicode_ci treats API_NAMESPACE and api_namespace as one key.
+    if (
+        Koha::Plugins::Methods->search(
+            {
+                plugin_class  => $class,
+                plugin_method => 'API_NAMESPACE',
+            }
+        )->count
+        && !Koha::Plugins::Methods->search(
+            {
+                plugin_class  => $class,
+                plugin_method => 'api_namespace',
+            }
+        )->count
+        )
+    {
+        Koha::Plugins::Methods->search(
+            {
+                plugin_class  => $class,
+                plugin_method => 'API_NAMESPACE',
+            }
+        )->delete();
+        print "remove API_NAMESPACE (wrong row for REST; blocks api_namespace)\n";
+    }
+
+    my $plugin = $class->new( { enable_plugins => 1 } );
     unless ($plugin) {
         die "Could not instantiate $class (is enable_plugins set?)\n";
     }

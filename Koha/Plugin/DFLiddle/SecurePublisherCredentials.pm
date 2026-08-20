@@ -11,13 +11,12 @@ use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants qw(
     PLUGIN_NAME
     VIEW_LOGIN_LABEL
     MANAGE_LOGIN_LABEL
-    API_NAMESPACE
     API_BASE_PATH
 );
 
 use base qw(Koha::Plugins::Base);
 
-our $VERSION = '1.3.0';
+our $VERSION = '1.3.1';
 
 our $metadata = {
     name            => PLUGIN_NAME,
@@ -165,7 +164,28 @@ sub _ensure_hook_methods_registered {
     my $class = $self->{'class'};
     return unless $class;
 
-    my @hooks = qw(
+    eval {
+        require Koha::Plugins::Methods;
+        require Koha::Plugins::Method;
+
+        # Importing API_NAMESPACE into the plugin package registers API_NAMESPACE in
+        # plugin_methods; with utf8mb4_unicode_ci that collides with api_namespace.
+        my $has_api_namespace = Koha::Plugins::Methods->search(
+            {
+                plugin_class  => $class,
+                plugin_method => 'api_namespace',
+            }
+        )->count;
+        if ( !$has_api_namespace ) {
+            Koha::Plugins::Methods->search(
+                {
+                    plugin_class  => $class,
+                    plugin_method => 'API_NAMESPACE',
+                }
+            )->delete();
+        }
+
+        my @hooks = qw(
         enable
         disable
         install
@@ -183,9 +203,6 @@ sub _ensure_hook_methods_registered {
         cronjob_nightly
     );
 
-    eval {
-        require Koha::Plugins::Methods;
-        require Koha::Plugins::Method;
         my $fixed = 0;
         for my $method (@hooks) {
             next unless $self->can($method);
@@ -214,7 +231,7 @@ sub _ensure_hook_methods_registered {
 
 sub api_namespace {
     my ($self) = @_;
-    return API_NAMESPACE;
+    return Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants::API_NAMESPACE;
 }
 
 sub api_routes {

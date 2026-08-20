@@ -114,7 +114,11 @@ Koha registers UI hooks (`intranet_js`, `opac_js`, toolbar button, etc.) in the 
 Duplicate entry 'Koha::Plugin::DFLiddle::SecurePublisherCredentials-api_namespace' for key 'PRIMARY'
 ```
 
-That can leave hook rows missing while `tool` still works via `run.pl`. It can also omit `enable` / `disable`, so **Disable** on the Plugins page does nothing (Koha only invokes methods listed in `plugin_methods`).
+**Root cause (v1.3.1 fix):** Importing `API_NAMESPACE` from `Constants.pm` into the main plugin package (via `use Constants qw(... API_NAMESPACE ...)`) registers a public `API_NAMESPACE` method. Koha’s REST hook is `api_namespace`. On MySQL with `utf8mb4_unicode_ci`, those two `plugin_method` values collide on the primary key, so `InstallPlugins` inserts `API_NAMESPACE` then fails on `api_namespace`. Self-heal and the repair script can also skip adding `api_namespace` because the `API_NAMESPACE` row already satisfies a case-insensitive lookup.
+
+Run `spc_diagnose_plugin_methods.pl`: if you see `API_NAMESPACE` in `plugin_methods` but not `api_namespace`, you have this state.
+
+That failure can leave other hook rows missing while `tool` still works via `run.pl`. It can also omit `enable` / `disable`, so **Disable** on the Plugins page does nothing (Koha only invokes methods listed in `plugin_methods`).
 
 **Do not use** `misc/devel/install_plugins.pl` on this Koha version for recovery. It processes **all** plugins and can repeat the failure.
 
@@ -151,6 +155,48 @@ INSERT IGNORE INTO plugin_methods (plugin_class, plugin_method) VALUES
 ('Koha::Plugin::DFLiddle::SecurePublisherCredentials', 'cronjob_nightly');
 "
 sudo koha-plack --restart library
+```
+
+### Diagnose InstallPlugins / duplicate api_namespace (v1.3.0+)
+
+Do **not** use `perl -e` one-liners through `koha-shell -c`: Koha runs the command under `/bin/sh`, which breaks on Perl’s `@`, `(`, and nested quotes (especially from PowerShell or SSH clients).
+
+Use the plugin script (path only — no special quoting):
+
+```bash
+koha-shell library -c "/var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/bin/spc_diagnose_plugin_methods.pl"
+```
+
+If that file is not on DEV yet (kpz older than the commit that added it), copy it from your checkout, then run the command above:
+
+```bash
+# From your workstation (adjust host and koha UNIX user if needed)
+scp Koha/Plugin/DFLiddle/SecurePublisherCredentials/bin/spc_diagnose_plugin_methods.pl \
+  dev.teamwork-global.net:/tmp/
+ssh dev.teamwork-global.net 'sudo install -o koha-library -g koha-library -m 0755 \
+  /tmp/spc_diagnose_plugin_methods.pl \
+  /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/bin/'
+```
+
+Or open an interactive shell (paste multi-line Perl safely there):
+
+```bash
+koha-shell library
+perl /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/bin/spc_diagnose_plugin_methods.pl
+exit
+```
+
+The script prints Class::Inspector’s public method list (with duplicate counts) and current `plugin_methods` rows. If `api_namespace count: 2`, Koha’s `InstallPlugins` delete-and-reinsert loop will fail on the second insert.
+
+**DB-only check** (does not run Class::Inspector, but shows bad table state):
+
+```bash
+koha-mysql library -e "
+SELECT plugin_method, COUNT(*) AS n
+FROM plugin_methods
+WHERE plugin_class='Koha::Plugin::DFLiddle::SecurePublisherCredentials'
+GROUP BY plugin_method
+HAVING n > 1;"
 ```
 
 ### Verify hook registration

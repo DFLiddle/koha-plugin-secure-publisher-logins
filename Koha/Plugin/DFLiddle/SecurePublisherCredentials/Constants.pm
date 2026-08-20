@@ -20,6 +20,10 @@ use constant API_NAMESPACE      => 'secure_publisher_credentials';
 use constant API_BASE_PATH      => '/api/v1/contrib/' . API_NAMESPACE;
 use constant TOOL_LOG_LIMIT     => 1000;
 
+# Do not import API_NAMESPACE into SecurePublisherCredentials.pm (main plugin
+# class): it becomes a public method and collides with api_namespace in
+# plugin_methods under MySQL utf8mb4_unicode_ci.
+
 our @EXPORT_OK = qw(
     PLUGIN_NAME
     VIEW_LOGIN_LABEL
