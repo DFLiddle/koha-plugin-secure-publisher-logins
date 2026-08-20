@@ -1,0 +1,131 @@
+# Russian translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Просмотр данных входа"
+
+msgid "Manage login info"
+msgstr "Управление данными входа"
+
+msgid "Secure Publisher Logins"
+msgstr "Безопасные входы издателя"
+
+msgid "Add login info"
+msgstr "Добавить данные входа"
+
+msgid "Edit login info"
+msgstr "Редактировать данные входа"
+
+msgid "View access log"
+msgstr "Просмотр журнала доступа"
+
+msgid "Publisher login access log"
+msgstr "Журнал доступа к входу издателя"
+
+msgid "Back to login list"
+msgstr "Назад к списку входов"
+
+msgid "Publisher name"
+msgstr "Название издателя"
+
+msgid "Publisher name:"
+msgstr "Название издателя:"
+
+msgid "Publisher"
+msgstr "Издатель"
+
+msgid "Domains"
+msgstr "Домены"
+
+msgid "Accessible by"
+msgstr "Доступно для"
+
+msgid "Accessible by:"
+msgstr "Доступно для:"
+
+msgid "All libraries"
+msgstr "Все библиотеки"
+
+msgid "All libraries:"
+msgstr "Все библиотеки:"
+
+msgid "Library"
+msgstr "Библиотека"
+
+msgid "Library:"
+msgstr "Библиотека:"
+
+msgid "Library group"
+msgstr "Группа библиотек"
+
+msgid "Library group:"
+msgstr "Группа библиотек:"
+
+msgid "None (inactive)"
+msgstr "Нет (неактивно)"
+
+msgid "None (inactive):"
+msgstr "Нет (неактивно):"
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Username:"
+msgstr "Имя пользователя:"
+
+msgid "Password:"
+msgstr "Пароль:"
+
+msgid "Copy"
+msgstr "Копировать"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Staff note:"
+msgstr "Заметка персонала:"
+
+msgid "Patron note:"
+msgstr "Заметка читателя:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Регистрируемые домены (через запятую):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Оставьте пустым для сохранения"
+
+msgid "When"
+msgstr "Когда"
+
+msgid "Login ID"
+msgstr "ID входа"
+
+msgid "Borrowernumber"
+msgstr "Номер читателя"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Biblionumber"
+msgstr "Номер библио"
+
+msgid "Delete this publisher login?"
+msgstr "Удалить этот вход издателя?"
+
+msgid "Configuration required:"
+msgstr "Требуется настройка:"
+
+msgid "Login info"
+msgstr "Данные входа"

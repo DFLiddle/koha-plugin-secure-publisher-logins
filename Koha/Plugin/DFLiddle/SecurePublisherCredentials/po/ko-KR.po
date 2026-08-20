@@ -1,0 +1,131 @@
+# Korean translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "로그인 정보 보기"
+
+msgid "Manage login info"
+msgstr "로그인 정보 관리"
+
+msgid "Secure Publisher Logins"
+msgstr "안전한 출판사 로그인"
+
+msgid "Add login info"
+msgstr "로그인 정보 추가"
+
+msgid "Edit login info"
+msgstr "로그인 정보 편집"
+
+msgid "View access log"
+msgstr "접근 로그 보기"
+
+msgid "Publisher login access log"
+msgstr "출판사 로그인 접근 로그"
+
+msgid "Back to login list"
+msgstr "로그인 목록으로 돌아가기"
+
+msgid "Publisher name"
+msgstr "출판사 이름"
+
+msgid "Publisher name:"
+msgstr "출판사 이름:"
+
+msgid "Publisher"
+msgstr "출판사"
+
+msgid "Domains"
+msgstr "도메인"
+
+msgid "Accessible by"
+msgstr "접근 가능"
+
+msgid "Accessible by:"
+msgstr "접근 가능:"
+
+msgid "All libraries"
+msgstr "모든 도서관"
+
+msgid "All libraries:"
+msgstr "모든 도서관:"
+
+msgid "Library"
+msgstr "도서관"
+
+msgid "Library:"
+msgstr "도서관:"
+
+msgid "Library group"
+msgstr "도서관 그룹"
+
+msgid "Library group:"
+msgstr "도서관 그룹:"
+
+msgid "None (inactive)"
+msgstr "없음 (비활성)"
+
+msgid "None (inactive):"
+msgstr "없음 (비활성):"
+
+msgid "Actions"
+msgstr "작업"
+
+msgid "Edit"
+msgstr "편집"
+
+msgid "Delete"
+msgstr "삭제"
+
+msgid "Save"
+msgstr "저장"
+
+msgid "Cancel"
+msgstr "취소"
+
+msgid "Username:"
+msgstr "사용자 이름:"
+
+msgid "Password:"
+msgstr "비밀번호:"
+
+msgid "Copy"
+msgstr "복사"
+
+msgid "Close"
+msgstr "닫기"
+
+msgid "Staff note:"
+msgstr "직원 메모:"
+
+msgid "Patron note:"
+msgstr "이용자 메모:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "등록 가능 도메인 (쉼표로 구분):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "유지하려면 비워 두세요"
+
+msgid "When"
+msgstr "시간"
+
+msgid "Login ID"
+msgstr "로그인 ID"
+
+msgid "Borrowernumber"
+msgstr "이용자 번호"
+
+msgid "Action"
+msgstr "작업"
+
+msgid "Biblionumber"
+msgstr "서지 번호"
+
+msgid "Delete this publisher login?"
+msgstr "이 출판사 로그인을 삭제하시겠습니까?"
+
+msgid "Configuration required:"
+msgstr "설정이 필요합니다:"
+
+msgid "Login info"
+msgstr "로그인 정보"

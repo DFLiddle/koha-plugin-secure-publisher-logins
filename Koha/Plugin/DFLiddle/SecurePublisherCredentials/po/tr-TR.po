@@ -1,0 +1,131 @@
+# Turkish translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Giriş bilgilerini görüntüle"
+
+msgid "Manage login info"
+msgstr "Giriş bilgilerini yönet"
+
+msgid "Secure Publisher Logins"
+msgstr "Güvenli yayıncı girişleri"
+
+msgid "Add login info"
+msgstr "Giriş bilgisi ekle"
+
+msgid "Edit login info"
+msgstr "Giriş bilgilerini düzenle"
+
+msgid "View access log"
+msgstr "Erişim günlüğünü görüntüle"
+
+msgid "Publisher login access log"
+msgstr "Yayıncı giriş erişim günlüğü"
+
+msgid "Back to login list"
+msgstr "Giriş listesine dön"
+
+msgid "Publisher name"
+msgstr "Yayıncı adı"
+
+msgid "Publisher name:"
+msgstr "Yayıncı adı:"
+
+msgid "Publisher"
+msgstr "Yayıncı"
+
+msgid "Domains"
+msgstr "Alan adları"
+
+msgid "Accessible by"
+msgstr "Erişilebilir"
+
+msgid "Accessible by:"
+msgstr "Erişilebilir:"
+
+msgid "All libraries"
+msgstr "Tüm kütüphaneler"
+
+msgid "All libraries:"
+msgstr "Tüm kütüphaneler:"
+
+msgid "Library"
+msgstr "Kütüphane"
+
+msgid "Library:"
+msgstr "Kütüphane:"
+
+msgid "Library group"
+msgstr "Kütüphane grubu"
+
+msgid "Library group:"
+msgstr "Kütüphane grubu:"
+
+msgid "None (inactive)"
+msgstr "Yok (etkin değil)"
+
+msgid "None (inactive):"
+msgstr "Yok (etkin değil):"
+
+msgid "Actions"
+msgstr "İşlemler"
+
+msgid "Edit"
+msgstr "Düzenle"
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "Save"
+msgstr "Kaydet"
+
+msgid "Cancel"
+msgstr "İptal"
+
+msgid "Username:"
+msgstr "Kullanıcı adı:"
+
+msgid "Password:"
+msgstr "Parola:"
+
+msgid "Copy"
+msgstr "Kopyala"
+
+msgid "Close"
+msgstr "Kapat"
+
+msgid "Staff note:"
+msgstr "Personel notu:"
+
+msgid "Patron note:"
+msgstr "Kullanıcı notu:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Kayıt edilebilir alan adları (virgülle ayrılmış):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Korumak için boş bırakın"
+
+msgid "When"
+msgstr "Zaman"
+
+msgid "Login ID"
+msgstr "Giriş kimliği"
+
+msgid "Borrowernumber"
+msgstr "Kullanıcı numarası"
+
+msgid "Action"
+msgstr "İşlem"
+
+msgid "Biblionumber"
+msgstr "Biblio numarası"
+
+msgid "Delete this publisher login?"
+msgstr "Bu yayıncı girişini sil?"
+
+msgid "Configuration required:"
+msgstr "Yapılandırma gerekli:"
+
+msgid "Login info"
+msgstr "Giriş bilgileri"

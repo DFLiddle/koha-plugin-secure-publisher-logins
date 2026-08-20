@@ -1,0 +1,131 @@
+# Finnish translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Näytä kirjautumistiedot"
+
+msgid "Manage login info"
+msgstr "Hallinnoi kirjautumistiedot"
+
+msgid "Secure Publisher Logins"
+msgstr "Turvalliset julkaisijakirjautumiset"
+
+msgid "Add login info"
+msgstr "Lisää kirjautumistiedot"
+
+msgid "Edit login info"
+msgstr "Muokkaa kirjautumistiedot"
+
+msgid "View access log"
+msgstr "Näytä käyttöloki"
+
+msgid "Publisher login access log"
+msgstr "Julkaisijakirjautumisen käyttöloki"
+
+msgid "Back to login list"
+msgstr "Takaisin kirjautumislistaan"
+
+msgid "Publisher name"
+msgstr "Julkaisijan nimi"
+
+msgid "Publisher name:"
+msgstr "Julkaisijan nimi:"
+
+msgid "Publisher"
+msgstr "Julkaisija"
+
+msgid "Domains"
+msgstr "Verkkotunnukset"
+
+msgid "Accessible by"
+msgstr "Käytettävissä"
+
+msgid "Accessible by:"
+msgstr "Käytettävissä:"
+
+msgid "All libraries"
+msgstr "Kaikki kirjastot"
+
+msgid "All libraries:"
+msgstr "Kaikki kirjastot:"
+
+msgid "Library"
+msgstr "Kirjasto"
+
+msgid "Library:"
+msgstr "Kirjasto:"
+
+msgid "Library group"
+msgstr "Kirjastoryhmä"
+
+msgid "Library group:"
+msgstr "Kirjastoryhmä:"
+
+msgid "None (inactive)"
+msgstr "Ei mitään (ei aktiivinen)"
+
+msgid "None (inactive):"
+msgstr "Ei mitään (ei aktiivinen):"
+
+msgid "Actions"
+msgstr "Toiminnot"
+
+msgid "Edit"
+msgstr "Muokkaa"
+
+msgid "Delete"
+msgstr "Poista"
+
+msgid "Save"
+msgstr "Tallenna"
+
+msgid "Cancel"
+msgstr "Peruuta"
+
+msgid "Username:"
+msgstr "Käyttäjätunnus:"
+
+msgid "Password:"
+msgstr "Salasana:"
+
+msgid "Copy"
+msgstr "Kopioi"
+
+msgid "Close"
+msgstr "Sulje"
+
+msgid "Staff note:"
+msgstr "Henkilökunnan huomautus:"
+
+msgid "Patron note:"
+msgstr "Käyttäjän huomautus:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Rekisteröitettävät verkkotunnukset (pilkuilla erotettu):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Jätä tyhjä säilyttämiseksi"
+
+msgid "When"
+msgstr "Aika"
+
+msgid "Login ID"
+msgstr "Kirjautumis-ID"
+
+msgid "Borrowernumber"
+msgstr "Käyttäjänumero"
+
+msgid "Action"
+msgstr "Toiminto"
+
+msgid "Biblionumber"
+msgstr "Biblionumero"
+
+msgid "Delete this publisher login?"
+msgstr "Poista tämä julkaisijakirjautuminen?"
+
+msgid "Configuration required:"
+msgstr "Konfigurointi vaaditaan:"
+
+msgid "Login info"
+msgstr "Kirjautumistiedot"

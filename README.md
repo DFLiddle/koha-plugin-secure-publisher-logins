@@ -17,6 +17,7 @@ Upgrades and recovery: [docs/OPERATIONS.md](docs/OPERATIONS.md)
 
 1. Complete [prerequisites](docs/PREREQUISITES.md)
 2. Build: `npm ci && npm run build` → `dist/koha-plugin-secure-publisher-logins.kpz`
+3. Locales: `npm run i18n:verify` (see [docs/I18N_LOCALES.md](docs/I18N_LOCALES.md))
 3. Install via **Administration → Plugins → Upload**
 4. Manage logins: **Tools → Tool plugins → Secure Publisher Logins**
 5. Follow [MANUAL_TEST_PLAN.md](docs/MANUAL_TEST_PLAN.md) on your dev instance first
@@ -32,6 +33,7 @@ Upgrades and recovery: [docs/OPERATIONS.md](docs/OPERATIONS.md)
 | [docs/OPERATIONS.md](docs/OPERATIONS.md) | Upload, upgrade, smoke test, recovery |
 | [docs/CONFIGURATION.md](docs/CONFIGURATION.md) | Koha settings |
 | [docs/PREREQUISITES.md](docs/PREREQUISITES.md) | Server/Koha checklist |
+| [docs/I18N_LOCALES.md](docs/I18N_LOCALES.md) | Shipped translation locales and PO workflow |
 | [docs/GITHUB_GUIDE.md](docs/GITHUB_GUIDE.md) | Repo and releases |
 | [docs/MANUAL_TEST_PLAN.md](docs/MANUAL_TEST_PLAN.md) | Acceptance testing |
 

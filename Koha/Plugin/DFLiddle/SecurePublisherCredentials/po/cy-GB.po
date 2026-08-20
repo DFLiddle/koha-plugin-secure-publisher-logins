@@ -1,0 +1,131 @@
+# Welsh translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Gweld gwybodaeth mewngofnodi"
+
+msgid "Manage login info"
+msgstr "Rheoli gwybodaeth mewngofnodi"
+
+msgid "Secure Publisher Logins"
+msgstr "Mewngofnodi cyhoeddwr diogel"
+
+msgid "Add login info"
+msgstr "Ychwanegu gwybodaeth mewngofnodi"
+
+msgid "Edit login info"
+msgstr "Golygu gwybodaeth mewngofnodi"
+
+msgid "View access log"
+msgstr "Gweld log mynediad"
+
+msgid "Publisher login access log"
+msgstr "Log mynediad mewngofnodi cyhoeddwr"
+
+msgid "Back to login list"
+msgstr "Yn ôl i'r rhestr mewngofnodi"
+
+msgid "Publisher name"
+msgstr "Enw cyhoeddwr"
+
+msgid "Publisher name:"
+msgstr "Enw cyhoeddwr:"
+
+msgid "Publisher"
+msgstr "Cyhoeddwr"
+
+msgid "Domains"
+msgstr "Parthau"
+
+msgid "Accessible by"
+msgstr "Ar gael i"
+
+msgid "Accessible by:"
+msgstr "Ar gael i:"
+
+msgid "All libraries"
+msgstr "Pob llyfrgell"
+
+msgid "All libraries:"
+msgstr "Pob llyfrgell:"
+
+msgid "Library"
+msgstr "Llyfrgell"
+
+msgid "Library:"
+msgstr "Llyfrgell:"
+
+msgid "Library group"
+msgstr "Grŵp llyfrgelloedd"
+
+msgid "Library group:"
+msgstr "Grŵp llyfrgelloedd:"
+
+msgid "None (inactive)"
+msgstr "Dim (anweithredol)"
+
+msgid "None (inactive):"
+msgstr "Dim (anweithredol):"
+
+msgid "Actions"
+msgstr "Gweithredoedd"
+
+msgid "Edit"
+msgstr "Golygu"
+
+msgid "Delete"
+msgstr "Dileu"
+
+msgid "Save"
+msgstr "Cadw"
+
+msgid "Cancel"
+msgstr "Canslo"
+
+msgid "Username:"
+msgstr "Enw defnyddiwr:"
+
+msgid "Password:"
+msgstr "Cyfrinair:"
+
+msgid "Copy"
+msgstr "Copïo"
+
+msgid "Close"
+msgstr "Cau"
+
+msgid "Staff note:"
+msgstr "Nodyn staff:"
+
+msgid "Patron note:"
+msgstr "Nodyn defnyddiwr:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Parthau y gellir eu cofrestru (wedi'u gwahanu gan goma):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Gadewch yn wag i gadw"
+
+msgid "When"
+msgstr "Pan"
+
+msgid "Login ID"
+msgstr "ID mewngofnodi"
+
+msgid "Borrowernumber"
+msgstr "Rhif defnyddiwr"
+
+msgid "Action"
+msgstr "Gweithred"
+
+msgid "Biblionumber"
+msgstr "Rhif biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Dileu'r mewngofnodi cyhoeddwr hwn?"
+
+msgid "Configuration required:"
+msgstr "Angen ffurfweddiad:"
+
+msgid "Login info"
+msgstr "Gwybodaeth mewngofnodi"

@@ -1,0 +1,131 @@
+# Danish translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Vis loginoplysninger"
+
+msgid "Manage login info"
+msgstr "Administrer loginoplysninger"
+
+msgid "Secure Publisher Logins"
+msgstr "Sikre forlag-login"
+
+msgid "Add login info"
+msgstr "Tilføj loginoplysninger"
+
+msgid "Edit login info"
+msgstr "Rediger loginoplysninger"
+
+msgid "View access log"
+msgstr "Vis adgangslog"
+
+msgid "Publisher login access log"
+msgstr "Adgangslog for forlag-login"
+
+msgid "Back to login list"
+msgstr "Tilbage til loginliste"
+
+msgid "Publisher name"
+msgstr "Forlagsnavn"
+
+msgid "Publisher name:"
+msgstr "Forlagsnavn:"
+
+msgid "Publisher"
+msgstr "Forlag"
+
+msgid "Domains"
+msgstr "Domæner"
+
+msgid "Accessible by"
+msgstr "Tilgængelig for"
+
+msgid "Accessible by:"
+msgstr "Tilgængelig for:"
+
+msgid "All libraries"
+msgstr "Alle biblioteker"
+
+msgid "All libraries:"
+msgstr "Alle biblioteker:"
+
+msgid "Library"
+msgstr "Bibliotek"
+
+msgid "Library:"
+msgstr "Bibliotek:"
+
+msgid "Library group"
+msgstr "Biblioteksgruppe"
+
+msgid "Library group:"
+msgstr "Biblioteksgruppe:"
+
+msgid "None (inactive)"
+msgstr "Ingen (inaktiv)"
+
+msgid "None (inactive):"
+msgstr "Ingen (inaktiv):"
+
+msgid "Actions"
+msgstr "Handlinger"
+
+msgid "Edit"
+msgstr "Rediger"
+
+msgid "Delete"
+msgstr "Slet"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Cancel"
+msgstr "Annuller"
+
+msgid "Username:"
+msgstr "Brugernavn:"
+
+msgid "Password:"
+msgstr "Adgangskode:"
+
+msgid "Copy"
+msgstr "Kopier"
+
+msgid "Close"
+msgstr "Luk"
+
+msgid "Staff note:"
+msgstr "Personalebemærkning:"
+
+msgid "Patron note:"
+msgstr "Brugernote:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Registrerbare domæner (kommasepareret):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Efterlad tom for at bevare"
+
+msgid "When"
+msgstr "Tidspunkt"
+
+msgid "Login ID"
+msgstr "Login-ID"
+
+msgid "Borrowernumber"
+msgstr "Lånernummer"
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Biblionumber"
+msgstr "Biblionummer"
+
+msgid "Delete this publisher login?"
+msgstr "Slet dette forlag-login?"
+
+msgid "Configuration required:"
+msgstr "Konfiguration påkrævet:"
+
+msgid "Login info"
+msgstr "Loginoplysninger"

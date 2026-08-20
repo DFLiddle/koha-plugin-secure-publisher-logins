@@ -113,10 +113,10 @@ sub availability {
             viewer_id         => 0 + $viewer->borrowernumber,
             viewer_branch     => $viewer->branchcode // '',
             is_superlibrarian => $viewer->is_superlibrarian ? 1 : 0,
-            language          => eval {
+            i18n              => eval {
                 require Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N;
-                I18N->language;
-            } // 'en',
+                I18N->debug_info;
+            } // {},
             urls_from_856     => $urls,
             record_domains    => \@domains,
             login_count       => scalar @{ Credentials->search( { not_inactive => 1 } ) },

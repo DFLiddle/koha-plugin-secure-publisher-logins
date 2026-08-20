@@ -1,0 +1,131 @@
+# Greek translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Προβολή πληροφοριών σύνδεσης"
+
+msgid "Manage login info"
+msgstr "Διαχείριση πληροφοριών σύνδεσης"
+
+msgid "Secure Publisher Logins"
+msgstr "Ασφαλείς συνδέσεις εκδότη"
+
+msgid "Add login info"
+msgstr "Προσθήκη πληροφοριών σύνδεσης"
+
+msgid "Edit login info"
+msgstr "Επεξεργασία πληροφοριών σύνδεσης"
+
+msgid "View access log"
+msgstr "Προβολή αρχείου πρόσβασης"
+
+msgid "Publisher login access log"
+msgstr "Αρχείο πρόσβασης σύνδεσης εκδότη"
+
+msgid "Back to login list"
+msgstr "Επιστροφή στη λίστα σύνδεσης"
+
+msgid "Publisher name"
+msgstr "Όνομα εκδότη"
+
+msgid "Publisher name:"
+msgstr "Όνομα εκδότη:"
+
+msgid "Publisher"
+msgstr "Εκδότης"
+
+msgid "Domains"
+msgstr "Τομείς"
+
+msgid "Accessible by"
+msgstr "Προσβάσιμο από"
+
+msgid "Accessible by:"
+msgstr "Προσβάσιμο από:"
+
+msgid "All libraries"
+msgstr "Όλες οι βιβλιοθήκες"
+
+msgid "All libraries:"
+msgstr "Όλες οι βιβλιοθήκες:"
+
+msgid "Library"
+msgstr "Βιβλιοθήκη"
+
+msgid "Library:"
+msgstr "Βιβλιοθήκη:"
+
+msgid "Library group"
+msgstr "Ομάδα βιβλιοθηκών"
+
+msgid "Library group:"
+msgstr "Ομάδα βιβλιοθηκών:"
+
+msgid "None (inactive)"
+msgstr "Κανένα (ανενεργό)"
+
+msgid "None (inactive):"
+msgstr "Κανένα (ανενεργό):"
+
+msgid "Actions"
+msgstr "Ενέργειες"
+
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+msgid "Delete"
+msgstr "Διαγραφή"
+
+msgid "Save"
+msgstr "Αποθήκευση"
+
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+msgid "Username:"
+msgstr "Όνομα χρήστη:"
+
+msgid "Password:"
+msgstr "Κωδικός πρόσβασης:"
+
+msgid "Copy"
+msgstr "Αντιγραφή"
+
+msgid "Close"
+msgstr "Κλείσιμο"
+
+msgid "Staff note:"
+msgstr "Σημείωση προσωπικού:"
+
+msgid "Patron note:"
+msgstr "Σημείωση χρήστη:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Εγγράψιμοι τομείς (χωρισμένοι με κόμμα):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Αφήστε κενό για διατήρηση"
+
+msgid "When"
+msgstr "Πότε"
+
+msgid "Login ID"
+msgstr "ID σύνδεσης"
+
+msgid "Borrowernumber"
+msgstr "Αριθμός χρήστη"
+
+msgid "Action"
+msgstr "Ενέργεια"
+
+msgid "Biblionumber"
+msgstr "Αριθμός biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Διαγραφή αυτής της σύνδεσης εκδότη?"
+
+msgid "Configuration required:"
+msgstr "Απαιτείται ρύθμιση:"
+
+msgid "Login info"
+msgstr "Πληροφορίες σύνδεσης"

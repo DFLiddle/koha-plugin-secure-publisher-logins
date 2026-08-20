@@ -1,0 +1,131 @@
+# Swedish translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Visa inloggningsinfo"
+
+msgid "Manage login info"
+msgstr "Hantera inloggningsinfo"
+
+msgid "Secure Publisher Logins"
+msgstr "Säkra förlagsinloggningar"
+
+msgid "Add login info"
+msgstr "Lägg till inloggningsinfo"
+
+msgid "Edit login info"
+msgstr "Redigera inloggningsinfo"
+
+msgid "View access log"
+msgstr "Visa åtkomstlogg"
+
+msgid "Publisher login access log"
+msgstr "Åtkomstlogg för förlagsinloggning"
+
+msgid "Back to login list"
+msgstr "Tillbaka till inloggningslista"
+
+msgid "Publisher name"
+msgstr "Förlagsnamn"
+
+msgid "Publisher name:"
+msgstr "Förlagsnamn:"
+
+msgid "Publisher"
+msgstr "Förlag"
+
+msgid "Domains"
+msgstr "Domäner"
+
+msgid "Accessible by"
+msgstr "Tillgänglig för"
+
+msgid "Accessible by:"
+msgstr "Tillgänglig för:"
+
+msgid "All libraries"
+msgstr "Alla bibliotek"
+
+msgid "All libraries:"
+msgstr "Alla bibliotek:"
+
+msgid "Library"
+msgstr "Bibliotek"
+
+msgid "Library:"
+msgstr "Bibliotek:"
+
+msgid "Library group"
+msgstr "Biblioteksgrupp"
+
+msgid "Library group:"
+msgstr "Biblioteksgrupp:"
+
+msgid "None (inactive)"
+msgstr "Ingen (inaktiv)"
+
+msgid "None (inactive):"
+msgstr "Ingen (inaktiv):"
+
+msgid "Actions"
+msgstr "Åtgärder"
+
+msgid "Edit"
+msgstr "Redigera"
+
+msgid "Delete"
+msgstr "Ta bort"
+
+msgid "Save"
+msgstr "Spara"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Username:"
+msgstr "Användarnamn:"
+
+msgid "Password:"
+msgstr "Lösenord:"
+
+msgid "Copy"
+msgstr "Kopiera"
+
+msgid "Close"
+msgstr "Stäng"
+
+msgid "Staff note:"
+msgstr "Personalanteckning:"
+
+msgid "Patron note:"
+msgstr "Användaranteckning:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Registrerbara domäner (kommaseparerade):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Lämna tomt för att behålla"
+
+msgid "When"
+msgstr "Tidpunkt"
+
+msgid "Login ID"
+msgstr "Inloggnings-ID"
+
+msgid "Borrowernumber"
+msgstr "Lånarnummer"
+
+msgid "Action"
+msgstr "Åtgärd"
+
+msgid "Biblionumber"
+msgstr "Biblionummer"
+
+msgid "Delete this publisher login?"
+msgstr "Ta bort denna förlagsinloggning?"
+
+msgid "Configuration required:"
+msgstr "Konfiguration krävs:"
+
+msgid "Login info"
+msgstr "Inloggningsinfo"

@@ -1,0 +1,131 @@
+# Romanian translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Vizualizare informații de autentificare"
+
+msgid "Manage login info"
+msgstr "Gestionare informații de autentificare"
+
+msgid "Secure Publisher Logins"
+msgstr "Autentificări editor securizate"
+
+msgid "Add login info"
+msgstr "Adăugare informații de autentificare"
+
+msgid "Edit login info"
+msgstr "Editare informații de autentificare"
+
+msgid "View access log"
+msgstr "Vizualizare jurnal de acces"
+
+msgid "Publisher login access log"
+msgstr "Jurnal de acces autentificare editor"
+
+msgid "Back to login list"
+msgstr "Înapoi la lista de autentificări"
+
+msgid "Publisher name"
+msgstr "Nume editor"
+
+msgid "Publisher name:"
+msgstr "Nume editor:"
+
+msgid "Publisher"
+msgstr "Editor"
+
+msgid "Domains"
+msgstr "Domenii"
+
+msgid "Accessible by"
+msgstr "Accesibil pentru"
+
+msgid "Accessible by:"
+msgstr "Accesibil pentru:"
+
+msgid "All libraries"
+msgstr "Toate bibliotecile"
+
+msgid "All libraries:"
+msgstr "Toate bibliotecile:"
+
+msgid "Library"
+msgstr "Bibliotecă"
+
+msgid "Library:"
+msgstr "Bibliotecă:"
+
+msgid "Library group"
+msgstr "Grup de biblioteci"
+
+msgid "Library group:"
+msgstr "Grup de biblioteci:"
+
+msgid "None (inactive)"
+msgstr "Niciunul (inactiv)"
+
+msgid "None (inactive):"
+msgstr "Niciunul (inactiv):"
+
+msgid "Actions"
+msgstr "Acțiuni"
+
+msgid "Edit"
+msgstr "Editare"
+
+msgid "Delete"
+msgstr "Ștergere"
+
+msgid "Save"
+msgstr "Salvare"
+
+msgid "Cancel"
+msgstr "Anulare"
+
+msgid "Username:"
+msgstr "Nume de utilizator:"
+
+msgid "Password:"
+msgstr "Parolă:"
+
+msgid "Copy"
+msgstr "Copiere"
+
+msgid "Close"
+msgstr "Închide"
+
+msgid "Staff note:"
+msgstr "Notă personal:"
+
+msgid "Patron note:"
+msgstr "Notă utilizator:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Domenii înregistrabile (separate prin virgulă):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Lăsați gol pentru a păstra"
+
+msgid "When"
+msgstr "Când"
+
+msgid "Login ID"
+msgstr "ID autentificare"
+
+msgid "Borrowernumber"
+msgstr "Număr utilizator"
+
+msgid "Action"
+msgstr "Acțiune"
+
+msgid "Biblionumber"
+msgstr "Număr biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Ștergeți această autentificare editor?"
+
+msgid "Configuration required:"
+msgstr "Configurare necesară:"
+
+msgid "Login info"
+msgstr "Informații de autentificare"

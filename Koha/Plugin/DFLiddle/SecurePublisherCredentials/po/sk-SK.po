@@ -1,0 +1,131 @@
+# Slovak translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Zobraziť prihlasovacie údaje"
+
+msgid "Manage login info"
+msgstr "Spravovať prihlasovacie údaje"
+
+msgid "Secure Publisher Logins"
+msgstr "Zabezpečené prihlásenia vydavateľa"
+
+msgid "Add login info"
+msgstr "Pridať prihlasovacie údaje"
+
+msgid "Edit login info"
+msgstr "Upraviť prihlasovacie údaje"
+
+msgid "View access log"
+msgstr "Zobraziť protokol prístupu"
+
+msgid "Publisher login access log"
+msgstr "Protokol prístupu k prihláseniu vydavateľa"
+
+msgid "Back to login list"
+msgstr "Späť na zoznam prihlásení"
+
+msgid "Publisher name"
+msgstr "Názov vydavateľa"
+
+msgid "Publisher name:"
+msgstr "Názov vydavateľa:"
+
+msgid "Publisher"
+msgstr "Vydavateľ"
+
+msgid "Domains"
+msgstr "Domény"
+
+msgid "Accessible by"
+msgstr "Prístupné pre"
+
+msgid "Accessible by:"
+msgstr "Prístupné pre:"
+
+msgid "All libraries"
+msgstr "Všetky knižnice"
+
+msgid "All libraries:"
+msgstr "Všetky knižnice:"
+
+msgid "Library"
+msgstr "Knižnica"
+
+msgid "Library:"
+msgstr "Knižnica:"
+
+msgid "Library group"
+msgstr "Skupina knižníc"
+
+msgid "Library group:"
+msgstr "Skupina knižníc:"
+
+msgid "None (inactive)"
+msgstr "Žiadné (neaktívne)"
+
+msgid "None (inactive):"
+msgstr "Žiadné (neaktívne):"
+
+msgid "Actions"
+msgstr "Akcie"
+
+msgid "Edit"
+msgstr "Upraviť"
+
+msgid "Delete"
+msgstr "Odstrániť"
+
+msgid "Save"
+msgstr "Uložiť"
+
+msgid "Cancel"
+msgstr "Zrušiť"
+
+msgid "Username:"
+msgstr "Používateľské meno:"
+
+msgid "Password:"
+msgstr "Heslo:"
+
+msgid "Copy"
+msgstr "Kopírovať"
+
+msgid "Close"
+msgstr "Zavrieť"
+
+msgid "Staff note:"
+msgstr "Poznámka personálu:"
+
+msgid "Patron note:"
+msgstr "Poznámka čitateľa:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Registrovateľné domény (oddelené čiarkou):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Nechajte prázdne pre zachovanie"
+
+msgid "When"
+msgstr "Kedy"
+
+msgid "Login ID"
+msgstr "ID prihlásenia"
+
+msgid "Borrowernumber"
+msgstr "Číslo čitateľa"
+
+msgid "Action"
+msgstr "Akcia"
+
+msgid "Biblionumber"
+msgstr "Číslo biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Odstrániť toto prihlásenie vydavateľa?"
+
+msgid "Configuration required:"
+msgstr "Vyžaduje sa konfigurácia:"
+
+msgid "Login info"
+msgstr "Prihlasovacie údaje"

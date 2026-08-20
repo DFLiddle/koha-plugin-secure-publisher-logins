@@ -1,0 +1,131 @@
+# Dutch translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Inloggegevens bekijken"
+
+msgid "Manage login info"
+msgstr "Inloggegevens beheren"
+
+msgid "Secure Publisher Logins"
+msgstr "Veilige uitgever-inloggegevens"
+
+msgid "Add login info"
+msgstr "Inloggegevens toevoegen"
+
+msgid "Edit login info"
+msgstr "Inloggegevens bewerken"
+
+msgid "View access log"
+msgstr "Toegangslog bekijken"
+
+msgid "Publisher login access log"
+msgstr "Toegangslog uitgever-inloggegevens"
+
+msgid "Back to login list"
+msgstr "Terug naar inloglijst"
+
+msgid "Publisher name"
+msgstr "Uitgeversnaam"
+
+msgid "Publisher name:"
+msgstr "Uitgeversnaam:"
+
+msgid "Publisher"
+msgstr "Uitgever"
+
+msgid "Domains"
+msgstr "Domeinen"
+
+msgid "Accessible by"
+msgstr "Toegankelijk voor"
+
+msgid "Accessible by:"
+msgstr "Toegankelijk voor:"
+
+msgid "All libraries"
+msgstr "Alle bibliotheken"
+
+msgid "All libraries:"
+msgstr "Alle bibliotheken:"
+
+msgid "Library"
+msgstr "Bibliotheek"
+
+msgid "Library:"
+msgstr "Bibliotheek:"
+
+msgid "Library group"
+msgstr "Bibliotheekgroep"
+
+msgid "Library group:"
+msgstr "Bibliotheekgroep:"
+
+msgid "None (inactive)"
+msgstr "Geen (inactief)"
+
+msgid "None (inactive):"
+msgstr "Geen (inactief):"
+
+msgid "Actions"
+msgstr "Acties"
+
+msgid "Edit"
+msgstr "Bewerken"
+
+msgid "Delete"
+msgstr "Verwijderen"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Username:"
+msgstr "Gebruikersnaam:"
+
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+msgid "Copy"
+msgstr "Kopiëren"
+
+msgid "Close"
+msgstr "Sluiten"
+
+msgid "Staff note:"
+msgstr "Personeelsnotitie:"
+
+msgid "Patron note:"
+msgstr "Gebruikersnotitie:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Registreerbare domeinen (kommagescheiden):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Laat leeg om te behouden"
+
+msgid "When"
+msgstr "Wanneer"
+
+msgid "Login ID"
+msgstr "Inlog-ID"
+
+msgid "Borrowernumber"
+msgstr "Gebruikersnummer"
+
+msgid "Action"
+msgstr "Actie"
+
+msgid "Biblionumber"
+msgstr "Biblionummer"
+
+msgid "Delete this publisher login?"
+msgstr "Deze uitgever-inloggegevens verwijderen?"
+
+msgid "Configuration required:"
+msgstr "Configuratie vereist:"
+
+msgid "Login info"
+msgstr "Inloggegevens"

@@ -53,7 +53,7 @@ Run on **dev** (`dev.teamwork-global.net`) before production. Check each box.
 
 ## i18n
 
-Plugin translations are applied at runtime from `po/*.po` (Koha 24.11 does not install plugin PO files). After a new upload, confirm the Tools page and catalog buttons in **English** first, then enable the language in Koha, switch the OPAC/staff language, and hard-refresh.
+Plugin translations are applied at runtime from `po/*.po` (see [I18N_LOCALES.md](I18N_LOCALES.md)). After upload, confirm English first, then test site locales (`id-ID`, `th-TH`, `zh-Hans-CN`, `zh-Hant-TW`) and any other enabled Koha languages.
 
 - [ ] Switch OPAC to **de-DE** or **fr-FR**; **View login info** appears translated
 - [ ] Staff toolbar **View login info** / **Manage login info** match that language

@@ -88,34 +88,120 @@ sub english_template_labels {
 sub language {
     my ($class) = @_;
 
-    # Prefer the language cookie: REST runs as interface=api, where
-    # C4::Languages::getlanguage() may not see the OPAC/staff UI language.
+    # Cookie first: REST runs as interface=api and getlanguage() ignores KohaOpacLanguage.
     my $lang = eval { $class->_cookie_language };
     $lang ||= eval {
         require C4::Languages;
-        C4::Languages::getlanguage();
+        require C4::Context;
+        my $cgi = $class->_cgi;
+        $cgi ? C4::Languages::getlanguage($cgi) : C4::Languages::getlanguage();
     };
-    $lang ||= 'en';
-    $lang =~ s/_/-/g;
-    $lang =~ s/[^a-zA-Z0-9-]//g;
-    $lang = 'en' unless length $lang;
-    return $lang;
+    $lang = $class->_normalize_lang( $lang || 'en' );
+    return $class->_validate_lang($lang) || 'en';
+}
+
+sub debug_info {
+    my ($class) = @_;
+    my $lang    = eval { $class->language } || 'en';
+    my $path    = eval { $class->_po_path($lang) };
+    my $catalog = eval { $class->catalog } || {};
+    return {
+        language     => $lang,
+        po_path      => $path // '',
+        po_entries   => scalar keys %$catalog,
+        cookie_lang  => eval { $class->_cookie_language } // '',
+        view_label   => $class->translate('View login info'),
+        staff_langs  => [
+            $class->_languages_from_pref('StaffInterfaceLanguages')
+                || $class->_languages_from_pref('language')
+                || []
+        ],
+        opac_langs   => [ $class->_languages_from_pref('OPACLanguages') || [] ],
+        interface    => eval {
+            require C4::Context;
+            C4::Context->interface;
+        } // '',
+    };
+}
+
+sub _cgi {
+    my ($class) = @_;
+    return eval {
+        require C4::Context;
+        C4::Context->query;
+    };
 }
 
 sub _cookie_language {
+    my ($class) = @_;
+
+    my $from_cgi = eval {
+        my $cgi = $class->_cgi;
+        $cgi ? scalar $cgi->cookie('KohaOpacLanguage') : undef;
+    };
+    if ( defined $from_cgi && $from_cgi ne '' ) {
+        return $class->_normalize_lang( $from_cgi );
+    }
+
     my $raw = $ENV{HTTP_COOKIE} // '';
     if ( $raw =~ /(?:^|;\s*)KohaOpacLanguage=([^;]+)/ ) {
-        my $v = $1;
-        $v =~ s/[^a-zA-Z0-9_-]//g;
-        return $v if $v ne '';
+        return $class->_normalize_lang($1);
     }
-    my $from_cgi = eval {
-        require CGI;
-        scalar CGI->new->cookie('KohaOpacLanguage');
-    };
-    return unless defined $from_cgi && $from_cgi ne '';
-    $from_cgi =~ s/[^a-zA-Z0-9_-]//g;
-    return $from_cgi;
+    return;
+}
+
+sub _normalize_lang {
+    my ( $class, $lang ) = @_;
+    return 'en' unless defined $lang && $lang ne '';
+    $lang =~ s/_/-/g;
+    $lang =~ s/[^a-zA-Z0-9-]//g;
+    return length $lang ? $lang : 'en';
+}
+
+sub _validate_lang {
+    my ( $class, $lang ) = @_;
+    $lang = $class->_normalize_lang($lang);
+    return 'en' if $lang =~ /^en/i;
+
+    # KohaOpacLanguage is shared across staff and OPAC. If the user chose this
+    # language (cookie) and we ship a PO file, use it even when StaffInterfaceLanguages
+    # and OPACLanguages differ (common when testing OPAC before staff).
+    my $cookie = eval { $class->_cookie_language };
+    if ( defined $cookie && $cookie eq $lang && $class->_po_path($lang) ) {
+        return $lang;
+    }
+
+    my $interface = eval {
+        require C4::Context;
+        C4::Context->interface;
+    } || 'intranet';
+    return $lang if $interface eq 'api';
+    my @enabled = eval { $class->_enabled_languages };
+    return $lang unless @enabled;
+    return $lang if grep { $_ eq $lang } @enabled;
+    return;
+}
+
+sub _enabled_languages {
+    my ($class) = @_;
+    require C4::Context;
+    my $interface = eval { C4::Context->interface } || 'intranet';
+    if ( $interface eq 'opac' ) {
+        return $class->_languages_from_pref('OPACLanguages');
+    }
+    my @staff = $class->_languages_from_pref('StaffInterfaceLanguages')
+        || $class->_languages_from_pref('language')
+        || [];
+    my @opac = $class->_languages_from_pref('OPACLanguages') || [];
+    my %seen;
+    return grep { !$seen{$_}++ } ( @staff, @opac );
+}
+
+sub _languages_from_pref {
+    my ( $class, $pref ) = @_;
+    my $value = C4::Context->preference($pref);
+    return unless defined $value && $value ne '';
+    return map { $class->_normalize_lang($_) } split /\s*,\s*/, $value;
 }
 
 sub _load_po {

@@ -1,0 +1,131 @@
+# Czech translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Zobrazit přihlašovací údaje"
+
+msgid "Manage login info"
+msgstr "Spravovat přihlašovací údaje"
+
+msgid "Secure Publisher Logins"
+msgstr "Zabezpečené přihlášení vydavatele"
+
+msgid "Add login info"
+msgstr "Přidat přihlašovací údaje"
+
+msgid "Edit login info"
+msgstr "Upravit přihlašovací údaje"
+
+msgid "View access log"
+msgstr "Zobrazit protokol přístupu"
+
+msgid "Publisher login access log"
+msgstr "Protokol přístupu k přihlášení vydavatele"
+
+msgid "Back to login list"
+msgstr "Zpět na seznam přihlášení"
+
+msgid "Publisher name"
+msgstr "Název vydavatele"
+
+msgid "Publisher name:"
+msgstr "Název vydavatele:"
+
+msgid "Publisher"
+msgstr "Vydavatel"
+
+msgid "Domains"
+msgstr "Domény"
+
+msgid "Accessible by"
+msgstr "Přístupné pro"
+
+msgid "Accessible by:"
+msgstr "Přístupné pro:"
+
+msgid "All libraries"
+msgstr "Všechny knihovny"
+
+msgid "All libraries:"
+msgstr "Všechny knihovny:"
+
+msgid "Library"
+msgstr "Knihovna"
+
+msgid "Library:"
+msgstr "Knihovna:"
+
+msgid "Library group"
+msgstr "Skupina knihoven"
+
+msgid "Library group:"
+msgstr "Skupina knihoven:"
+
+msgid "None (inactive)"
+msgstr "Žádné (neaktivní)"
+
+msgid "None (inactive):"
+msgstr "Žádné (neaktivní):"
+
+msgid "Actions"
+msgstr "Akce"
+
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "Delete"
+msgstr "Smazat"
+
+msgid "Save"
+msgstr "Uložit"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "Username:"
+msgstr "Uživatelské jméno:"
+
+msgid "Password:"
+msgstr "Heslo:"
+
+msgid "Copy"
+msgstr "Kopírovat"
+
+msgid "Close"
+msgstr "Zavřít"
+
+msgid "Staff note:"
+msgstr "Poznámka personálu:"
+
+msgid "Patron note:"
+msgstr "Poznámka čtenáře:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Registrovatelné domény (oddělené čárkou):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Ponechte prázdné pro zachování"
+
+msgid "When"
+msgstr "Kdy"
+
+msgid "Login ID"
+msgstr "ID přihlášení"
+
+msgid "Borrowernumber"
+msgstr "Číslo čtenáře"
+
+msgid "Action"
+msgstr "Akce"
+
+msgid "Biblionumber"
+msgstr "Číslo biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Smazat toto přihlášení vydavatele?"
+
+msgid "Configuration required:"
+msgstr "Vyžadována konfigurace:"
+
+msgid "Login info"
+msgstr "Přihlašovací údaje"

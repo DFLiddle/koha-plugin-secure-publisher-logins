@@ -17,7 +17,7 @@ use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants qw(
 
 use base qw(Koha::Plugins::Base);
 
-our $VERSION = '1.2.24';
+our $VERSION = '1.3.0';
 
 our $metadata = {
     name            => PLUGIN_NAME,
@@ -367,7 +367,9 @@ sub opac_js {
     require Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
     return unless Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->system_healthy_for_opac;
 
-    return $self->_script_tag('js/spc-config.js') . $self->_script_tag('js/spc-opac.js');
+    return $self->_script_tag('js/spc-config.js')
+        . $self->_spc_label_bootstrap_script()
+        . $self->_script_tag('js/spc-opac.js');
 }
 
 sub intranet_head {
@@ -381,7 +383,29 @@ sub intranet_js {
     my ($self) = @_;
     return unless $self->_plugin_enabled;
 
-    return $self->_script_tag('js/spc-config.js') . $self->_script_tag('js/spc-staff.js');
+    return $self->_script_tag('js/spc-config.js')
+        . $self->_spc_label_bootstrap_script()
+        . $self->_script_tag('js/spc-staff.js');
+}
+
+sub _spc_label_bootstrap_script {
+    my ($self) = @_;
+    my $view   = VIEW_LOGIN_LABEL;
+    my $manage = MANAGE_LOGIN_LABEL;
+    eval {
+        require Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N;
+        $view   = Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N->translate($view);
+        $manage = Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N->translate($manage);
+        1;
+    };
+    my $nonce = $self->_csp_nonce;
+    my $attr  = '';
+    if ( defined $nonce && $nonce ne '' ) {
+        $attr = ' nonce="' . CGI::escapeHTML($nonce) . '"';
+    }
+    my $view_js   = Mojo::JSON::encode_json($view);
+    my $manage_js = Mojo::JSON::encode_json($manage);
+    return qq{<script$attr>window.SPC=window.SPC||{};window.SPC.VIEW_LABEL=$view_js;window.SPC.MANAGE_LABEL=$manage_js;</script>};
 }
 
 sub _static_url {

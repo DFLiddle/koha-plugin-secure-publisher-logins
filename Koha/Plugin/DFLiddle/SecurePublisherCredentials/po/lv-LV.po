@@ -1,0 +1,131 @@
+# Latvian translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Skatīt pieteikšanās informāciju"
+
+msgid "Manage login info"
+msgstr "Pārvaldīt pieteikšanās informāciju"
+
+msgid "Secure Publisher Logins"
+msgstr "Drošas izdevniecības pieteikšanās"
+
+msgid "Add login info"
+msgstr "Pievienot pieteikšanās informāciju"
+
+msgid "Edit login info"
+msgstr "Rediģēt pieteikšanās informāciju"
+
+msgid "View access log"
+msgstr "Skatīt piekļuves žurnālu"
+
+msgid "Publisher login access log"
+msgstr "Izdevniecības pieteikšanās piekļuves žurnāls"
+
+msgid "Back to login list"
+msgstr "Atpakaļ uz pieteikšanās sarakstu"
+
+msgid "Publisher name"
+msgstr "Izdevniecības nosaukums"
+
+msgid "Publisher name:"
+msgstr "Izdevniecības nosaukums:"
+
+msgid "Publisher"
+msgstr "Izdevniecība"
+
+msgid "Domains"
+msgstr "Domēni"
+
+msgid "Accessible by"
+msgstr "Pieejams"
+
+msgid "Accessible by:"
+msgstr "Pieejams:"
+
+msgid "All libraries"
+msgstr "Visas bibliotēkas"
+
+msgid "All libraries:"
+msgstr "Visas bibliotēkas:"
+
+msgid "Library"
+msgstr "Bibliotēka"
+
+msgid "Library:"
+msgstr "Bibliotēka:"
+
+msgid "Library group"
+msgstr "Bibliotēku grupa"
+
+msgid "Library group:"
+msgstr "Bibliotēku grupa:"
+
+msgid "None (inactive)"
+msgstr "Nav (neaktīvs)"
+
+msgid "None (inactive):"
+msgstr "Nav (neaktīvs):"
+
+msgid "Actions"
+msgstr "Darbības"
+
+msgid "Edit"
+msgstr "Rediģēt"
+
+msgid "Delete"
+msgstr "Dzēst"
+
+msgid "Save"
+msgstr "Saglabāt"
+
+msgid "Cancel"
+msgstr "Atcelt"
+
+msgid "Username:"
+msgstr "Lietotājvārds:"
+
+msgid "Password:"
+msgstr "Parole:"
+
+msgid "Copy"
+msgstr "Kopēt"
+
+msgid "Close"
+msgstr "Aizvērt"
+
+msgid "Staff note:"
+msgstr "Personāla piezīme:"
+
+msgid "Patron note:"
+msgstr "Lietotāja piezīme:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Reģistrējami domēni (atdalīti ar komatiem):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Atstāt tukšu, lai saglabātu"
+
+msgid "When"
+msgstr "Kad"
+
+msgid "Login ID"
+msgstr "Pieteikšanās ID"
+
+msgid "Borrowernumber"
+msgstr "Lietotāja numurs"
+
+msgid "Action"
+msgstr "Darbība"
+
+msgid "Biblionumber"
+msgstr "Biblionumurs"
+
+msgid "Delete this publisher login?"
+msgstr "Dzēst šo izdevniecības pieteikšanos?"
+
+msgid "Configuration required:"
+msgstr "Nepieciešama konfigurācija:"
+
+msgid "Login info"
+msgstr "Pieteikšanās informācija"

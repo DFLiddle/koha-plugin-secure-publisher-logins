@@ -1,0 +1,131 @@
+# Thai translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "ดูข้อมูลการเข้าสู่ระบบ"
+
+msgid "Manage login info"
+msgstr "จัดการข้อมูลการเข้าสู่ระบบ"
+
+msgid "Secure Publisher Logins"
+msgstr "การเข้าสู่ระบบผู้พิมพ์ที่ปลอดภัย"
+
+msgid "Add login info"
+msgstr "เพิ่มข้อมูลการเข้าสู่ระบบ"
+
+msgid "Edit login info"
+msgstr "แก้ไขข้อมูลการเข้าสู่ระบบ"
+
+msgid "View access log"
+msgstr "ดูบันทึกการเข้าถึง"
+
+msgid "Publisher login access log"
+msgstr "บันทึกการเข้าถึงการเข้าสู่ระบบผู้พิมพ์"
+
+msgid "Back to login list"
+msgstr "กลับไปรายการเข้าสู่ระบบ"
+
+msgid "Publisher name"
+msgstr "ชื่อผู้พิมพ์"
+
+msgid "Publisher name:"
+msgstr "ชื่อผู้พิมพ์:"
+
+msgid "Publisher"
+msgstr "ผู้พิมพ์"
+
+msgid "Domains"
+msgstr "โดเมน"
+
+msgid "Accessible by"
+msgstr "เข้าถึงได้โดย"
+
+msgid "Accessible by:"
+msgstr "เข้าถึงได้โดย:"
+
+msgid "All libraries"
+msgstr "ห้องสมุดทั้งหมด"
+
+msgid "All libraries:"
+msgstr "ห้องสมุดทั้งหมด:"
+
+msgid "Library"
+msgstr "ห้องสมุด"
+
+msgid "Library:"
+msgstr "ห้องสมุด:"
+
+msgid "Library group"
+msgstr "กลุ่มห้องสมุด"
+
+msgid "Library group:"
+msgstr "กลุ่มห้องสมุด:"
+
+msgid "None (inactive)"
+msgstr "ไม่มี (ไม่ใช้งาน)"
+
+msgid "None (inactive):"
+msgstr "ไม่มี (ไม่ใช้งาน):"
+
+msgid "Actions"
+msgstr "การดำเนินการ"
+
+msgid "Edit"
+msgstr "แก้ไข"
+
+msgid "Delete"
+msgstr "ลบ"
+
+msgid "Save"
+msgstr "บันทึก"
+
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+msgid "Username:"
+msgstr "ชื่อผู้ใช้:"
+
+msgid "Password:"
+msgstr "รหัสผ่าน:"
+
+msgid "Copy"
+msgstr "คัดลอก"
+
+msgid "Close"
+msgstr "ปิด"
+
+msgid "Staff note:"
+msgstr "หมายเหตุเจ้าหน้าที่:"
+
+msgid "Patron note:"
+msgstr "หมายเหตุผู้ใช้:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "โดเมนที่ลงทะเบียนได้ (คั่นด้วยเครื่องหมายจุลภาค):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "เว้นว่างเพื่อคงค่าเดิม"
+
+msgid "When"
+msgstr "เมื่อ"
+
+msgid "Login ID"
+msgstr "รหัสการเข้าสู่ระบบ"
+
+msgid "Borrowernumber"
+msgstr "หมายเลขผู้ใช้"
+
+msgid "Action"
+msgstr "การดำเนินการ"
+
+msgid "Biblionumber"
+msgstr "หมายเลขบิบลิโอ"
+
+msgid "Delete this publisher login?"
+msgstr "ลบการเข้าสู่ระบบผู้พิมพ์นี้?"
+
+msgid "Configuration required:"
+msgstr "ต้องกำหนดค่า:"
+
+msgid "Login info"
+msgstr "ข้อมูลการเข้าสู่ระบบ"

@@ -1,0 +1,131 @@
+# Slovenian translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Prikaži podatke za prijavo"
+
+msgid "Manage login info"
+msgstr "Upravljaj podatke za prijavo"
+
+msgid "Secure Publisher Logins"
+msgstr "Varni prijavi založnika"
+
+msgid "Add login info"
+msgstr "Dodaj podatke za prijavo"
+
+msgid "Edit login info"
+msgstr "Uredi podatke za prijavo"
+
+msgid "View access log"
+msgstr "Prikaži dnevnik dostopa"
+
+msgid "Publisher login access log"
+msgstr "Dnevnik dostopa prijave založnika"
+
+msgid "Back to login list"
+msgstr "Nazaj na seznam prijav"
+
+msgid "Publisher name"
+msgstr "Ime založnika"
+
+msgid "Publisher name:"
+msgstr "Ime založnika:"
+
+msgid "Publisher"
+msgstr "Založnik"
+
+msgid "Domains"
+msgstr "Domene"
+
+msgid "Accessible by"
+msgstr "Dostopno za"
+
+msgid "Accessible by:"
+msgstr "Dostopno za:"
+
+msgid "All libraries"
+msgstr "Vse knjižnice"
+
+msgid "All libraries:"
+msgstr "Vse knjižnice:"
+
+msgid "Library"
+msgstr "Knjižnica"
+
+msgid "Library:"
+msgstr "Knjižnica:"
+
+msgid "Library group"
+msgstr "Skupina knjižnic"
+
+msgid "Library group:"
+msgstr "Skupina knjižnic:"
+
+msgid "None (inactive)"
+msgstr "Brez (neaktivno)"
+
+msgid "None (inactive):"
+msgstr "Brez (neaktivno):"
+
+msgid "Actions"
+msgstr "Dejanja"
+
+msgid "Edit"
+msgstr "Uredi"
+
+msgid "Delete"
+msgstr "Izbriši"
+
+msgid "Save"
+msgstr "Shrani"
+
+msgid "Cancel"
+msgstr "Prekliči"
+
+msgid "Username:"
+msgstr "Uporabniško ime:"
+
+msgid "Password:"
+msgstr "Geslo:"
+
+msgid "Copy"
+msgstr "Kopiraj"
+
+msgid "Close"
+msgstr "Zapri"
+
+msgid "Staff note:"
+msgstr "Opomba osebja:"
+
+msgid "Patron note:"
+msgstr "Opomba uporabnika:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Registrabilne domene (ločene z vejico):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Pustite prazno za ohranitev"
+
+msgid "When"
+msgstr "Čas"
+
+msgid "Login ID"
+msgstr "ID prijave"
+
+msgid "Borrowernumber"
+msgstr "Številka uporabnika"
+
+msgid "Action"
+msgstr "Dejanje"
+
+msgid "Biblionumber"
+msgstr "Številka biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Izbrisati to prijavo založnika?"
+
+msgid "Configuration required:"
+msgstr "Potrebna konfiguracija:"
+
+msgid "Login info"
+msgstr "Podatki za prijavo"

@@ -1,0 +1,131 @@
+# Estonian translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Vaata sisselogimisandmeid"
+
+msgid "Manage login info"
+msgstr "Halda sisselogimisandmeid"
+
+msgid "Secure Publisher Logins"
+msgstr "Turvalised kirjastaja sisselogimised"
+
+msgid "Add login info"
+msgstr "Lisa sisselogimisandmed"
+
+msgid "Edit login info"
+msgstr "Muuda sisselogimisandmeid"
+
+msgid "View access log"
+msgstr "Vaata juurdepääsulogi"
+
+msgid "Publisher login access log"
+msgstr "Kirjastaja sisselogimise juurdepääsulogi"
+
+msgid "Back to login list"
+msgstr "Tagasi sisselogimise loendisse"
+
+msgid "Publisher name"
+msgstr "Kirjastaja nimi"
+
+msgid "Publisher name:"
+msgstr "Kirjastaja nimi:"
+
+msgid "Publisher"
+msgstr "Kirjastaja"
+
+msgid "Domains"
+msgstr "Domeenid"
+
+msgid "Accessible by"
+msgstr "Kättesaadav"
+
+msgid "Accessible by:"
+msgstr "Kättesaadav:"
+
+msgid "All libraries"
+msgstr "Kõik raamatukogud"
+
+msgid "All libraries:"
+msgstr "Kõik raamatukogud:"
+
+msgid "Library"
+msgstr "Raamatukogu"
+
+msgid "Library:"
+msgstr "Raamatukogu:"
+
+msgid "Library group"
+msgstr "Raamatukogude grupp"
+
+msgid "Library group:"
+msgstr "Raamatukogude grupp:"
+
+msgid "None (inactive)"
+msgstr "Puudub (mitteaktiivne)"
+
+msgid "None (inactive):"
+msgstr "Puudub (mitteaktiivne):"
+
+msgid "Actions"
+msgstr "Toimingud"
+
+msgid "Edit"
+msgstr "Muuda"
+
+msgid "Delete"
+msgstr "Kustuta"
+
+msgid "Save"
+msgstr "Salvesta"
+
+msgid "Cancel"
+msgstr "Tühista"
+
+msgid "Username:"
+msgstr "Kasutajanimi:"
+
+msgid "Password:"
+msgstr "Parool:"
+
+msgid "Copy"
+msgstr "Kopeeri"
+
+msgid "Close"
+msgstr "Sulge"
+
+msgid "Staff note:"
+msgstr "Töötaja märkus:"
+
+msgid "Patron note:"
+msgstr "Kasutaja märkus:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Registreeritavad domeenid (komaga eraldatud):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Jäta tühjaks säilitamiseks"
+
+msgid "When"
+msgstr "Millal"
+
+msgid "Login ID"
+msgstr "Sisselogimise ID"
+
+msgid "Borrowernumber"
+msgstr "Kasutaja number"
+
+msgid "Action"
+msgstr "Toiming"
+
+msgid "Biblionumber"
+msgstr "Biblionumber"
+
+msgid "Delete this publisher login?"
+msgstr "Kustuta see kirjastaja sisselogimine?"
+
+msgid "Configuration required:"
+msgstr "Seadistamine nõutav:"
+
+msgid "Login info"
+msgstr "Sisselogimisandmed"

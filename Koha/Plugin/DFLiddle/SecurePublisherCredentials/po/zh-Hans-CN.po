@@ -1,0 +1,131 @@
+# Chinese (Simplified) translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "查看登录信息"
+
+msgid "Manage login info"
+msgstr "管理登录信息"
+
+msgid "Secure Publisher Logins"
+msgstr "安全出版商登录"
+
+msgid "Add login info"
+msgstr "添加登录信息"
+
+msgid "Edit login info"
+msgstr "编辑登录信息"
+
+msgid "View access log"
+msgstr "查看访问日志"
+
+msgid "Publisher login access log"
+msgstr "出版商登录访问日志"
+
+msgid "Back to login list"
+msgstr "返回登录列表"
+
+msgid "Publisher name"
+msgstr "出版商名称"
+
+msgid "Publisher name:"
+msgstr "出版商名称:"
+
+msgid "Publisher"
+msgstr "出版商"
+
+msgid "Domains"
+msgstr "域名"
+
+msgid "Accessible by"
+msgstr "可访问者"
+
+msgid "Accessible by:"
+msgstr "可访问者:"
+
+msgid "All libraries"
+msgstr "所有图书馆"
+
+msgid "All libraries:"
+msgstr "所有图书馆:"
+
+msgid "Library"
+msgstr "图书馆"
+
+msgid "Library:"
+msgstr "图书馆:"
+
+msgid "Library group"
+msgstr "图书馆组"
+
+msgid "Library group:"
+msgstr "图书馆组:"
+
+msgid "None (inactive)"
+msgstr "无（未启用）"
+
+msgid "None (inactive):"
+msgstr "无（未启用）:"
+
+msgid "Actions"
+msgstr "操作"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Username:"
+msgstr "用户名:"
+
+msgid "Password:"
+msgstr "密码:"
+
+msgid "Copy"
+msgstr "复制"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "Staff note:"
+msgstr "馆员备注:"
+
+msgid "Patron note:"
+msgstr "读者备注:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "可注册域名（逗号分隔）:"
+
+msgid "Leave blank to keep unchanged"
+msgstr "留空以保持不变"
+
+msgid "When"
+msgstr "时间"
+
+msgid "Login ID"
+msgstr "登录 ID"
+
+msgid "Borrowernumber"
+msgstr "读者编号"
+
+msgid "Action"
+msgstr "操作"
+
+msgid "Biblionumber"
+msgstr "书目编号"
+
+msgid "Delete this publisher login?"
+msgstr "删除此出版商登录?"
+
+msgid "Configuration required:"
+msgstr "需要配置:"
+
+msgid "Login info"
+msgstr "登录信息"

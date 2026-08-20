@@ -1,0 +1,131 @@
+# Arabic translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "عرض معلومات تسجيل الدخول"
+
+msgid "Manage login info"
+msgstr "إدارة معلومات تسجيل الدخول"
+
+msgid "Secure Publisher Logins"
+msgstr "تسجيلات دخول الناشر الآمنة"
+
+msgid "Add login info"
+msgstr "إضافة معلومات تسجيل الدخول"
+
+msgid "Edit login info"
+msgstr "تعديل معلومات تسجيل الدخول"
+
+msgid "View access log"
+msgstr "عرض سجل الوصول"
+
+msgid "Publisher login access log"
+msgstr "سجل وصول تسجيل دخول الناشر"
+
+msgid "Back to login list"
+msgstr "العودة إلى قائمة تسجيل الدخول"
+
+msgid "Publisher name"
+msgstr "اسم الناشر"
+
+msgid "Publisher name:"
+msgstr "اسم الناشر:"
+
+msgid "Publisher"
+msgstr "الناشر"
+
+msgid "Domains"
+msgstr "النطاقات"
+
+msgid "Accessible by"
+msgstr "متاح لـ"
+
+msgid "Accessible by:"
+msgstr "متاح لـ:"
+
+msgid "All libraries"
+msgstr "جميع المكتبات"
+
+msgid "All libraries:"
+msgstr "جميع المكتبات:"
+
+msgid "Library"
+msgstr "المكتبة"
+
+msgid "Library:"
+msgstr "المكتبة:"
+
+msgid "Library group"
+msgstr "مجموعة المكتبات"
+
+msgid "Library group:"
+msgstr "مجموعة المكتبات:"
+
+msgid "None (inactive)"
+msgstr "لا شيء (غير نشط)"
+
+msgid "None (inactive):"
+msgstr "لا شيء (غير نشط):"
+
+msgid "Actions"
+msgstr "الإجراءات"
+
+msgid "Edit"
+msgstr "تعديل"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Username:"
+msgstr "اسم المستخدم:"
+
+msgid "Password:"
+msgstr "كلمة المرور:"
+
+msgid "Copy"
+msgstr "نسخ"
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Staff note:"
+msgstr "ملاحظة الموظفين:"
+
+msgid "Patron note:"
+msgstr "ملاحظة المستخدم:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "النطاقات القابلة للتسجيل (مفصولة بفواصل):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "اتركه فارغاً للاحتفاظ"
+
+msgid "When"
+msgstr "متى"
+
+msgid "Login ID"
+msgstr "معرف تسجيل الدخول"
+
+msgid "Borrowernumber"
+msgstr "رقم المستخدم"
+
+msgid "Action"
+msgstr "الإجراء"
+
+msgid "Biblionumber"
+msgstr "رقم الببليو"
+
+msgid "Delete this publisher login?"
+msgstr "حذف تسجيل دخول الناشر هذا?"
+
+msgid "Configuration required:"
+msgstr "التكوين مطلوب:"
+
+msgid "Login info"
+msgstr "معلومات تسجيل الدخول"

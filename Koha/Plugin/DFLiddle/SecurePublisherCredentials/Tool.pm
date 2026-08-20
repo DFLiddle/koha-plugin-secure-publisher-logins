@@ -32,7 +32,10 @@ Koha invokes C<tool> on the plugin class; that method delegates here.
 
 sub dispatch {
     my ( $class, $plugin ) = @_;
-    $plugin->{cgi} ||= CGI->new;
+    $plugin->{cgi} ||= eval {
+        require C4::Context;
+        C4::Context->query;
+    } || CGI->new;
     my $cgi = $plugin->{cgi};
 
     my $staff = Access->current_staff_patron;

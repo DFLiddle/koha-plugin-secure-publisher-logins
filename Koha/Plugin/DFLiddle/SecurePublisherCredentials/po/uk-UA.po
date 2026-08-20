@@ -1,0 +1,131 @@
+# Ukrainian translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Переглянути дані входу"
+
+msgid "Manage login info"
+msgstr "Управляти даними входу"
+
+msgid "Secure Publisher Logins"
+msgstr "Безпечні входи видавця"
+
+msgid "Add login info"
+msgstr "Додати дані входу"
+
+msgid "Edit login info"
+msgstr "Редагувати дані входу"
+
+msgid "View access log"
+msgstr "Переглянути журнал доступу"
+
+msgid "Publisher login access log"
+msgstr "Журнал доступу до входу видавця"
+
+msgid "Back to login list"
+msgstr "Назад до списку входів"
+
+msgid "Publisher name"
+msgstr "Назва видавця"
+
+msgid "Publisher name:"
+msgstr "Назва видавця:"
+
+msgid "Publisher"
+msgstr "Видавець"
+
+msgid "Domains"
+msgstr "Домени"
+
+msgid "Accessible by"
+msgstr "Доступно для"
+
+msgid "Accessible by:"
+msgstr "Доступно для:"
+
+msgid "All libraries"
+msgstr "Усі бібліотеки"
+
+msgid "All libraries:"
+msgstr "Усі бібліотеки:"
+
+msgid "Library"
+msgstr "Бібліотека"
+
+msgid "Library:"
+msgstr "Бібліотека:"
+
+msgid "Library group"
+msgstr "Група бібліотек"
+
+msgid "Library group:"
+msgstr "Група бібліотек:"
+
+msgid "None (inactive)"
+msgstr "Немає (неактивно)"
+
+msgid "None (inactive):"
+msgstr "Немає (неактивно):"
+
+msgid "Actions"
+msgstr "Дії"
+
+msgid "Edit"
+msgstr "Редагувати"
+
+msgid "Delete"
+msgstr "Видалити"
+
+msgid "Save"
+msgstr "Зберегти"
+
+msgid "Cancel"
+msgstr "Скасувати"
+
+msgid "Username:"
+msgstr "Ім'я користувача:"
+
+msgid "Password:"
+msgstr "Пароль:"
+
+msgid "Copy"
+msgstr "Копіювати"
+
+msgid "Close"
+msgstr "Закрити"
+
+msgid "Staff note:"
+msgstr "Нотатка персоналу:"
+
+msgid "Patron note:"
+msgstr "Нотатка читачів:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Домени для реєстрації (через кому):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Залиште порожнім для збереження"
+
+msgid "When"
+msgstr "Коли"
+
+msgid "Login ID"
+msgstr "ID входу"
+
+msgid "Borrowernumber"
+msgstr "Номер читача"
+
+msgid "Action"
+msgstr "Дія"
+
+msgid "Biblionumber"
+msgstr "Номер бібліо"
+
+msgid "Delete this publisher login?"
+msgstr "Видалити цей вхід видавця?"
+
+msgid "Configuration required:"
+msgstr "Потрібна конфігурація:"
+
+msgid "Login info"
+msgstr "Дані входу"

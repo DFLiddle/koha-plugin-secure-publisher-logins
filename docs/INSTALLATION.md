@@ -75,6 +75,6 @@ Run [MANUAL_TEST_PLAN.md](MANUAL_TEST_PLAN.md) on your dev instance before produ
 | View login missing after upgrade | [OPERATIONS.md](OPERATIONS.md) smoke test and recovery section |
 | Plugin upload fails (no version change) | `enable_plugins=1`, `plugins_restricted=0` |
 | Decrypt errors after DB restore | Same `encryption_key` in dev and prod `koha-conf.xml` |
-| Translations | Plugin ships `po/de-DE.po` and `po/fr-FR.po`. Switch OPAC/staff language (language must be enabled in **OPACLanguages** / **StaffInterfaceLanguages**), then hard-refresh. No `koha-translate` step. See [NEXT.md](NEXT.md) for the i18n test pass. |
+| Translations | Plugin ships PO catalogs in `po/` (see [I18N_LOCALES.md](I18N_LOCALES.md)). Enable languages in **OPACLanguages** / **StaffInterfaceLanguages**, switch UI language, hard-refresh. No `koha-translate` step. |
 
 For upload, upgrade, `plugin_methods` recovery, and log interpretation, use **[OPERATIONS.md](OPERATIONS.md)**.

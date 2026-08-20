@@ -1,0 +1,131 @@
+# Italian translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Visualizza credenziali"
+
+msgid "Manage login info"
+msgstr "Gestisci credenziali"
+
+msgid "Secure Publisher Logins"
+msgstr "Accessi editore sicuri"
+
+msgid "Add login info"
+msgstr "Aggiungi credenziali"
+
+msgid "Edit login info"
+msgstr "Modifica credenziali"
+
+msgid "View access log"
+msgstr "Visualizza registro accessi"
+
+msgid "Publisher login access log"
+msgstr "Registro accessi credenziali editore"
+
+msgid "Back to login list"
+msgstr "Torna alla lista accessi"
+
+msgid "Publisher name"
+msgstr "Nome editore"
+
+msgid "Publisher name:"
+msgstr "Nome editore:"
+
+msgid "Publisher"
+msgstr "Editore"
+
+msgid "Domains"
+msgstr "Domini"
+
+msgid "Accessible by"
+msgstr "Accessibile da"
+
+msgid "Accessible by:"
+msgstr "Accessibile da:"
+
+msgid "All libraries"
+msgstr "Tutte le biblioteche"
+
+msgid "All libraries:"
+msgstr "Tutte le biblioteche:"
+
+msgid "Library"
+msgstr "Biblioteca"
+
+msgid "Library:"
+msgstr "Biblioteca:"
+
+msgid "Library group"
+msgstr "Gruppo biblioteche"
+
+msgid "Library group:"
+msgstr "Gruppo biblioteche:"
+
+msgid "None (inactive)"
+msgstr "Nessuno (inattivo)"
+
+msgid "None (inactive):"
+msgstr "Nessuno (inattivo):"
+
+msgid "Actions"
+msgstr "Azioni"
+
+msgid "Edit"
+msgstr "Modifica"
+
+msgid "Delete"
+msgstr "Elimina"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Cancel"
+msgstr "Annulla"
+
+msgid "Username:"
+msgstr "Nome utente:"
+
+msgid "Password:"
+msgstr "Password:"
+
+msgid "Copy"
+msgstr "Copia"
+
+msgid "Close"
+msgstr "Chiudi"
+
+msgid "Staff note:"
+msgstr "Nota del personale:"
+
+msgid "Patron note:"
+msgstr "Nota dell'utente:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Domini registrabili (separati da virgola):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Lascia vuoto per mantenere"
+
+msgid "When"
+msgstr "Quando"
+
+msgid "Login ID"
+msgstr "ID accesso"
+
+msgid "Borrowernumber"
+msgstr "Numero utente"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Biblionumber"
+msgstr "Numero biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Eliminare questo accesso editore?"
+
+msgid "Configuration required:"
+msgstr "Configurazione richiesta:"
+
+msgid "Login info"
+msgstr "Credenziali"

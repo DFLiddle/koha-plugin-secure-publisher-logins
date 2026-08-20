@@ -1,0 +1,131 @@
+# Hungarian translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Bejelentkezési adatok megtekintése"
+
+msgid "Manage login info"
+msgstr "Bejelentkezési adatok kezelése"
+
+msgid "Secure Publisher Logins"
+msgstr "Biztonságos kiadói bejelentkezések"
+
+msgid "Add login info"
+msgstr "Bejelentkezési adatok hozzáadása"
+
+msgid "Edit login info"
+msgstr "Bejelentkezési adatok szerkesztése"
+
+msgid "View access log"
+msgstr "Hozzáférési napló megtekintése"
+
+msgid "Publisher login access log"
+msgstr "Kiadói bejelentkezés hozzáférési napló"
+
+msgid "Back to login list"
+msgstr "Vissza a bejelentkezési listához"
+
+msgid "Publisher name"
+msgstr "Kiadó neve"
+
+msgid "Publisher name:"
+msgstr "Kiadó neve:"
+
+msgid "Publisher"
+msgstr "Kiadó"
+
+msgid "Domains"
+msgstr "Tartományok"
+
+msgid "Accessible by"
+msgstr "Elérhető"
+
+msgid "Accessible by:"
+msgstr "Elérhető:"
+
+msgid "All libraries"
+msgstr "Minden könyvtár"
+
+msgid "All libraries:"
+msgstr "Minden könyvtár:"
+
+msgid "Library"
+msgstr "Könyvtár"
+
+msgid "Library:"
+msgstr "Könyvtár:"
+
+msgid "Library group"
+msgstr "Könyvtárcsoport"
+
+msgid "Library group:"
+msgstr "Könyvtárcsoport:"
+
+msgid "None (inactive)"
+msgstr "Nincs (inaktív)"
+
+msgid "None (inactive):"
+msgstr "Nincs (inaktív):"
+
+msgid "Actions"
+msgstr "Műveletek"
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "Save"
+msgstr "Mentés"
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid "Username:"
+msgstr "Felhasználónév:"
+
+msgid "Password:"
+msgstr "Jelszó:"
+
+msgid "Copy"
+msgstr "Másolás"
+
+msgid "Close"
+msgstr "Bezárás"
+
+msgid "Staff note:"
+msgstr "Személyzeti megjegyzés:"
+
+msgid "Patron note:"
+msgstr "Olvasói megjegyzés:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Regisztrálható tartományok (vesszővel elválasztva):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Hagyja üresen a megtartáshoz"
+
+msgid "When"
+msgstr "Időpont"
+
+msgid "Login ID"
+msgstr "Bejelentkezési azonosító"
+
+msgid "Borrowernumber"
+msgstr "Olvasószám"
+
+msgid "Action"
+msgstr "Művelet"
+
+msgid "Biblionumber"
+msgstr "Biblionszám"
+
+msgid "Delete this publisher login?"
+msgstr "Törli ezt a kiadói bejelentkezést?"
+
+msgid "Configuration required:"
+msgstr "Konfiguráció szükséges:"
+
+msgid "Login info"
+msgstr "Bejelentkezési adatok"

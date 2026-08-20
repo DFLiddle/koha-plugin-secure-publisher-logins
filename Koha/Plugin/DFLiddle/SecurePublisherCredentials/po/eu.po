@@ -1,0 +1,131 @@
+# Basque translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Ikusi saioa hasteko informazioa"
+
+msgid "Manage login info"
+msgstr "Kudeatu saioa hasteko informazioa"
+
+msgid "Secure Publisher Logins"
+msgstr "Argitaletxe saio hasiera seguruak"
+
+msgid "Add login info"
+msgstr "Gehitu saioa hasteko informazioa"
+
+msgid "Edit login info"
+msgstr "Editatu saioa hasteko informazioa"
+
+msgid "View access log"
+msgstr "Ikusi sarbide erregistroa"
+
+msgid "Publisher login access log"
+msgstr "Argitaletxe saio hasieraren sarbide erregistroa"
+
+msgid "Back to login list"
+msgstr "Itzuli saio hasiera zerrendara"
+
+msgid "Publisher name"
+msgstr "Argitaletxearen izena"
+
+msgid "Publisher name:"
+msgstr "Argitaletxearen izena:"
+
+msgid "Publisher"
+msgstr "Argitaletxea"
+
+msgid "Domains"
+msgstr "Domeinuak"
+
+msgid "Accessible by"
+msgstr "Honentzat eskuragarri"
+
+msgid "Accessible by:"
+msgstr "Honentzat eskuragarri:"
+
+msgid "All libraries"
+msgstr "Liburutegi guztiak"
+
+msgid "All libraries:"
+msgstr "Liburutegi guztiak:"
+
+msgid "Library"
+msgstr "Liburutegia"
+
+msgid "Library:"
+msgstr "Liburutegia:"
+
+msgid "Library group"
+msgstr "Liburutegi taldea"
+
+msgid "Library group:"
+msgstr "Liburutegi taldea:"
+
+msgid "None (inactive)"
+msgstr "Bat ere ez (ez aktibo)"
+
+msgid "None (inactive):"
+msgstr "Bat ere ez (ez aktibo):"
+
+msgid "Actions"
+msgstr "Ekintzak"
+
+msgid "Edit"
+msgstr "Editatu"
+
+msgid "Delete"
+msgstr "Ezabatu"
+
+msgid "Save"
+msgstr "Gorde"
+
+msgid "Cancel"
+msgstr "Utzi"
+
+msgid "Username:"
+msgstr "Erabiltzaile izena:"
+
+msgid "Password:"
+msgstr "Pasahitza:"
+
+msgid "Copy"
+msgstr "Kopiatu"
+
+msgid "Close"
+msgstr "Itxi"
+
+msgid "Staff note:"
+msgstr "Langile oharra:"
+
+msgid "Patron note:"
+msgstr "Erabiltzaile oharra:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Erregistragarri domeinuak (koma bidez bereizita):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Utzi hutsik mantentzeko"
+
+msgid "When"
+msgstr "Noiz"
+
+msgid "Login ID"
+msgstr "Saio hasiera ID"
+
+msgid "Borrowernumber"
+msgstr "Erabiltzaile zenbakia"
+
+msgid "Action"
+msgstr "Ekintza"
+
+msgid "Biblionumber"
+msgstr "Biblio zenbakia"
+
+msgid "Delete this publisher login?"
+msgstr "Ezabatu argitaletxe saio hasiera hau?"
+
+msgid "Configuration required:"
+msgstr "Konfigurazioa beharrezkoa:"
+
+msgid "Login info"
+msgstr "Saioa hasteko informazioa"

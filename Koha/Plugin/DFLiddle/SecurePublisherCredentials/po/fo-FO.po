@@ -1,0 +1,131 @@
+# Faroese translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Vís innritanarupplýsingar"
+
+msgid "Manage login info"
+msgstr "Stýr innritanarupplýsingum"
+
+msgid "Secure Publisher Logins"
+msgstr "Tryggar útgefara innritanir"
+
+msgid "Add login info"
+msgstr "Legg innritanarupplýsingar afturat"
+
+msgid "Edit login info"
+msgstr "Broyt innritanarupplýsingar"
+
+msgid "View access log"
+msgstr "Vís atgongdardagbók"
+
+msgid "Publisher login access log"
+msgstr "Atgongdardagbók fyri útgefara innritan"
+
+msgid "Back to login list"
+msgstr "Aftur til innritanarlista"
+
+msgid "Publisher name"
+msgstr "Útgefaranavn"
+
+msgid "Publisher name:"
+msgstr "Útgefaranavn:"
+
+msgid "Publisher"
+msgstr "Útgefari"
+
+msgid "Domains"
+msgstr "Lén"
+
+msgid "Accessible by"
+msgstr "Tilgengilegt fyri"
+
+msgid "Accessible by:"
+msgstr "Tilgengilegt fyri:"
+
+msgid "All libraries"
+msgstr "Øll bókasøvn"
+
+msgid "All libraries:"
+msgstr "Øll bókasøvn:"
+
+msgid "Library"
+msgstr "Bókasavn"
+
+msgid "Library:"
+msgstr "Bókasavn:"
+
+msgid "Library group"
+msgstr "Bókasavnahópur"
+
+msgid "Library group:"
+msgstr "Bókasavnahópur:"
+
+msgid "None (inactive)"
+msgstr "Einki (óvirkjað)"
+
+msgid "None (inactive):"
+msgstr "Einki (óvirkjað):"
+
+msgid "Actions"
+msgstr "Gerðir"
+
+msgid "Edit"
+msgstr "Broyt"
+
+msgid "Delete"
+msgstr "Strika"
+
+msgid "Save"
+msgstr "Goym"
+
+msgid "Cancel"
+msgstr "Angra"
+
+msgid "Username:"
+msgstr "Brúkaranavn:"
+
+msgid "Password:"
+msgstr "Loyniorð:"
+
+msgid "Copy"
+msgstr "Avrita"
+
+msgid "Close"
+msgstr "Lat aftur"
+
+msgid "Staff note:"
+msgstr "Starvsfólksathugasemd:"
+
+msgid "Patron note:"
+msgstr "Brúkaraathugasemd:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Skrásetanarlén (skilt við komma):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Lat tómt fyri at halda"
+
+msgid "When"
+msgstr "Tíðspunkt"
+
+msgid "Login ID"
+msgstr "Innritanarauðkenni"
+
+msgid "Borrowernumber"
+msgstr "Brúkanúmer"
+
+msgid "Action"
+msgstr "Gerð"
+
+msgid "Biblionumber"
+msgstr "Biblionúmer"
+
+msgid "Delete this publisher login?"
+msgstr "Strika hesa útgefara innritan?"
+
+msgid "Configuration required:"
+msgstr "Uppseting kravd:"
+
+msgid "Login info"
+msgstr "Innritanarupplýsingar"

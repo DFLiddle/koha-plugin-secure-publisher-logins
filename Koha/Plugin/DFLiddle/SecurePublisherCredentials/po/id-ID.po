@@ -1,0 +1,131 @@
+# Indonesian translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Lihat info login"
+
+msgid "Manage login info"
+msgstr "Kelola info login"
+
+msgid "Secure Publisher Logins"
+msgstr "Login penerbit aman"
+
+msgid "Add login info"
+msgstr "Tambah info login"
+
+msgid "Edit login info"
+msgstr "Edit info login"
+
+msgid "View access log"
+msgstr "Lihat log akses"
+
+msgid "Publisher login access log"
+msgstr "Log akses login penerbit"
+
+msgid "Back to login list"
+msgstr "Kembali ke daftar login"
+
+msgid "Publisher name"
+msgstr "Nama penerbit"
+
+msgid "Publisher name:"
+msgstr "Nama penerbit:"
+
+msgid "Publisher"
+msgstr "Penerbit"
+
+msgid "Domains"
+msgstr "Domain"
+
+msgid "Accessible by"
+msgstr "Dapat diakses oleh"
+
+msgid "Accessible by:"
+msgstr "Dapat diakses oleh:"
+
+msgid "All libraries"
+msgstr "Semua perpustakaan"
+
+msgid "All libraries:"
+msgstr "Semua perpustakaan:"
+
+msgid "Library"
+msgstr "Perpustakaan"
+
+msgid "Library:"
+msgstr "Perpustakaan:"
+
+msgid "Library group"
+msgstr "Grup perpustakaan"
+
+msgid "Library group:"
+msgstr "Grup perpustakaan:"
+
+msgid "None (inactive)"
+msgstr "Tidak ada (nonaktif)"
+
+msgid "None (inactive):"
+msgstr "Tidak ada (nonaktif):"
+
+msgid "Actions"
+msgstr "Tindakan"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Delete"
+msgstr "Hapus"
+
+msgid "Save"
+msgstr "Simpan"
+
+msgid "Cancel"
+msgstr "Batal"
+
+msgid "Username:"
+msgstr "Nama pengguna:"
+
+msgid "Password:"
+msgstr "Kata sandi:"
+
+msgid "Copy"
+msgstr "Salin"
+
+msgid "Close"
+msgstr "Tutup"
+
+msgid "Staff note:"
+msgstr "Catatan staf:"
+
+msgid "Patron note:"
+msgstr "Catatan pengguna:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Domain yang dapat didaftarkan (dipisahkan koma):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Biarkan kosong untuk mempertahankan"
+
+msgid "When"
+msgstr "Waktu"
+
+msgid "Login ID"
+msgstr "ID login"
+
+msgid "Borrowernumber"
+msgstr "Nomor peminjam"
+
+msgid "Action"
+msgstr "Tindakan"
+
+msgid "Biblionumber"
+msgstr "Nomor biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Hapus login penerbit ini?"
+
+msgid "Configuration required:"
+msgstr "Konfigurasi diperlukan:"
+
+msgid "Login info"
+msgstr "Info login"

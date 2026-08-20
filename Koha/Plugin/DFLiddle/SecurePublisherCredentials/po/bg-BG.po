@@ -1,0 +1,131 @@
+# Bulgarian translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Преглед на информация за вход"
+
+msgid "Manage login info"
+msgstr "Управление на информация за вход"
+
+msgid "Secure Publisher Logins"
+msgstr "Сигурни входове на издател"
+
+msgid "Add login info"
+msgstr "Добавяне на информация за вход"
+
+msgid "Edit login info"
+msgstr "Редактиране на информация за вход"
+
+msgid "View access log"
+msgstr "Преглед на дневник на достъп"
+
+msgid "Publisher login access log"
+msgstr "Дневник на достъп до вход на издател"
+
+msgid "Back to login list"
+msgstr "Обратно към списъка с входове"
+
+msgid "Publisher name"
+msgstr "Име на издател"
+
+msgid "Publisher name:"
+msgstr "Име на издател:"
+
+msgid "Publisher"
+msgstr "Издател"
+
+msgid "Domains"
+msgstr "Домейни"
+
+msgid "Accessible by"
+msgstr "Достъпно за"
+
+msgid "Accessible by:"
+msgstr "Достъпно за:"
+
+msgid "All libraries"
+msgstr "Всички библиотеки"
+
+msgid "All libraries:"
+msgstr "Всички библиотеки:"
+
+msgid "Library"
+msgstr "Библиотека"
+
+msgid "Library:"
+msgstr "Библиотека:"
+
+msgid "Library group"
+msgstr "Група библиотеки"
+
+msgid "Library group:"
+msgstr "Група библиотеки:"
+
+msgid "None (inactive)"
+msgstr "Няма (неактивно)"
+
+msgid "None (inactive):"
+msgstr "Няма (неактивно):"
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "Edit"
+msgstr "Редактиране"
+
+msgid "Delete"
+msgstr "Изтриване"
+
+msgid "Save"
+msgstr "Запазване"
+
+msgid "Cancel"
+msgstr "Отказ"
+
+msgid "Username:"
+msgstr "Потребителско име:"
+
+msgid "Password:"
+msgstr "Парола:"
+
+msgid "Copy"
+msgstr "Копиране"
+
+msgid "Close"
+msgstr "Затваряне"
+
+msgid "Staff note:"
+msgstr "Бележка на персонала:"
+
+msgid "Patron note:"
+msgstr "Бележка на потребителя:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Регистрируеми домейни (разделени със запетая):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Оставете празно за запазване"
+
+msgid "When"
+msgstr "Кога"
+
+msgid "Login ID"
+msgstr "ID на вход"
+
+msgid "Borrowernumber"
+msgstr "Номер на потребител"
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Biblionumber"
+msgstr "Номер на библио"
+
+msgid "Delete this publisher login?"
+msgstr "Изтриване на този вход на издател?"
+
+msgid "Configuration required:"
+msgstr "Необходима конфигурация:"
+
+msgid "Login info"
+msgstr "Информация за вход"

@@ -1,0 +1,131 @@
+# Japanese translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "ログイン情報を表示"
+
+msgid "Manage login info"
+msgstr "ログイン情報を管理"
+
+msgid "Secure Publisher Logins"
+msgstr "安全な出版社ログイン"
+
+msgid "Add login info"
+msgstr "ログイン情報を追加"
+
+msgid "Edit login info"
+msgstr "ログイン情報を編集"
+
+msgid "View access log"
+msgstr "アクセスログを表示"
+
+msgid "Publisher login access log"
+msgstr "出版社ログインアクセスログ"
+
+msgid "Back to login list"
+msgstr "ログイン一覧に戻る"
+
+msgid "Publisher name"
+msgstr "出版社名"
+
+msgid "Publisher name:"
+msgstr "出版社名:"
+
+msgid "Publisher"
+msgstr "出版社"
+
+msgid "Domains"
+msgstr "ドメイン"
+
+msgid "Accessible by"
+msgstr "アクセス可能"
+
+msgid "Accessible by:"
+msgstr "アクセス可能:"
+
+msgid "All libraries"
+msgstr "すべての図書館"
+
+msgid "All libraries:"
+msgstr "すべての図書館:"
+
+msgid "Library"
+msgstr "図書館"
+
+msgid "Library:"
+msgstr "図書館:"
+
+msgid "Library group"
+msgstr "図書館グループ"
+
+msgid "Library group:"
+msgstr "図書館グループ:"
+
+msgid "None (inactive)"
+msgstr "なし（無効）"
+
+msgid "None (inactive):"
+msgstr "なし（無効）:"
+
+msgid "Actions"
+msgstr "操作"
+
+msgid "Edit"
+msgstr "編集"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Username:"
+msgstr "ユーザー名:"
+
+msgid "Password:"
+msgstr "パスワード:"
+
+msgid "Copy"
+msgstr "コピー"
+
+msgid "Close"
+msgstr "閉じる"
+
+msgid "Staff note:"
+msgstr "スタッフメモ:"
+
+msgid "Patron note:"
+msgstr "利用者メモ:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "登録可能ドメイン（カンマ区切り）:"
+
+msgid "Leave blank to keep unchanged"
+msgstr "変更しない場合は空欄"
+
+msgid "When"
+msgstr "日時"
+
+msgid "Login ID"
+msgstr "ログイン ID"
+
+msgid "Borrowernumber"
+msgstr "利用者番号"
+
+msgid "Action"
+msgstr "操作"
+
+msgid "Biblionumber"
+msgstr "書目番号"
+
+msgid "Delete this publisher login?"
+msgstr "この出版社ログインを削除しますか?"
+
+msgid "Configuration required:"
+msgstr "設定が必要:"
+
+msgid "Login info"
+msgstr "ログイン情報"

@@ -220,9 +220,28 @@
     return group;
   }
 
+  function applyAvailabilityLabels(res) {
+    if (!res || !res.show) return;
+    var view = document.querySelector(".spc-view-login");
+    if (view && res.label) {
+      view.innerHTML =
+        '<i class="fa fa-lock" aria-hidden="true"></i> ' + res.label;
+    }
+    var manage = document.querySelector(".spc-manage-login");
+    if (manage && res.manage && res.manage_label) {
+      manage.innerHTML =
+        '<i class="fa fa-pencil" aria-hidden="true"></i> ' + res.manage_label;
+    }
+  }
+
   function injectStaffLink(biblionumber) {
     if (document.querySelector(".spc-view-login")) {
       bindViewButtons();
+      fetchJson(API_BASE + "/biblios/" + biblionumber + "/availability?interface=staff")
+        .then(applyAvailabilityLabels)
+        .catch(function (err) {
+          console.warn("SPC: availability label refresh failed", err);
+        });
       return;
     }
 
@@ -280,9 +299,7 @@
     if (!bib) return;
     injectStaffLink(bib);
     window.setTimeout(function () {
-      if (!document.querySelector(".spc-view-login")) {
-        injectStaffLink(bib);
-      }
+      injectStaffLink(bib);
     }, 400);
   }
 

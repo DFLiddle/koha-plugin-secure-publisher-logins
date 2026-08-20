@@ -1,0 +1,131 @@
+# Polish translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Wyświetl dane logowania"
+
+msgid "Manage login info"
+msgstr "Zarządzaj danymi logowania"
+
+msgid "Secure Publisher Logins"
+msgstr "Bezpieczne loginy wydawcy"
+
+msgid "Add login info"
+msgstr "Dodaj dane logowania"
+
+msgid "Edit login info"
+msgstr "Edytuj dane logowania"
+
+msgid "View access log"
+msgstr "Wyświetl dziennik dostępu"
+
+msgid "Publisher login access log"
+msgstr "Dziennik dostępu do logowania wydawcy"
+
+msgid "Back to login list"
+msgstr "Powrót do listy logowania"
+
+msgid "Publisher name"
+msgstr "Nazwa wydawcy"
+
+msgid "Publisher name:"
+msgstr "Nazwa wydawcy:"
+
+msgid "Publisher"
+msgstr "Wydawca"
+
+msgid "Domains"
+msgstr "Domeny"
+
+msgid "Accessible by"
+msgstr "Dostępne dla"
+
+msgid "Accessible by:"
+msgstr "Dostępne dla:"
+
+msgid "All libraries"
+msgstr "Wszystkie biblioteki"
+
+msgid "All libraries:"
+msgstr "Wszystkie biblioteki:"
+
+msgid "Library"
+msgstr "Biblioteka"
+
+msgid "Library:"
+msgstr "Biblioteka:"
+
+msgid "Library group"
+msgstr "Grupa bibliotek"
+
+msgid "Library group:"
+msgstr "Grupa bibliotek:"
+
+msgid "None (inactive)"
+msgstr "Brak (nieaktywny)"
+
+msgid "None (inactive):"
+msgstr "Brak (nieaktywny):"
+
+msgid "Actions"
+msgstr "Akcje"
+
+msgid "Edit"
+msgstr "Edytuj"
+
+msgid "Delete"
+msgstr "Usuń"
+
+msgid "Save"
+msgstr "Zapisz"
+
+msgid "Cancel"
+msgstr "Anuluj"
+
+msgid "Username:"
+msgstr "Nazwa użytkownika:"
+
+msgid "Password:"
+msgstr "Hasło:"
+
+msgid "Copy"
+msgstr "Kopiuj"
+
+msgid "Close"
+msgstr "Zamknij"
+
+msgid "Staff note:"
+msgstr "Notatka personelu:"
+
+msgid "Patron note:"
+msgstr "Notatka czytelnika:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Rejestrowalne domeny (oddzielone przecinkami):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Pozostaw puste, aby zachować"
+
+msgid "When"
+msgstr "Kiedy"
+
+msgid "Login ID"
+msgstr "ID logowania"
+
+msgid "Borrowernumber"
+msgstr "Numer czytelnika"
+
+msgid "Action"
+msgstr "Akcja"
+
+msgid "Biblionumber"
+msgstr "Numer biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Usunąć to logowanie wydawcy?"
+
+msgid "Configuration required:"
+msgstr "Wymagana konfiguracja:"
+
+msgid "Login info"
+msgstr "Dane logowania"

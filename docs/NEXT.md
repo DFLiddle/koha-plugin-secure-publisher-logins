@@ -1,37 +1,24 @@
 # Next
 
-## 1. Operations runbook (Option A) — do this first
+## Production cutover
 
-Follow **[OPERATIONS.md](OPERATIONS.md)** for every upload on DEV and production:
+DEV sign-off complete (English + installed locales). Ship **v1.3.0** via [OPERATIONS.md](OPERATIONS.md):
 
-- Expect upload **500** with `plugins_restart`; confirm **version** on Plugins home
-- Post-upload smoke test: `spc-config.js` / `spc-staff.js` in page source
-- Recovery via `spc_repair_plugin_methods.pl` or SQL — **not** full `install_plugins.pl` on 24.11
+1. Build from tagged release: `npm run build` → `npm run verify:kpz` (must show **1.3.0**)
+2. Upload on production; confirm version on Plugins home
+3. Post-upload smoke test (`spc-config.js` / `spc-staff.js`)
+4. Run production section of [MANUAL_TEST_PLAN.md](MANUAL_TEST_PLAN.md)
+5. Enter credentials in Tools; remove legacy clear-text publisher logins elsewhere
 
-Deploy **1.2.24+** so enable/disable repair and hook self-repair are on the server.
+Keep [OPERATIONS.md](OPERATIONS.md) (or the SQL recovery block) available for the first production upload.
 
-## 2. Stabilize English on DEV
+## Maintenance
 
-```bash
-cd ~/Projects/koha-plugin-secure-publisher-logins
-npm run version:check && npm run build
-```
+- **New UI string** — Update `de-DE.po` / `fr-FR.po`, `po/catalogs.json`, `npm run i18n:po`, `npm run i18n:verify`
+- **New Koha locale** — Add to `po/catalogs.json`, regenerate PO, document in [I18N_LOCALES.md](I18N_LOCALES.md)
+- **Weblate alignment** — `./scripts/list-weblate-languages.sh 66` (LF line endings; see I18N_LOCALES.md)
 
-Upload using [OPERATIONS.md](OPERATIONS.md), then run [MANUAL_TEST_PLAN.md](MANUAL_TEST_PLAN.md) (English sections).
+## Deferred / optional
 
-## 3. Translations (Option B) — after A
-
-See [ARCHITECTURE.md](ARCHITECTURE.md) (i18n row) and `I18N.pm` / `po/*.po`.
-
-1. Switch staff/OPAC to **de-DE**; confirm cookie `KohaOpacLanguage=de-DE`; hard refresh
-2. API: `/api/v1/contrib/secure_publisher_credentials/biblios/BIB/availability?interface=staff&debug=1` — `label` and `debug.language` should reflect German
-3. Toolbar, modal, Tools labels
-4. Repeat for **fr-FR**
-5. Fix code/PO only where tests fail
-
-## 4. Release v1.3.0
-
-When English manual test plan passes and required locales pass:
-
-- Bump version, tag, GitHub release `.kpz`
-- Production cutover via [OPERATIONS.md](OPERATIONS.md)
+- Further locales below Koha Weblate threshold
+- Production monitoring beyond Koha action log / Plack error log

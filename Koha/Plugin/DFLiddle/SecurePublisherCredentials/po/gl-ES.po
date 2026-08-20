@@ -1,0 +1,131 @@
+# Galician translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Ver información de acceso"
+
+msgid "Manage login info"
+msgstr "Xestionar información de acceso"
+
+msgid "Secure Publisher Logins"
+msgstr "Accesos seguros de editor"
+
+msgid "Add login info"
+msgstr "Engadir información de acceso"
+
+msgid "Edit login info"
+msgstr "Editar información de acceso"
+
+msgid "View access log"
+msgstr "Ver rexistro de acceso"
+
+msgid "Publisher login access log"
+msgstr "Rexistro de acceso de inicio de editor"
+
+msgid "Back to login list"
+msgstr "Volver á lista de accesos"
+
+msgid "Publisher name"
+msgstr "Nome do editor"
+
+msgid "Publisher name:"
+msgstr "Nome do editor:"
+
+msgid "Publisher"
+msgstr "Editor"
+
+msgid "Domains"
+msgstr "Dominios"
+
+msgid "Accessible by"
+msgstr "Accesible por"
+
+msgid "Accessible by:"
+msgstr "Accesible por:"
+
+msgid "All libraries"
+msgstr "Todas as bibliotecas"
+
+msgid "All libraries:"
+msgstr "Todas as bibliotecas:"
+
+msgid "Library"
+msgstr "Biblioteca"
+
+msgid "Library:"
+msgstr "Biblioteca:"
+
+msgid "Library group"
+msgstr "Grupo de bibliotecas"
+
+msgid "Library group:"
+msgstr "Grupo de bibliotecas:"
+
+msgid "None (inactive)"
+msgstr "Ningún (inactivo)"
+
+msgid "None (inactive):"
+msgstr "Ningún (inactivo):"
+
+msgid "Actions"
+msgstr "Accións"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Save"
+msgstr "Gardar"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Username:"
+msgstr "Nome de usuario:"
+
+msgid "Password:"
+msgstr "Contrasinal:"
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "Close"
+msgstr "Pechar"
+
+msgid "Staff note:"
+msgstr "Nota do persoal:"
+
+msgid "Patron note:"
+msgstr "Nota do usuario:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Dominios rexistrables (separados por comas):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Deixar en branco para manter"
+
+msgid "When"
+msgstr "Cando"
+
+msgid "Login ID"
+msgstr "ID de acceso"
+
+msgid "Borrowernumber"
+msgstr "Número de usuario"
+
+msgid "Action"
+msgstr "Acción"
+
+msgid "Biblionumber"
+msgstr "Número de biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Eliminar este acceso de editor?"
+
+msgid "Configuration required:"
+msgstr "Configuración requerida:"
+
+msgid "Login info"
+msgstr "Información de acceso"

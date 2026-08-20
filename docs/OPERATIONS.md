@@ -25,8 +25,20 @@ Replace `library` with your Koha instance name.
 
 ```bash
 cd ~/Projects/koha-plugin-secure-publisher-logins
-npm run version:check && npm run build
+npm run build
 ```
+
+`npm run build` runs `version:check`, builds the `.kpz`, then verifies `$VERSION` inside the zip matches `package.json`. You can re-check an existing build with `npm run verify:kpz`.
+
+Before upload, confirm the file you will select in the browser:
+
+```bash
+npm run verify:kpz
+# or manually:
+unzip -p dist/koha-plugin-secure-publisher-logins.kpz Koha/Plugin/DFLiddle/SecurePublisherCredentials.pm | grep VERSION
+```
+
+Use **`dist/koha-plugin-secure-publisher-logins.kpz`** from this build — not an older copy in Downloads and not a GitHub Release asset unless that release tag matches your build version.
 
 ### 2. Upload in staff
 
@@ -52,7 +64,9 @@ You do **not** need `sudo systemctl restart apache2` for a routine plugin upgrad
 
 Open **Administration → Plugins** manually (do not rely on the upload redirect).
 
-Find **Secure Publisher Logins** and confirm the **version** matches the build you uploaded (e.g. **1.2.23**).
+Find **Secure Publisher Logins** and confirm the **version** matches the build you uploaded (e.g. **1.2.24**).
+
+If Plugins home still shows an old version after upload, see [Uploaded version does not change](#uploaded-version-does-not-change).
 
 ### 5. Post-upload smoke test (~5 minutes)
 
@@ -197,6 +211,20 @@ The plugin tries to insert missing hook rows when an enabled plugin instance loa
 | `plugins_restart: 0` | Koha warns that restart is manual; you must run `sudo koha-plack --restart library` after upload; 500 may still appear |
 
 Either way, run the smoke test after Plack is up.
+
+## Uploaded version does not change
+
+`version:check` only compares **source** files (`package.json` and `.pm`). Koha displays whatever is on disk under `pluginsdir` after upload.
+
+| Check | Command / action |
+|-------|------------------|
+| Built `.kpz` really contains new version | `npm run verify:kpz` (after `npm run build`) |
+| You uploaded the fresh `dist/*.kpz` | Not an old Downloads copy or a GitHub Release from an earlier tag |
+| Server files updated | `grep VERSION /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials.pm` |
+| Install ran | Plugins page version still old + server file old → upload may have failed (HTTP 500); check Plack log |
+| Plack loaded new code | `sudo koha-plack --restart library` then hard-refresh Plugins home |
+
+If the server `.pm` still shows the old version, the upload did not replace the plugin tree — rebuild, verify kpz, upload again, restart Plack.
 
 ## Related documentation
 

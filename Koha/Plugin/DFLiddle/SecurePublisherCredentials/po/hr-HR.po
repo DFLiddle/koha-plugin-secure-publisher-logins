@@ -1,0 +1,131 @@
+# Croatian translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Prikaži podatke za prijavu"
+
+msgid "Manage login info"
+msgstr "Upravljaj podacima za prijavu"
+
+msgid "Secure Publisher Logins"
+msgstr "Sigurne prijave izdavača"
+
+msgid "Add login info"
+msgstr "Dodaj podatke za prijavu"
+
+msgid "Edit login info"
+msgstr "Uredi podatke za prijavu"
+
+msgid "View access log"
+msgstr "Prikaži zapisnik pristupa"
+
+msgid "Publisher login access log"
+msgstr "Zapisnik pristupa prijavi izdavača"
+
+msgid "Back to login list"
+msgstr "Natrag na popis prijav"
+
+msgid "Publisher name"
+msgstr "Naziv izdavača"
+
+msgid "Publisher name:"
+msgstr "Naziv izdavača:"
+
+msgid "Publisher"
+msgstr "Izdavač"
+
+msgid "Domains"
+msgstr "Domene"
+
+msgid "Accessible by"
+msgstr "Dostupno za"
+
+msgid "Accessible by:"
+msgstr "Dostupno za:"
+
+msgid "All libraries"
+msgstr "Sve knjižnice"
+
+msgid "All libraries:"
+msgstr "Sve knjižnice:"
+
+msgid "Library"
+msgstr "Knjižnica"
+
+msgid "Library:"
+msgstr "Knjižnica:"
+
+msgid "Library group"
+msgstr "Grupa knjižnic"
+
+msgid "Library group:"
+msgstr "Grupa knjižnic:"
+
+msgid "None (inactive)"
+msgstr "Nema (neaktivno)"
+
+msgid "None (inactive):"
+msgstr "Nema (neaktivno):"
+
+msgid "Actions"
+msgstr "Radnje"
+
+msgid "Edit"
+msgstr "Uredi"
+
+msgid "Delete"
+msgstr "Izbriši"
+
+msgid "Save"
+msgstr "Spremi"
+
+msgid "Cancel"
+msgstr "Odustani"
+
+msgid "Username:"
+msgstr "Korisničko ime:"
+
+msgid "Password:"
+msgstr "Lozinka:"
+
+msgid "Copy"
+msgstr "Kopiraj"
+
+msgid "Close"
+msgstr "Zatvori"
+
+msgid "Staff note:"
+msgstr "Napomena osoblja:"
+
+msgid "Patron note:"
+msgstr "Napomena korisnika:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Registrabilne domene (odvojene zarezom):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Ostavite prazno za zadržavanje"
+
+msgid "When"
+msgstr "Vrijeme"
+
+msgid "Login ID"
+msgstr "ID prijave"
+
+msgid "Borrowernumber"
+msgstr "Broj korisnika"
+
+msgid "Action"
+msgstr "Radnja"
+
+msgid "Biblionumber"
+msgstr "Broj biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Izbrisati ovu prijavu izdavača?"
+
+msgid "Configuration required:"
+msgstr "Potrebna konfiguracija:"
+
+msgid "Login info"
+msgstr "Podaci za prijavu"

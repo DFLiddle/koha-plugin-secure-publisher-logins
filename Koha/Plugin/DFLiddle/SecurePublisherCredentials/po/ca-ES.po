@@ -1,0 +1,131 @@
+# Catalan translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "Veure informació d'inici de sessió"
+
+msgid "Manage login info"
+msgstr "Gestionar informació d'inici de sessió"
+
+msgid "Secure Publisher Logins"
+msgstr "Inicis de sessió segurs d'editor"
+
+msgid "Add login info"
+msgstr "Afegir informació d'inici de sessió"
+
+msgid "Edit login info"
+msgstr "Editar informació d'inici de sessió"
+
+msgid "View access log"
+msgstr "Veure registre d'accés"
+
+msgid "Publisher login access log"
+msgstr "Registre d'accés d'inici de sessió d'editor"
+
+msgid "Back to login list"
+msgstr "Tornar a la llista d'inici de sessió"
+
+msgid "Publisher name"
+msgstr "Nom de l'editor"
+
+msgid "Publisher name:"
+msgstr "Nom de l'editor:"
+
+msgid "Publisher"
+msgstr "Editor"
+
+msgid "Domains"
+msgstr "Domini"
+
+msgid "Accessible by"
+msgstr "Accessible per"
+
+msgid "Accessible by:"
+msgstr "Accessible per:"
+
+msgid "All libraries"
+msgstr "Totes les biblioteques"
+
+msgid "All libraries:"
+msgstr "Totes les biblioteques:"
+
+msgid "Library"
+msgstr "Biblioteca"
+
+msgid "Library:"
+msgstr "Biblioteca:"
+
+msgid "Library group"
+msgstr "Grup de biblioteques"
+
+msgid "Library group:"
+msgstr "Grup de biblioteques:"
+
+msgid "None (inactive)"
+msgstr "Cap (inactiu)"
+
+msgid "None (inactive):"
+msgstr "Cap (inactiu):"
+
+msgid "Actions"
+msgstr "Accions"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Delete"
+msgstr "Suprimir"
+
+msgid "Save"
+msgstr "Desar"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Username:"
+msgstr "Nom d'usuari:"
+
+msgid "Password:"
+msgstr "Contrasenya:"
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "Close"
+msgstr "Tancar"
+
+msgid "Staff note:"
+msgstr "Nota del personal:"
+
+msgid "Patron note:"
+msgstr "Nota de l'usuari:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Dominis registrables (separats per comes):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Deixar en blanc per mantenir"
+
+msgid "When"
+msgstr "Quan"
+
+msgid "Login ID"
+msgstr "ID d'inici de sessió"
+
+msgid "Borrowernumber"
+msgstr "Número d'usuari"
+
+msgid "Action"
+msgstr "Acció"
+
+msgid "Biblionumber"
+msgstr "Número de biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Suprimir aquest inici de sessió d'editor?"
+
+msgid "Configuration required:"
+msgstr "Configuració necessària:"
+
+msgid "Login info"
+msgstr "Informació d'inici de sessió"

@@ -1,0 +1,131 @@
+# Hebrew translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
+
+msgid "View login info"
+msgstr "הצג מידע התחברות"
+
+msgid "Manage login info"
+msgstr "נהל מידע התחברות"
+
+msgid "Secure Publisher Logins"
+msgstr "התחברות מוציא לאור מאובטחת"
+
+msgid "Add login info"
+msgstr "הוסף מידע התחברות"
+
+msgid "Edit login info"
+msgstr "ערוך מידע התחברות"
+
+msgid "View access log"
+msgstr "הצג יומן גישה"
+
+msgid "Publisher login access log"
+msgstr "יומן גישה להתחברות מוציא לאור"
+
+msgid "Back to login list"
+msgstr "חזרה לרשימת התחברות"
+
+msgid "Publisher name"
+msgstr "שם מוציא לאור"
+
+msgid "Publisher name:"
+msgstr "שם מוציא לאור:"
+
+msgid "Publisher"
+msgstr "מוציא לאור"
+
+msgid "Domains"
+msgstr "תחומים"
+
+msgid "Accessible by"
+msgstr "זמין עבור"
+
+msgid "Accessible by:"
+msgstr "זמין עבור:"
+
+msgid "All libraries"
+msgstr "כל הספריות"
+
+msgid "All libraries:"
+msgstr "כל הספריות:"
+
+msgid "Library"
+msgstr "ספרייה"
+
+msgid "Library:"
+msgstr "ספרייה:"
+
+msgid "Library group"
+msgstr "קבוצת ספריות"
+
+msgid "Library group:"
+msgstr "קבוצת ספריות:"
+
+msgid "None (inactive)"
+msgstr "אין (לא פעיל)"
+
+msgid "None (inactive):"
+msgstr "אין (לא פעיל):"
+
+msgid "Actions"
+msgstr "פעולות"
+
+msgid "Edit"
+msgstr "ערוך"
+
+msgid "Delete"
+msgstr "מחק"
+
+msgid "Save"
+msgstr "שמור"
+
+msgid "Cancel"
+msgstr "ביטול"
+
+msgid "Username:"
+msgstr "שם משתמש:"
+
+msgid "Password:"
+msgstr "סיסמה:"
+
+msgid "Copy"
+msgstr "העתק"
+
+msgid "Close"
+msgstr "סגור"
+
+msgid "Staff note:"
+msgstr "הערת צוות:"
+
+msgid "Patron note:"
+msgstr "הערת משתמש:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "תחומים שניתן לרשום (מופרדים בפסיקים):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "השאר ריק לשמירה"
+
+msgid "When"
+msgstr "מתי"
+
+msgid "Login ID"
+msgstr "מזהה התחברות"
+
+msgid "Borrowernumber"
+msgstr "מספר משתמש"
+
+msgid "Action"
+msgstr "פעולה"
+
+msgid "Biblionumber"
+msgstr "מספר ביבליו"
+
+msgid "Delete this publisher login?"
+msgstr "מחק התחברות מוציא לאור זו?"
+
+msgid "Configuration required:"
+msgstr "נדרשת הגדרה:"
+
+msgid "Login info"
+msgstr "מידע התחברות"
