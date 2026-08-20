@@ -61,6 +61,10 @@ sub availability {
         credential_id => 0,
     };
 
+    unless ( _plugin_enabled_in_koha() ) {
+        return $c->render( status => 200, openapi => $empty );
+    }
+
     my $viewer = _viewer_from_context( $c, $interface );
     unless ($viewer) {
         return $c->render( status => 200, openapi => $empty );
@@ -125,6 +129,13 @@ sub availability {
 sub view {
     my $c = shift->openapi->valid_input or return;
 
+    unless ( _plugin_enabled_in_koha() ) {
+        return $c->render(
+            status  => 404,
+            openapi => { error => 'not_found' }
+        );
+    }
+
     my $biblionumber = $c->param('biblionumber');
     my $interface    = $c->param('interface') // 'opac';
 
@@ -181,6 +192,19 @@ sub view {
             },
         }
     );
+}
+
+sub _plugin_enabled_in_koha {
+    return eval {
+        require Koha::Plugins::Datas;
+        Koha::Plugins::Datas->search(
+            {
+                plugin_class => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials',
+                plugin_key   => '__ENABLED__',
+                plugin_value => 1,
+            }
+        )->count;
+    } || 0;
 }
 
 sub _t {

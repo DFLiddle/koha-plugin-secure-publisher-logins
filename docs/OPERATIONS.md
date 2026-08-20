@@ -100,7 +100,7 @@ Koha registers UI hooks (`intranet_js`, `opac_js`, toolbar button, etc.) in the 
 Duplicate entry 'Koha::Plugin::DFLiddle::SecurePublisherCredentials-api_namespace' for key 'PRIMARY'
 ```
 
-That can leave hook rows missing while `tool` still works via `run.pl`.
+That can leave hook rows missing while `tool` still works via `run.pl`. It can also omit `enable` / `disable`, so **Disable** on the Plugins page does nothing (Koha only invokes methods listed in `plugin_methods`).
 
 **Do not use** `misc/devel/install_plugins.pl` on this Koha version for recovery. It processes **all** plugins and can repeat the failure.
 
@@ -120,6 +120,11 @@ Use if the repair script is not deployed yet:
 ```bash
 koha-mysql library -e "
 INSERT IGNORE INTO plugin_methods (plugin_class, plugin_method) VALUES
+('Koha::Plugin::DFLiddle::SecurePublisherCredentials', 'enable'),
+('Koha::Plugin::DFLiddle::SecurePublisherCredentials', 'disable'),
+('Koha::Plugin::DFLiddle::SecurePublisherCredentials', 'install'),
+('Koha::Plugin::DFLiddle::SecurePublisherCredentials', 'uninstall'),
+('Koha::Plugin::DFLiddle::SecurePublisherCredentials', 'upgrade'),
 ('Koha::Plugin::DFLiddle::SecurePublisherCredentials', 'intranet_js'),
 ('Koha::Plugin::DFLiddle::SecurePublisherCredentials', 'intranet_head'),
 ('Koha::Plugin::DFLiddle::SecurePublisherCredentials', 'intranet_catalog_biblio_enhancements_toolbar_button'),
@@ -140,7 +145,12 @@ sudo koha-plack --restart library
 koha-mysql library -e "SELECT plugin_method FROM plugin_methods WHERE plugin_class='Koha::Plugin::DFLiddle::SecurePublisherCredentials' ORDER BY plugin_method;"
 ```
 
-Required for UI:
+Required for Plugins page enable/disable:
+
+- `enable`
+- `disable`
+
+Required for staff/OPAC UI:
 
 - `intranet_js`
 - `intranet_head`

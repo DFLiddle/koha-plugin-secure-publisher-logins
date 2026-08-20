@@ -17,7 +17,7 @@ use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants qw(
 
 use base qw(Koha::Plugins::Base);
 
-our $VERSION = '1.2.23';
+our $VERSION = '1.2.24';
 
 our $metadata = {
     name            => PLUGIN_NAME,
@@ -155,22 +155,32 @@ sub _remove_deprecated_files {
     }
 }
 
-# Koha discovers hooks via the plugin_methods table (InstallPlugins). If that run
-# fails partway (e.g. Duplicate entry on api_namespace), hooks like intranet_js
-# are missing and staff pages never load spc-staff.js — while run.pl?method=tool
-# still works. Repair missing rows whenever an enabled plugin instance loads.
+# Koha discovers callable plugin methods via the plugin_methods table (InstallPlugins).
+# plugins-disable.pl / plugins-enable.pl only work when enable/disable rows exist
+# (Koha::Plugins::Handler). If InstallPlugins fails partway (e.g. Duplicate entry on
+# api_namespace), UI hooks like intranet_js may be missing while run.pl?method=tool
+# still works. Repair missing rows whenever the plugin class loads.
 sub _ensure_hook_methods_registered {
     my ($self) = @_;
     my $class = $self->{'class'};
     return unless $class;
 
     my @hooks = qw(
+        enable
+        disable
+        install
+        uninstall
+        upgrade
         intranet_js
         intranet_head
         intranet_catalog_biblio_enhancements_toolbar_button
         opac_js
         opac_head
         tool
+        api_namespace
+        api_routes
+        static_routes
+        cronjob_nightly
     );
 
     eval {
@@ -417,7 +427,8 @@ sub _script_tag {
 
 sub _plugin_enabled {
     my ($self) = @_;
-    return $self->retrieve_data('__ENABLED__') // 1;
+    my $enabled = $self->retrieve_data('__ENABLED__');
+    return !defined $enabled || $enabled;
 }
 
 =head3 cronjob_nightly

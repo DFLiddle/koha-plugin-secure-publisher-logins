@@ -20,7 +20,8 @@ spc_repair_plugin_methods.pl - Register Secure Publisher Logins Koha hooks
 Repairs the plugin_methods table for this plugin only. Use when
 misc/devel/install_plugins.pl fails with Duplicate entry on api_namespace
 (Koha 24.11 registers every public method and can choke on duplicates)
-or when staff pages lack spc-staff.js (intranet_js not registered).
+or when staff pages lack spc-staff.js (intranet_js not registered)
+or when Disable on the Plugins page has no effect (enable/disable not registered).
 
 Does not run InstallPlugins for other plugins.
 
@@ -29,6 +30,11 @@ Does not run InstallPlugins for other plugins.
 my $class = 'Koha::Plugin::DFLiddle::SecurePublisherCredentials';
 
 my @hooks = qw(
+    enable
+    disable
+    install
+    uninstall
+    upgrade
     intranet_js
     intranet_head
     intranet_catalog_biblio_enhancements_toolbar_button

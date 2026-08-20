@@ -8,7 +8,7 @@ Follow **[OPERATIONS.md](OPERATIONS.md)** for every upload on DEV and production
 - Post-upload smoke test: `spc-config.js` / `spc-staff.js` in page source
 - Recovery via `spc_repair_plugin_methods.pl` or SQL — **not** full `install_plugins.pl` on 24.11
 
-Deploy **1.2.23+** so the repair script and hook self-repair are on the server.
+Deploy **1.2.24+** so enable/disable repair and hook self-repair are on the server.
 
 ## 2. Stabilize English on DEV
 
