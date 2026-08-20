@@ -4,7 +4,7 @@
 
 [% IF !health.ok %]
 <div class="alert alert-danger">
-  <strong>Configuration required:</strong>
+  <strong>[% l.config_required | html %]</strong>
   <ul class="mb-0">[% FOREACH e IN health.errors %]<li>[% e | html %]</li>[% END %]</ul>
 </div>
 [% END %]
@@ -16,17 +16,17 @@
 [% END %]
 
 <p>
-  <a class="btn btn-default" href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool&amp;action=new">Add login info</a>
-  <a class="btn btn-default" href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool&amp;view=log">View access log</a>
+  <a class="btn btn-default" href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool&amp;action=new">[% l.add_login | html %]</a>
+  <a class="btn btn-default" href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool&amp;view=log">[% l.view_log | html %]</a>
 </p>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Publisher</th>
-      <th>Domains</th>
-      <th>Accessible by</th>
-      <th>Actions</th>
+      <th>[% l.publisher | html %]</th>
+      <th>[% l.domains | html %]</th>
+      <th>[% l.accessible | html %]</th>
+      <th>[% l.actions | html %]</th>
     </tr>
   </thead>
   <tbody>
@@ -36,9 +36,9 @@
       <td>[% row.login.domains | html %]</td>
       <td>[% row.scope_label | html %]</td>
       <td>
-        <a href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool&amp;edit_id=[% row.login.id | html %]">Edit</a>
+        <a href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool&amp;edit_id=[% row.login.id | html %]">[% l.edit | html %]</a>
         [% IF is_superlib || can_manage %]
-        | <a href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool&amp;delete_id=[% row.login.id | html %]" onclick="return confirm('Delete this publisher login?');">Delete</a>
+        | <a href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool&amp;delete_id=[% row.login.id | html %]" onclick="return confirm('[% l.delete_confirm | html %]');">[% l.delete | html %]</a>
         [% END %]
       </td>
     </tr>

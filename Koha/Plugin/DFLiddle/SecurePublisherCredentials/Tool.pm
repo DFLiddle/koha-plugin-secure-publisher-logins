@@ -19,6 +19,7 @@ use constant {
     Credential  => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credential',
     Credentials => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials',
     Health      => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::Health',
+    I18N        => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N',
 };
 
 =head1 NAME
@@ -93,7 +94,7 @@ sub list {
         can_manage   => Access->staff_has_erm($staff),
         is_superlib  => $staff->is_superlibrarian,
         plugin_class => $plugin->{class},
-        plugin_title => PLUGIN_NAME,
+        _i18n_stash(),
     );
     $plugin->output_html( $template->output() );
 }
@@ -121,7 +122,7 @@ sub form {
         health       => $health,
         is_superlib  => $staff->is_superlibrarian,
         plugin_class => $plugin->{class},
-        plugin_title => PLUGIN_NAME,
+        _i18n_stash(),
         save_error   => $save_result ? $class->_save_error_message($save_result) : undef,
         tool_form_js => $plugin->_static_url('js/spc-tool-form.js'),
         csp_nonce    => $plugin->_csp_nonce,
@@ -204,9 +205,27 @@ sub log {
     $template->param(
         logs         => $logs,
         plugin_class => $plugin->{class},
-        plugin_title => PLUGIN_NAME,
+        _i18n_stash(),
     );
     $plugin->output_html( $template->output() );
+}
+
+sub _i18n_stash {
+    my $title  = PLUGIN_NAME;
+    my $labels = eval {
+        require Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N;
+        I18N->english_template_labels;
+    } || {};
+    eval {
+        $title  = I18N->translate(PLUGIN_NAME);
+        my $translated = I18N->template_labels;
+        %$labels = ( %$labels, %$translated ) if ref $translated eq 'HASH';
+        1;
+    };
+    return (
+        plugin_title => $title,
+        l            => $labels,
+    );
 }
 
 sub _staff_may_manage {

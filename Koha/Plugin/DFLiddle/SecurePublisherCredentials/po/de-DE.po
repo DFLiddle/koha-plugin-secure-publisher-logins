@@ -1,5 +1,5 @@
-# German translations for Secure publisher logins plugin
-# Install with standard Koha translation tools after extraction.
+# German translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
 
 msgid "View login info"
 msgstr "Anmeldedaten anzeigen"
@@ -10,20 +10,122 @@ msgstr "Anmeldedaten verwalten"
 msgid "Secure Publisher Logins"
 msgstr "Sichere Verlag-Anmeldedaten"
 
+msgid "Add login info"
+msgstr "Anmeldedaten hinzufügen"
+
+msgid "Edit login info"
+msgstr "Anmeldedaten bearbeiten"
+
+msgid "View access log"
+msgstr "Zugriffsprotokoll anzeigen"
+
+msgid "Publisher login access log"
+msgstr "Zugriffsprotokoll der Verlagsanmeldedaten"
+
+msgid "Back to login list"
+msgstr "Zurück zur Liste"
+
 msgid "Publisher name"
 msgstr "Verlagsname"
+
+msgid "Publisher name:"
+msgstr "Verlagsname:"
+
+msgid "Publisher"
+msgstr "Verlag"
+
+msgid "Domains"
+msgstr "Domains"
 
 msgid "Accessible by"
 msgstr "Zugänglich für"
 
+msgid "Accessible by:"
+msgstr "Zugänglich für:"
+
 msgid "All libraries"
 msgstr "Alle Bibliotheken"
+
+msgid "All libraries:"
+msgstr "Alle Bibliotheken:"
 
 msgid "Library"
 msgstr "Bibliothek"
 
+msgid "Library:"
+msgstr "Bibliothek:"
+
 msgid "Library group"
 msgstr "Bibliotheksgruppe"
 
+msgid "Library group:"
+msgstr "Bibliotheksgruppe:"
+
 msgid "None (inactive)"
 msgstr "Keine (inaktiv)"
+
+msgid "None (inactive):"
+msgstr "Keine (inaktiv):"
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Username:"
+msgstr "Benutzername:"
+
+msgid "Password:"
+msgstr "Passwort:"
+
+msgid "Copy"
+msgstr "Kopieren"
+
+msgid "Close"
+msgstr "Schließen"
+
+msgid "Staff note:"
+msgstr "Interner Hinweis:"
+
+msgid "Patron note:"
+msgstr "Hinweis für Benutzer:"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Registrierbare Domains (kommagetrennt):"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Leer lassen, um beizubehalten"
+
+msgid "When"
+msgstr "Zeitpunkt"
+
+msgid "Login ID"
+msgstr "Anmelde-ID"
+
+msgid "Borrowernumber"
+msgstr "Benutzernummer"
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Biblionumber"
+msgstr "Titelnummer"
+
+msgid "Delete this publisher login?"
+msgstr "Diese Verlagsanmeldung löschen?"
+
+msgid "Configuration required:"
+msgstr "Konfiguration erforderlich:"
+
+msgid "Login info"
+msgstr "Anmeldedaten"

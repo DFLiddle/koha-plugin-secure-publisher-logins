@@ -1,4 +1,5 @@
-# French translations for Secure publisher logins plugin
+# French translations for Secure Publisher Logins
+# Applied at runtime from this file (Koha 24.11 does not install plugin PO files).
 
 msgid "View login info"
 msgstr "Voir les identifiants"
@@ -9,20 +10,122 @@ msgstr "Gérer les identifiants"
 msgid "Secure Publisher Logins"
 msgstr "Identifiants éditeur sécurisés"
 
+msgid "Add login info"
+msgstr "Ajouter des identifiants"
+
+msgid "Edit login info"
+msgstr "Modifier les identifiants"
+
+msgid "View access log"
+msgstr "Voir le journal d'accès"
+
+msgid "Publisher login access log"
+msgstr "Journal d'accès aux identifiants éditeur"
+
+msgid "Back to login list"
+msgstr "Retour à la liste"
+
 msgid "Publisher name"
 msgstr "Nom de l'éditeur"
+
+msgid "Publisher name:"
+msgstr "Nom de l'éditeur :"
+
+msgid "Publisher"
+msgstr "Éditeur"
+
+msgid "Domains"
+msgstr "Domaines"
 
 msgid "Accessible by"
 msgstr "Accessible par"
 
+msgid "Accessible by:"
+msgstr "Accessible par :"
+
 msgid "All libraries"
 msgstr "Toutes les bibliothèques"
+
+msgid "All libraries:"
+msgstr "Toutes les bibliothèques :"
 
 msgid "Library"
 msgstr "Bibliothèque"
 
+msgid "Library:"
+msgstr "Bibliothèque :"
+
 msgid "Library group"
 msgstr "Groupe de bibliothèques"
 
+msgid "Library group:"
+msgstr "Groupe de bibliothèques :"
+
 msgid "None (inactive)"
 msgstr "Aucun (inactif)"
+
+msgid "None (inactive):"
+msgstr "Aucun (inactif) :"
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "Edit"
+msgstr "Modifier"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Username:"
+msgstr "Identifiant :"
+
+msgid "Password:"
+msgstr "Mot de passe :"
+
+msgid "Copy"
+msgstr "Copier"
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "Staff note:"
+msgstr "Note interne :"
+
+msgid "Patron note:"
+msgstr "Note usager :"
+
+msgid "Registrable domains (comma-separated):"
+msgstr "Domaines enregistrables (séparés par des virgules) :"
+
+msgid "Leave blank to keep unchanged"
+msgstr "Laisser vide pour conserver"
+
+msgid "When"
+msgstr "Date"
+
+msgid "Login ID"
+msgstr "ID identifiant"
+
+msgid "Borrowernumber"
+msgstr "Numéro d'adhérent"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Biblionumber"
+msgstr "Numéro biblio"
+
+msgid "Delete this publisher login?"
+msgstr "Supprimer cet identifiant éditeur ?"
+
+msgid "Configuration required:"
+msgstr "Configuration requise :"
+
+msgid "Login info"
+msgstr "Identifiants"

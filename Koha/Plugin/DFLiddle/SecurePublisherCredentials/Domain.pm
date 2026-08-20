@@ -31,6 +31,7 @@ sub normalize_domain {
     $domain = lc $domain;
     $domain =~ s/^\s+|\s+$//g;
     $domain =~ s/^\.+|\.+$//g;
+    $domain =~ s/^www\.//;
     return $domain;
 }
 

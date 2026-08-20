@@ -39,6 +39,10 @@
             "properties": {
               "show": { "type": "integer", "enum": [0, 1] },
               "label": { "type": "string" },
+              "manage": { "type": "integer", "enum": [0, 1] },
+              "manage_label": { "type": "string" },
+              "manage_url": { "type": "string" },
+              "credential_id": { "type": "integer" },
               "debug": { "type": "object" }
             },
             "required": ["show", "label"]
@@ -84,7 +88,11 @@
               "patron_note": { "type": "string" },
               "staff_note": { "type": "string" },
               "url": { "type": "string" },
-              "url_valid_link": { "type": "integer", "enum": [0, 1] }
+              "url_valid_link": { "type": "integer", "enum": [0, 1] },
+              "ui": {
+                "type": "object",
+                "additionalProperties": { "type": "string" }
+              }
             },
             "required": [
               "publisher_name",

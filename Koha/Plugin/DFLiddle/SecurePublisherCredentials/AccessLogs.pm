@@ -89,15 +89,15 @@ sub log_staff_action {
 
 sub search {
     my ( $class, $limit ) = @_;
-    $limit //= 500;
+    $limit = ( defined $limit && $limit =~ /\A\d+\z/ ) ? $limit : 500;
     my $dbh   = Koha::Database->dbh;
     my $table = $class->table_name;
     my $sth   = $dbh->prepare(
         qq{
-        SELECT * FROM $table ORDER BY logged_on DESC LIMIT ?
+        SELECT * FROM $table ORDER BY logged_on DESC LIMIT $limit
     }
     );
-    $sth->execute($limit);
+    $sth->execute();
     my @rows;
     while ( my $row = $sth->fetchrow_hashref ) {
         push @rows, $row;

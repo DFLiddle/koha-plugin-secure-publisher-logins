@@ -1,19 +1,37 @@
 # Next
 
-Pick up after the v1.2.x feedback batch (on `main`).
+## 1. Operations runbook (Option A) — do this first
 
-## 1. Troubleshoot translations (not working)
+Follow **[OPERATIONS.md](OPERATIONS.md)** for every upload on DEV and production:
 
-`po/de-DE.po` and `po/fr-FR.po` exist, but switching OPAC (or staff) to German/French still shows English **View login info** (and likely the other strings).
+- Expect upload **500** with `plugins_restart`; confirm **version** on Plugins home
+- Post-upload smoke test: `spc-config.js` / `spc-staff.js` in page source
+- Recovery via `spc_repair_plugin_methods.pl` or SQL — **not** full `install_plugins.pl` on 24.11
 
-Likely causes to check first:
+Deploy **1.2.23+** so the repair script and hook self-repair are on the server.
 
-- Labels are English constants (`Constants.pm`, `js/spc-config.js`) and are never passed through Koha gettext / `[% t() %]`.
-- Templates and toolbar HTML use those constants or hard-coded English, so a `.po` file on disk is not enough.
-- Plugin `.po` files may also never be compiled/installed into Koha’s locale path (the files themselves say to install with Koha translation tools).
+## 2. Stabilize English on DEV
 
-See `docs/MANUAL_TEST_PLAN.md` (i18n section) for the intended check.
+```bash
+cd ~/Projects/koha-plugin-secure-publisher-logins
+npm run version:check && npm run build
+```
 
-## 2. Release v1.3.0
+Upload using [OPERATIONS.md](OPERATIONS.md), then run [MANUAL_TEST_PLAN.md](MANUAL_TEST_PLAN.md) (English sections).
 
-When you are ready to ship this batch: bump version to **1.3.0**, tag, let GitHub Actions attach the `.kpz`. Do not tag until translations are either fixed or explicitly deferred.
+## 3. Translations (Option B) — after A
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) (i18n row) and `I18N.pm` / `po/*.po`.
+
+1. Switch staff/OPAC to **de-DE**; confirm cookie `KohaOpacLanguage=de-DE`; hard refresh
+2. API: `/api/v1/contrib/secure_publisher_credentials/biblios/BIB/availability?interface=staff&debug=1` — `label` and `debug.language` should reflect German
+3. Toolbar, modal, Tools labels
+4. Repeat for **fr-FR**
+5. Fix code/PO only where tests fail
+
+## 4. Release v1.3.0
+
+When English manual test plan passes and required locales pass:
+
+- Bump version, tag, GitHub release `.kpz`
+- Production cutover via [OPERATIONS.md](OPERATIONS.md)

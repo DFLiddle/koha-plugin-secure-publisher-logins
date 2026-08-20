@@ -29,7 +29,11 @@ The file appears in `dist/koha-plugin-secure-publisher-logins.kpz`.
 1. Staff interface → **Administration → Plugins**
 2. Click **Upload plugin**
 3. Select the `.kpz` file
-4. Confirm installation succeeded (no error banner)
+4. Submit
+
+The browser may show **HTTP 500** even when the install succeeded. Do not use the error banner as the only success signal.
+
+**After upload:** follow [OPERATIONS.md](OPERATIONS.md) — confirm version on the Plugins list, restart Plack if needed, and run the post-upload smoke test (page source must include `spc-config.js` and `spc-staff.js`).
 
 ## 4. Enable the plugin
 
@@ -37,18 +41,17 @@ The file appears in `dist/koha-plugin-secure-publisher-logins.kpz`.
 2. Ensure it is **Enabled**
 3. If you see configuration warnings, resolve them (see [CONFIGURATION.md](CONFIGURATION.md))
 
-## 5. Restart services (if prompted)
+## 5. Restart services
 
-On the server:
+If Plack did not already restart during upload (`plugins_restart` in `koha-conf.xml`):
 
 ```bash
-sudo systemctl restart apache2
-# or your site’s koha-plack / apache config
+sudo koha-plack --restart library
 ```
 
 ## 6. Verify on development first
 
-Run [MANUAL_TEST_PLAN.md](MANUAL_TEST_PLAN.md) on `dev.teamwork-global.net` before production.
+Run [MANUAL_TEST_PLAN.md](MANUAL_TEST_PLAN.md) on your dev instance before production.
 
 ## 7. Add logins
 
@@ -68,7 +71,10 @@ Run [MANUAL_TEST_PLAN.md](MANUAL_TEST_PLAN.md) on `dev.teamwork-global.net` befo
 | Symptom | Check |
 |---------|--------|
 | No OPAC link | Patron logged in? Home library matches scope? `856$u` domain matches? Health checks pass? |
-| View login info missing after upgrade | Restart Plack (`sudo koha-plack --restart library`) so new static JS/CSS routes load |
-| Plugin upload fails | `enable_plugins=1`, `plugins_restricted=0` |
+| Upload HTTP 500 | See [OPERATIONS.md](OPERATIONS.md) — confirm version on Plugins page after Plack restart |
+| View login missing after upgrade | [OPERATIONS.md](OPERATIONS.md) smoke test and recovery section |
+| Plugin upload fails (no version change) | `enable_plugins=1`, `plugins_restricted=0` |
 | Decrypt errors after DB restore | Same `encryption_key` in dev and prod `koha-conf.xml` |
-| Staff cannot manage | `erm` permission; for **All** scope need superlibrarian |
+| Translations | Plugin ships `po/de-DE.po` and `po/fr-FR.po`. Switch OPAC/staff language (language must be enabled in **OPACLanguages** / **StaffInterfaceLanguages**), then hard-refresh. No `koha-translate` step. See [NEXT.md](NEXT.md) for the i18n test pass. |
+
+For upload, upgrade, `plugin_methods` recovery, and log interpretation, use **[OPERATIONS.md](OPERATIONS.md)**.

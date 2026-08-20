@@ -50,8 +50,24 @@ sub staff_has_erm {
     my ( $class, $patron ) = @_;
     return unless $patron;
     return 1 if $patron->is_superlibrarian;
+
+    if ( $patron->can('has_permission') ) {
+        my $ok = eval { $patron->has_permission( { erm => 1 } ) };
+        return 1 if $ok;
+    }
+
     my $flags = $patron->flags;
-    return $flags->{erm} ? 1 : 0;
+    return 0 unless defined $flags;
+    return $flags->{erm} ? 1 : 0 if ref $flags eq 'HASH';
+
+    # Raw borrowers.flags bitmask: non-zero staff accounts may still lack erm.
+    my $userid = eval { $patron->userid };
+    return 0 unless $userid;
+    my $perms = eval {
+        require C4::Auth;
+        C4::Auth::getuserflags( $flags, $userid );
+    };
+    return ( $perms && $perms->{erm} ) ? 1 : 0;
 }
 
 sub staff_may_manage_scope {

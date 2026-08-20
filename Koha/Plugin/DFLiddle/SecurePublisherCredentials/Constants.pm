@@ -7,8 +7,9 @@ use Exporter qw(import);
 
 Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants
 
-Shared display strings and API path pieces. JavaScript copies the same
-values in F<js/spc-config.js> (keep those in sync).
+Shared display strings (English msgids) and API path pieces. Translate
+via F<I18N.pm> and F<po/*.po>. JavaScript copies the English fallback
+in F<js/spc-config.js> (keep those in sync).
 
 =cut
 

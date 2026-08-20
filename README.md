@@ -10,7 +10,8 @@ Secure storage and controlled sharing of publisher login credentials for e-resou
 
 Download the latest `.kpz` from **[Releases](https://github.com/DFLiddle/koha-plugin-secure-publisher-logins/releases)** and upload via **Administration → Plugins**.
 
-Full steps: [docs/INSTALLATION.md](docs/INSTALLATION.md)
+Full steps: [docs/INSTALLATION.md](docs/INSTALLATION.md)  
+Upgrades and recovery: [docs/OPERATIONS.md](docs/OPERATIONS.md)
 
 ## Quick start (developers)
 
@@ -27,7 +28,8 @@ Full steps: [docs/INSTALLATION.md](docs/INSTALLATION.md)
 | [REVIEW.md](REVIEW.md) | File map for code review |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Technical overview |
 | [docs/DATABASE_SCHEMA.md](docs/DATABASE_SCHEMA.md) | Table definitions |
-| [docs/INSTALLATION.md](docs/INSTALLATION.md) | Install steps |
+| [docs/INSTALLATION.md](docs/INSTALLATION.md) | First install |
+| [docs/OPERATIONS.md](docs/OPERATIONS.md) | Upload, upgrade, smoke test, recovery |
 | [docs/CONFIGURATION.md](docs/CONFIGURATION.md) | Koha settings |
 | [docs/PREREQUISITES.md](docs/PREREQUISITES.md) | Server/Koha checklist |
 | [docs/GITHUB_GUIDE.md](docs/GITHUB_GUIDE.md) | Repo and releases |

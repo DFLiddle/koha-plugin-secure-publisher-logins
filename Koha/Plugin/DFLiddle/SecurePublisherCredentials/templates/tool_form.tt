@@ -1,6 +1,6 @@
 [% WRAPPER "wrapper-staff-tool-plugin.inc" method="tool" plugin_title=plugin_title %]
 
-<h1>[% IF credential && credential.id %]Edit[% ELSE %]Add[% END %] login info</h1>
+<h1>[% IF credential && credential.id %][% l.edit_login | html %][% ELSE %][% l.add_login | html %][% END %]</h1>
 
 [% IF save_error %]
 <div class="alert alert-danger">[% save_error | html %]</div>
@@ -16,38 +16,38 @@
   <fieldset class="rows">
     <ol>
       <li>
-        <label for="publisher_name">Publisher name:</label>
+        <label for="publisher_name">[% l.publisher_name | html %]</label>
         <input type="text" id="publisher_name" name="publisher_name" required="required"
           value="[% IF credential %][% credential.publisher_name | html %][% END %]" />
       </li>
       <li>
-        <label for="domains">Registrable domains (comma-separated):</label>
+        <label for="domains">[% l.domains_label | html %]</label>
         <input type="text" id="domains" name="domains" required="required"
           value="[% IF credential %][% credential.domains | html %][% END %]" />
       </li>
       <li>
-        <label for="username">Username:</label>
+        <label for="username">[% l.username | html %]</label>
         <input type="text" id="username" name="username" required="required"
           value="[% IF credential %][% credential.username | html %][% END %]" />
       </li>
       <li>
-        <label for="password">Password:</label>
+        <label for="password">[% l.password | html %]</label>
         <input type="password" id="password" name="password" [% IF !credential || !credential.id %]required="required"[% END %]
-          autocomplete="new-password" placeholder="[% IF credential && credential.id %]Leave blank to keep unchanged[% END %]" />
+          autocomplete="new-password" placeholder="[% IF credential && credential.id %][% l.keep_password | html %][% END %]" />
       </li>
       <li class="spc-access-scope-item">
-        <label for="spc-access-scope">Accessible by:</label>
+        <label for="spc-access-scope">[% l.accessible_colon | html %]</label>
         <div class="spc-access-scope" id="spc-access-scope">
           <div class="spc-scope-row">
             <input type="radio" id="access_scope_all" name="access_scope_type" value="all"
               [% IF credential && credential.access_scope_type == 'all' %]checked="checked"[% END %]
               [% IF !is_superlib %]disabled="disabled"[% END %] />
-            <label for="access_scope_all">All libraries:</label>
+            <label for="access_scope_all">[% l.all_libraries | html %]</label>
           </div>
           <div class="spc-scope-row">
             <input type="radio" id="access_scope_library" name="access_scope_type" value="library"
               [% IF !credential || credential.access_scope_type == 'library' %]checked="checked"[% END %] />
-            <label for="access_scope_library">Library:</label>
+            <label for="access_scope_library">[% l.library | html %]</label>
             <select name="access_scope_code_library" id="access_scope_code_library">
               [% FOREACH lib IN libraries %]
               <option value="[% lib.branchcode | html %]"
@@ -58,7 +58,7 @@
           <div class="spc-scope-row">
             <input type="radio" id="access_scope_library_group" name="access_scope_type" value="library_group"
               [% IF credential && credential.access_scope_type == 'library_group' %]checked="checked"[% END %] />
-            <label for="access_scope_library_group">Library group:</label>
+            <label for="access_scope_library_group">[% l.library_group | html %]</label>
             <select name="access_scope_code_group" id="access_scope_code_group">
               [% FOREACH g IN groups %]
               <option value="[% g.id | html %]"
@@ -69,24 +69,24 @@
           <div class="spc-scope-row">
             <input type="radio" id="access_scope_inactive" name="access_scope_type" value="inactive"
               [% IF credential && credential.access_scope_type == 'inactive' %]checked="checked"[% END %] />
-            <label for="access_scope_inactive">None (inactive):</label>
+            <label for="access_scope_inactive">[% l.inactive | html %]</label>
           </div>
         </div>
       </li>
       <li>
-        <label for="patron_note">Patron note:</label>
+        <label for="patron_note">[% l.patron_note | html %]</label>
         <textarea id="patron_note" name="patron_note" rows="3">[% IF credential %][% credential.patron_note | html %][% END %]</textarea>
       </li>
       <li>
-        <label for="staff_note">Staff note:</label>
+        <label for="staff_note">[% l.staff_note | html %]</label>
         <textarea id="staff_note" name="staff_note" rows="3">[% IF credential %][% credential.staff_note | html %][% END %]</textarea>
       </li>
     </ol>
   </fieldset>
 
   <fieldset class="action">
-    <input type="submit" class="btn btn-primary" value="Save" />
-    <a class="btn btn-link" href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool">Cancel</a>
+    <input type="submit" class="btn btn-primary" value="[% l.save | html %]" />
+    <a class="btn btn-link" href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool">[% l.cancel | html %]</a>
   </fieldset>
 </form>
 

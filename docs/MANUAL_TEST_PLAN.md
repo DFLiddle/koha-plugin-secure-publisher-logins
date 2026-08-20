@@ -4,9 +4,10 @@ Run on **dev** (`dev.teamwork-global.net`) before production. Check each box.
 
 ## Installation
 
-- [ ] `.kpz` uploads without error
-- [ ] Plugin appears as **Secure Publisher Credentials** and is enabled
-- [ ] Prerequisites page shows no red errors (Tools → Tool plugins → Secure Publisher Credentials)
+- [ ] `.kpz` uploaded; version on Plugins page matches build (HTTP 500 on upload may be normal — see [OPERATIONS.md](OPERATIONS.md))
+- [ ] Post-upload smoke test: `spc-config.js` and `spc-staff.js` in staff detail page source
+- [ ] Plugin appears as **Secure Publisher Logins** and is enabled
+- [ ] Prerequisites page shows no red errors (Tools → Tool plugins → Secure Publisher Logins)
 
 ## Credential CRUD
 
@@ -52,9 +53,11 @@ Run on **dev** (`dev.teamwork-global.net`) before production. Check each box.
 
 ## i18n
 
-Currently **failing** — see [NEXT.md](NEXT.md). `.po` files exist; UI still shows English.
+Plugin translations are applied at runtime from `po/*.po` (Koha 24.11 does not install plugin PO files). After a new upload, confirm the Tools page and catalog buttons in **English** first, then enable the language in Koha, switch the OPAC/staff language, and hard-refresh.
 
-- [ ] Switch OPAC to **de-DE** or **fr-FR**; **View login info** string appears translated (after `.po` install)
+- [ ] Switch OPAC to **de-DE** or **fr-FR**; **View login info** appears translated
+- [ ] Staff toolbar **View login info** / **Manage login info** match that language
+- [ ] Tools list/form headings follow staff language
 
 ## Plugin disable/re-enable
 
@@ -62,6 +65,8 @@ Currently **failing** — see [NEXT.md](NEXT.md). `.po` files exist; UI still sh
 - [ ] Re-enable: controls return; data intact
 
 ## Production cutover (after dev sign-off)
+
+Follow [OPERATIONS.md](OPERATIONS.md) on production.
 
 - [ ] Deploy `.kpz` to production
 - [ ] Enter credentials manually

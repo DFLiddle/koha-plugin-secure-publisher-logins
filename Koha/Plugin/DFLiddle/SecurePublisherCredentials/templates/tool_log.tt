@@ -1,19 +1,19 @@
 [% WRAPPER "wrapper-staff-tool-plugin.inc" method="tool" plugin_title=plugin_title %]
 
-<h1>Publisher login access log</h1>
+<h1>[% l.access_log | html %]</h1>
 
 <p>
-  <a href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool">Back to login list</a>
+  <a href="/cgi-bin/koha/plugins/run.pl?class=[% CLASS | uri %]&amp;method=tool">[% l.back_to_list | html %]</a>
 </p>
 
 <table class="table table-striped table-condensed">
   <thead>
     <tr>
-      <th>When</th>
-      <th>Login ID</th>
-      <th>Borrowernumber</th>
-      <th>Action</th>
-      <th>Biblionumber</th>
+      <th>[% l.when | html %]</th>
+      <th>[% l.login_id | html %]</th>
+      <th>[% l.borrowernumber | html %]</th>
+      <th>[% l.action | html %]</th>
+      <th>[% l.biblionumber | html %]</th>
     </tr>
   </thead>
   <tbody>

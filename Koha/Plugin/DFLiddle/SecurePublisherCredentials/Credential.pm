@@ -4,6 +4,8 @@ use Modern::Perl;
 
 use Koha::Encryption;
 
+use constant I18N => 'Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N';
+
 =head1 NAME
 
 Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credential - Credential row object
@@ -40,21 +42,34 @@ sub access_scope_label {
 
     my $type = $self->access_scope_type // '';
     if ( $type eq 'all' ) {
-        return 'All libraries';
+        return _t('All libraries');
     }
     if ( $type eq 'inactive' ) {
-        return 'None (inactive)';
+        return _t('None (inactive)');
     }
     if ( $type eq 'library' ) {
         my $code = $self->access_scope_code // '';
-        return $code ne '' ? "Library ($code)" : 'Library';
+        my $lib  = _t('Library');
+        return $code ne '' ? "$lib ($code)" : $lib;
     }
     if ( $type eq 'library_group' ) {
         my $id = $self->access_scope_code;
         my $title = $group_titles->{$id} // $group_titles->{ 0 + ( $id // 0 ) } // $id;
-        return "Library group ($title)";
+        my $grp = _t('Library group');
+        return "$grp ($title)";
     }
     return $type;
+}
+
+sub _t {
+    my ($msgid) = @_;
+    my $out = $msgid;
+    eval {
+        require Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N;
+        $out = I18N->translate($msgid);
+        1;
+    };
+    return $out;
 }
 
 sub decrypt_password {

@@ -73,13 +73,13 @@
       '<div class="modal-body">' +
       '<p class="spc-url"></p>' +
       '<p class="spc-patron-note"></p>' +
-      '<div class="spc-field"><label>Username:</label> <code class="spc-username"></code> ' +
+      '<div class="spc-field"><label class="spc-label-user">Username:</label> <code class="spc-username"></code> ' +
       '<button type="button" class="btn btn-default spc-copy-user">Copy</button></div>' +
-      '<div class="spc-field"><label>Password:</label> <code class="spc-password"></code> ' +
+      '<div class="spc-field"><label class="spc-label-pass">Password:</label> <code class="spc-password"></code> ' +
       '<button type="button" class="btn btn-default spc-copy-pass">Copy</button></div>' +
       "</div>" +
       '<div class="modal-footer">' +
-      '<button type="button" class="btn btn-default spc-close">Close</button>' +
+      '<button type="button" class="btn btn-default spc-close spc-close-text">Close</button>' +
       "</div></div></div>";
     document.body.appendChild(el);
     el.querySelectorAll(".spc-close").forEach(function (btn) {
@@ -94,9 +94,25 @@
     return el;
   }
 
+  function applyUi(el, ui) {
+    if (!ui) return;
+    var user = el.querySelector(".spc-label-user");
+    var pass = el.querySelector(".spc-label-pass");
+    var copyUser = el.querySelector(".spc-copy-user");
+    var copyPass = el.querySelector(".spc-copy-pass");
+    var closeText = el.querySelector(".spc-close-text");
+    var closeAria = el.querySelector(".btn-close");
+    if (user && ui.username) user.textContent = ui.username;
+    if (pass && ui.password) pass.textContent = ui.password;
+    if (copyUser && ui.copy) copyUser.textContent = ui.copy;
+    if (copyPass && ui.copy) copyPass.textContent = ui.copy;
+    if (closeText && ui.close) closeText.textContent = ui.close;
+    if (closeAria && ui.close) closeAria.setAttribute("aria-label", ui.close);
+  }
+
   function showModal(data) {
     var el = ensureModal();
-    el.querySelector("#spc-modal-title").textContent = data.publisher_name || "Login info";
+    el.querySelector("#spc-modal-title").textContent = data.publisher_name || (data.ui && data.ui.login_info) || "Login info";
     var urlEl = el.querySelector(".spc-url");
     if (data.url) {
       if (data.url_valid_link) {
@@ -110,6 +126,7 @@
     el.querySelector(".spc-patron-note").textContent = data.patron_note || "";
     el.querySelector(".spc-username").textContent = data.username || "";
     el.querySelector(".spc-password").textContent = data.password || "";
+    applyUi(el, data.ui);
 
     el.querySelector(".spc-copy-user").onclick = function () {
       copyText(data.username || "");
@@ -159,7 +176,10 @@
       .then(function (res) {
         if (!res.show) return;
         var ul = findOpacActionList();
-        if (!ul) return;
+        if (!ul) {
+          console.warn("SPC: OPAC action list not found");
+          return;
+        }
         if (ul.querySelector(".spc-opac-login-link")) return;
         var li = document.createElement("li");
         var a = document.createElement("a");
@@ -173,8 +193,8 @@
         li.appendChild(a);
         ul.insertBefore(li, ul.firstChild);
       })
-      .catch(function () {
-        /* API unavailable or no match — no link shown */
+      .catch(function (err) {
+        console.warn("SPC: OPAC availability check failed", err);
       });
   }
 

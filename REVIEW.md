@@ -14,7 +14,8 @@ Start at `Koha/Plugin/DFLiddle/SecurePublisherCredentials/Controller.pm` (REST) 
 | `Credentials.pm` / `Credential.pm` | Persistence and encryption |
 | `AccessLogs.pm` | Audit log and retention |
 | `Health.pm` | Deployment prerequisite checks |
-| `Constants.pm` | Plugin name, labels, API path (keep `js/spc-config.js` in sync) |
+| `Constants.pm` | Plugin name, labels, API path (English msgids; keep `js/spc-config.js` in sync) |
+| `I18N.pm` / `po/*.po` | Plugin-local translations (Koha 24.11 does not install plugin PO files) |
 | `js/spc-staff.js` / `js/spc-opac.js` | Detail-page modal and links |
 | `js/spc-tool-form.js` | Tools form access-scope submit |
 | `js/spc-config.js` | JS copy of API path and view label |

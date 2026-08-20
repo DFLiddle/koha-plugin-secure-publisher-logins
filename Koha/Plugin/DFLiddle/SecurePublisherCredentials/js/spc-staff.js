@@ -3,6 +3,7 @@
 
   var API_BASE = (window.SPC && window.SPC.API_BASE) || "/api/v1/contrib/secure_publisher_credentials";
   var VIEW_LABEL = (window.SPC && window.SPC.VIEW_LABEL) || "View login info";
+  var MANAGE_LABEL = (window.SPC && window.SPC.MANAGE_LABEL) || "Manage login info";
 
   function getBiblionumber() {
     var m = window.location.search.match(/[?&]biblionumber=(\d+)/);
@@ -73,14 +74,14 @@
       '<div class="modal-body">' +
       '<p class="spc-url"></p>' +
       '<p class="spc-patron-note"></p>' +
-      '<p class="spc-staff-note"><strong>Staff note:</strong> <span></span></p>' +
-      '<div class="spc-field"><label>Username:</label> <code class="spc-username"></code> ' +
+      '<p class="spc-staff-note"><strong class="spc-staff-note-label">Staff note:</strong> <span></span></p>' +
+      '<div class="spc-field"><label class="spc-label-user">Username:</label> <code class="spc-username"></code> ' +
       '<button type="button" class="btn btn-default spc-copy-user">Copy</button></div>' +
-      '<div class="spc-field"><label>Password:</label> <code class="spc-password"></code> ' +
+      '<div class="spc-field"><label class="spc-label-pass">Password:</label> <code class="spc-password"></code> ' +
       '<button type="button" class="btn btn-default spc-copy-pass">Copy</button></div>' +
       "</div>" +
       '<div class="modal-footer">' +
-      '<button type="button" class="btn btn-default spc-close">Close</button>' +
+      '<button type="button" class="btn btn-default spc-close spc-close-text">Close</button>' +
       "</div></div></div>";
     document.body.appendChild(el);
     el.querySelectorAll(".spc-close").forEach(function (btn) {
@@ -95,13 +96,33 @@
     return el;
   }
 
+  function applyUi(el, ui) {
+    if (!ui) return;
+    var user = el.querySelector(".spc-label-user");
+    var pass = el.querySelector(".spc-label-pass");
+    var copyUser = el.querySelector(".spc-copy-user");
+    var copyPass = el.querySelector(".spc-copy-pass");
+    var closeText = el.querySelector(".spc-close-text");
+    var staffLabel = el.querySelector(".spc-staff-note-label");
+    var closeAria = el.querySelector(".btn-close");
+    if (user && ui.username) user.textContent = ui.username;
+    if (pass && ui.password) pass.textContent = ui.password;
+    if (copyUser && ui.copy) copyUser.textContent = ui.copy;
+    if (copyPass && ui.copy) copyPass.textContent = ui.copy;
+    if (closeText && ui.close) closeText.textContent = ui.close;
+    if (staffLabel && ui.staff_note) staffLabel.textContent = ui.staff_note;
+    if (closeAria && ui.close) closeAria.setAttribute("aria-label", ui.close);
+  }
+
   function showModal(data) {
     var el = ensureModal();
-    el.querySelector("#spc-modal-title").textContent = data.publisher_name || "Login info";
+    el.querySelector("#spc-modal-title").textContent =
+      data.publisher_name || (data.ui && data.ui.login_info) || "Login info";
     var urlEl = el.querySelector(".spc-url");
     if (data.url) {
       if (data.url_valid_link) {
-        urlEl.innerHTML = '<a href="' + data.url + '" target="_blank" rel="noopener">' + data.url + "</a>";
+        urlEl.innerHTML =
+          '<a href="' + data.url + '" target="_blank" rel="noopener">' + data.url + "</a>";
       } else {
         urlEl.textContent = data.url;
       }
@@ -118,6 +139,7 @@
     }
     el.querySelector(".spc-username").textContent = data.username || "";
     el.querySelector(".spc-password").textContent = data.password || "";
+    applyUi(el, data.ui);
     el.querySelector(".spc-copy-user").onclick = function () {
       copyText(data.username || "");
     };
@@ -147,13 +169,12 @@
     });
   }
 
-  function findStaffToolbar() {
+  function catalogueDetailRoot() {
     var selectors = [
-      "#toolbar",
-      ".toolbar",
-      "#cat-toolbar",
-      ".cat-toolbar",
-      "div.toolbar",
+      "#maincontentcontainer",
+      "#maincontent",
+      "#bibliodetails",
+      ".maincontent",
     ];
     var i;
     for (i = 0; i < selectors.length; i++) {
@@ -163,36 +184,106 @@
     return null;
   }
 
+  function findStaffToolbar() {
+    var root = catalogueDetailRoot();
+    if (!root) return null;
+
+    var scoped = [
+      "#toolbar",
+      ".btn-toolbar",
+      "#cat-toolbar",
+      ".cat-toolbar",
+    ];
+    var i;
+    for (i = 0; i < scoped.length; i++) {
+      var hit = root.querySelector(scoped[i]);
+      if (hit) return hit;
+    }
+
+    // Toolbar is a row of btn-groups (New / Edit / Save / Print …).
+    var btnGroups = root.querySelectorAll(".btn-group");
+    if (btnGroups.length) {
+      var parent = btnGroups[0].parentElement;
+      if (parent) return parent;
+    }
+    return null;
+  }
+
+  function ensureToolbarContainer(toolbar) {
+    var existing = document.querySelector(".spc-toolbar");
+    if (existing) return existing;
+
+    var group = document.createElement("div");
+    group.className = "btn-group spc-toolbar";
+    group.setAttribute("role", "group");
+    toolbar.appendChild(group);
+    return group;
+  }
+
   function injectStaffLink(biblionumber) {
+    if (document.querySelector(".spc-view-login")) {
+      bindViewButtons();
+      return;
+    }
+
     fetchJson(API_BASE + "/biblios/" + biblionumber + "/availability?interface=staff")
       .then(function (res) {
-        if (!res.show) return;
-        if (document.querySelector(".spc-view-login")) return;
+        if (!res.show) {
+          console.warn("SPC: availability returned show=0 for bib " + biblionumber);
+          return;
+        }
+
         var toolbar = findStaffToolbar();
-        if (!toolbar) return;
-        var span = document.createElement("span");
-        span.className = "spc-toolbar";
-        var a = document.createElement("a");
-        a.className = "btn btn-default spc-view-login";
-        a.href = "#";
-        a.setAttribute("data-biblionumber", biblionumber);
-        a.innerHTML = '<i class="fa fa-lock" aria-hidden="true"></i> ' + (res.label || VIEW_LABEL);
-        span.appendChild(a);
-        toolbar.appendChild(span);
+        if (!toolbar) {
+          console.warn("SPC: catalogue toolbar container not found in detail content");
+          return;
+        }
+
+        var container = ensureToolbarContainer(toolbar);
+
+        if (!container.querySelector(".spc-view-login")) {
+          var a = document.createElement("a");
+          a.className = "btn btn-default spc-view-login";
+          a.href = "#";
+          a.setAttribute("data-biblionumber", biblionumber);
+          a.innerHTML =
+            '<i class="fa fa-lock" aria-hidden="true"></i> ' + (res.label || VIEW_LABEL);
+          container.appendChild(a);
+        }
+
+        if (res.manage && res.manage_url && !container.querySelector(".spc-manage-login")) {
+          var m = document.createElement("a");
+          m.className = "btn btn-default spc-manage-login";
+          m.href = res.manage_url;
+          m.innerHTML =
+            '<i class="fa fa-pencil" aria-hidden="true"></i> ' +
+            (res.manage_label || MANAGE_LABEL);
+          container.appendChild(m);
+        }
+
         bindViewButtons();
       })
-      .catch(function () {
-        /* API unavailable or no match */
+      .catch(function (err) {
+        console.warn("SPC: availability check failed", err);
       });
+  }
+
+  function isStaffDetailPage() {
+    var path = window.location.pathname || "";
+    return /\/catalogue\/detail\.pl/.test(path);
   }
 
   function initStaff() {
     bindViewButtons();
-    if (!/\/catalogue\/detail\.pl/.test(window.location.pathname)) return;
+    if (!isStaffDetailPage()) return;
     var bib = getBiblionumber();
-    if (bib && !document.querySelector(".spc-view-login")) {
-      injectStaffLink(bib);
-    }
+    if (!bib) return;
+    injectStaffLink(bib);
+    window.setTimeout(function () {
+      if (!document.querySelector(".spc-view-login")) {
+        injectStaffLink(bib);
+      }
+    }, 400);
   }
 
   if (document.readyState === "loading") {
