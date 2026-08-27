@@ -39,13 +39,27 @@
             "properties": {
               "show": { "type": "integer", "enum": [0, 1] },
               "label": { "type": "string" },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "hidden",
+                  "login_required",
+                  "view_allowed",
+                  "scope_denied",
+                  "account_blocked"
+                ]
+              },
+              "suggestion_url": { "type": "string" },
+              "help_email": { "type": "string", "description": "Resolved help address for account_blocked" },
+              "modal_message": { "type": "string" },
+              "suggestion_link_label": { "type": "string" },
               "manage": { "type": "integer", "enum": [0, 1] },
               "manage_label": { "type": "string" },
               "manage_url": { "type": "string" },
               "credential_id": { "type": "integer" },
               "debug": { "type": "object" }
             },
-            "required": ["show", "label"]
+            "required": ["show", "label", "state"]
           }
         }
       }

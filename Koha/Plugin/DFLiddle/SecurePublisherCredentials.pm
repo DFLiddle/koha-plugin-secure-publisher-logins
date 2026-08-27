@@ -11,19 +11,25 @@ use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants qw(
     PLUGIN_NAME
     VIEW_LOGIN_LABEL
     MANAGE_LOGIN_LABEL
+    LOGIN_TO_CHECK_ACCESS_LABEL
+    LIBRARY_NOT_SUBSCRIBED_LABEL
+    LOGIN_INFO_NOT_AVAILABLE_LABEL
+    SCOPE_DENIED_MESSAGE
+    SUGGEST_FOR_PURCHASE_LABEL
+    ACCOUNT_BLOCKED_MESSAGE
     API_BASE_PATH
 );
 
 use base qw(Koha::Plugins::Base);
 
-our $VERSION = '1.3.1';
+our $VERSION = '1.4.13';
 
 our $metadata = {
     name            => PLUGIN_NAME,
     author          => 'David F Liddle',
     description     => 'Securely store and share publisher login details for e-resources matched via 856$u domains.',
     date_authored   => '2026-08-14',
-    date_updated    => '2026-08-20',
+    date_updated    => '2026-08-27',
     minimum_version => '24.11',
     maximum_version => undef,
     version         => $VERSION,
@@ -350,7 +356,7 @@ sub _toolbar_button_html {
     my $html        = qq{
         <div class="btn-group spc-toolbar" role="group">
           <a class="btn btn-default spc-view-login" data-biblionumber="$biblio_attr" href="#">
-            <i class="fa fa-lock" aria-hidden="true"></i> $view_label
+            <i class="fa-solid fa-unlock" aria-hidden="true"></i> $view_label
           </a>
     };
 
@@ -374,7 +380,67 @@ sub opac_head {
     require Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access;
     return unless Koha::Plugin::DFLiddle::SecurePublisherCredentials::Access->system_healthy_for_opac;
 
-    return $self->_stylesheet_tag('css/spc.css');
+    return $self->_opac_fa_regular_face_style()
+        . $self->_stylesheet_tag('css/spc.css');
+}
+
+# Koha 24.11 OPAC ships solid/brands/fontawesome CSS only (no regular.min.css).
+# Regular glyphs use fa-regular-400 webfonts already on disk; register weight 400 locally.
+sub _opac_fa_regular_face_style {
+    my ($self) = @_;
+    my $woff2 = $self->_opac_shared_lib_url('lib/fontawesome/webfonts/fa-regular-400.woff2');
+    return '' unless $woff2;
+
+    my $nonce = $self->_csp_nonce;
+    my $attr  = '';
+    if ( defined $nonce && $nonce ne '' ) {
+        $attr = ' nonce="' . CGI::escapeHTML($nonce) . '"';
+    }
+
+    my $src = 'url(' . $woff2 . ') format("woff2")';
+
+    return '<style' . $attr
+        . '>@font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:400;font-display:block;src:'
+        . $src . '}</style>';
+}
+
+# Shared OPAC assets (e.g. lib/fontawesome/webfonts) live under opac-tmpl/lib/, not bootstrap/lib/.
+sub _opac_shared_lib_url {
+    my ( $self, $rel_under_opac_tmpl ) = @_;
+    return '' unless defined $rel_under_opac_tmpl && $rel_under_opac_tmpl !~ m{\.\.};
+
+    require C4::Context;
+    use File::Spec;
+
+    my $root = C4::Context->config('opachtdocs');
+    return '' unless defined $root && $root ne '' && -d $root;
+
+    my $theme = C4::Context->preference('template_path') || 'bootstrap';
+    $theme =~ s/[^a-zA-Z0-9_-]//g;
+
+    my @candidates = (
+        {
+            abspath => File::Spec->catfile( $root, File::Spec->updir(), $rel_under_opac_tmpl ),
+            url     => '/opac-tmpl/' . $rel_under_opac_tmpl,
+        },
+        {
+            abspath => File::Spec->catfile( $root, $rel_under_opac_tmpl ),
+            url     => '/opac-tmpl/' . $rel_under_opac_tmpl,
+        },
+        {
+            abspath => File::Spec->catfile( $root, $theme, $rel_under_opac_tmpl ),
+            url     => "/opac-tmpl/$theme/$rel_under_opac_tmpl",
+        },
+    );
+
+    for my $c (@candidates) {
+        if ( -e $c->{abspath} ) {
+            my $url = $c->{url};
+            $url =~ s{//+}{/}g;
+            return $url;
+        }
+    }
+    return '';
 }
 
 sub opac_js {
@@ -409,10 +475,22 @@ sub _spc_label_bootstrap_script {
     my ($self) = @_;
     my $view   = VIEW_LOGIN_LABEL;
     my $manage = MANAGE_LOGIN_LABEL;
+    my $login  = LOGIN_TO_CHECK_ACCESS_LABEL;
+    my $not_sub = LIBRARY_NOT_SUBSCRIBED_LABEL;
+    my $blocked = LOGIN_INFO_NOT_AVAILABLE_LABEL;
+    my $scope_msg = SCOPE_DENIED_MESSAGE;
+    my $suggest   = SUGGEST_FOR_PURCHASE_LABEL;
+    my $blocked_msg = ACCOUNT_BLOCKED_MESSAGE;
     eval {
         require Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N;
-        $view   = Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N->translate($view);
-        $manage = Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N->translate($manage);
+        $view      = Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N->translate($view);
+        $manage    = Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N->translate($manage);
+        $login     = Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N->translate($login);
+        $not_sub   = Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N->translate($not_sub);
+        $blocked   = Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N->translate($blocked);
+        $scope_msg = Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N->translate($scope_msg);
+        $suggest   = Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N->translate($suggest);
+        $blocked_msg = Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N->translate($blocked_msg);
         1;
     };
     my $nonce = $self->_csp_nonce;
@@ -420,9 +498,15 @@ sub _spc_label_bootstrap_script {
     if ( defined $nonce && $nonce ne '' ) {
         $attr = ' nonce="' . CGI::escapeHTML($nonce) . '"';
     }
-    my $view_js   = Mojo::JSON::encode_json($view);
-    my $manage_js = Mojo::JSON::encode_json($manage);
-    return qq{<script$attr>window.SPC=window.SPC||{};window.SPC.VIEW_LABEL=$view_js;window.SPC.MANAGE_LABEL=$manage_js;</script>};
+    my $view_js       = Mojo::JSON::encode_json($view);
+    my $manage_js     = Mojo::JSON::encode_json($manage);
+    my $login_js      = Mojo::JSON::encode_json($login);
+    my $not_sub_js    = Mojo::JSON::encode_json($not_sub);
+    my $blocked_js    = Mojo::JSON::encode_json($blocked);
+    my $scope_msg_js  = Mojo::JSON::encode_json($scope_msg);
+    my $suggest_js    = Mojo::JSON::encode_json($suggest);
+    my $blocked_msg_js = Mojo::JSON::encode_json($blocked_msg);
+    return qq{<script$attr>window.SPC=window.SPC||{};window.SPC.VIEW_LABEL=$view_js;window.SPC.MANAGE_LABEL=$manage_js;window.SPC.LOGIN_TO_CHECK_LABEL=$login_js;window.SPC.LIBRARY_NOT_SUBSCRIBED_LABEL=$not_sub_js;window.SPC.LOGIN_INFO_NOT_AVAILABLE_LABEL=$blocked_js;window.SPC.SCOPE_DENIED_MESSAGE=$scope_msg_js;window.SPC.SUGGEST_FOR_PURCHASE_LABEL=$suggest_js;window.SPC.ACCOUNT_BLOCKED_MESSAGE=$blocked_msg_js;</script>};
 }
 
 sub _static_url {

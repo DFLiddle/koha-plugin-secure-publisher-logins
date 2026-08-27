@@ -130,6 +130,35 @@ sub matching_credentials_for_biblio {
     return Access->pick_most_restrictive(@matches);
 }
 
+# Active credentials whose domains match the bib's 856$u URLs (ignores patron scope).
+sub credentials_for_biblio_domains {
+    my ( $class, $biblionumber ) = @_;
+
+    my $urls = $class->biblio_856_urls($biblionumber) || [];
+    return [] unless @{$urls};
+
+    my @record_domains;
+    for my $url ( @{$urls} ) {
+        my $d = extract_registrable_domain($url);
+        push @record_domains, $d if $d;
+    }
+    return [] unless @record_domains;
+
+    my $all = Credentials->search( { not_inactive => 1 } );
+
+    my @matches;
+    for my $cred ( @{$all} ) {
+        for my $rd ( @record_domains ) {
+            if ( domains_match( $rd, $cred->domain_list ) ) {
+                push @matches, $cred;
+                last;
+            }
+        }
+    }
+
+    return \@matches;
+}
+
 sub best_url_for_credential {
     my ( $class, $biblionumber, $credential ) = @_;
     my $urls = $class->biblio_856_urls($biblionumber) || [];

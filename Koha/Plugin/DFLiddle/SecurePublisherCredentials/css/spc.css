@@ -4,6 +4,18 @@
   color: var(--bs-danger, #dc3545);
   word-break: break-all;
 }
+/* OPAC action links inherit bold weight from Koha/Bootstrap; FA uses weight to pick regular vs solid */
+.spc-opac-login-link .spc-icon-trailing {
+  font-family: "Font Awesome 6 Free", "Font Awesome 7 Free";
+  font-weight: 400;
+  font-style: normal;
+}
+.spc-opac-login-link .spc-icon-trailing.fa-regular {
+  font-weight: 400;
+}
+.spc-opac-login-link .fa-solid {
+  font-weight: 900;
+}
 .spc-toolbar .btn { margin-right: 0.35rem; }
 .spc-toolbar .btn .fa { margin-right: 0.25rem; }
 .spc-access-scope-item .spc-access-scope {

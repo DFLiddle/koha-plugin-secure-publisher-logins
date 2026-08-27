@@ -34,8 +34,42 @@ Before upload, confirm the file you will select in the browser:
 
 ```bash
 npm run verify:kpz
-# or manually:
-unzip -p dist/koha-plugin-secure-publisher-logins.kpz Koha/Plugin/DFLiddle/SecurePublisherCredentials.pm | grep VERSION
+# verify-kpz also checks Constants.pm and other required paths inside the zip
+unzip -l dist/koha-plugin-secure-publisher-logins.kpz | grep Constants.pm
+```
+
+After upload, if Plugins shows **Error found whilst attempting to load plugin**, confirm the full tree exists on the server (not only the top-level `.pm`):
+
+```bash
+ls -la /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/Constants.pm
+ls -la /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials.pm
+```
+
+If `Constants.pm` is missing, rebuild with `npm run build`, re-upload `dist/koha-plugin-secure-publisher-logins.kpz`, restart Plack.
+
+**Do not use bare `perl -c` on the main `.pm`** outside Koha’s environment. System `perl` lacks both `pluginsdir` and `/usr/share/koha/lib`, so you will see false errors (`Constants.pm`, `Koha::Database.pm`, etc.) even when the install is fine.
+
+**Compile check (inside Koha shell):**
+
+```bash
+sudo koha-shell library -c "perl -c /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials.pm"
+```
+
+Expect: `syntax OK`.
+
+**Load / hook check:**
+
+```bash
+sudo koha-shell library -c "perl /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/bin/spc_diagnose_plugin_methods.pl"
+```
+
+Run with `perl …/spc_diagnose_plugin_methods.pl` (not execute the path directly) — the file is often not mode `+x`. The script should finish without “diagnose failed”.
+
+**Filesystem check (optional):**
+
+```bash
+ls -la /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/Constants.pm
+grep VERSION /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials.pm
 ```
 
 Use **`dist/koha-plugin-secure-publisher-logins.kpz`** from this build — not an older copy in Downloads and not a GitHub Release asset unless that release tag matches your build version.

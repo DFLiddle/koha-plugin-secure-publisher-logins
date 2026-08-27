@@ -2,7 +2,9 @@
 
 ## Production cutover
 
-DEV and KTD sign-off complete. Ship **v1.3.1** via [OPERATIONS.md](OPERATIONS.md):
+DEV and KTD sign-off complete for v1.3.1. **v1.4.x** OPAC access states Phases 1–4 signed off (v1.4.4). Phase 5 next — see [OPAC_ACCESS_STATES.md](OPAC_ACCESS_STATES.md).
+
+Production cutover remains **v1.3.1** until v1.4.0 Phases 2–5 complete. Ship v1.3.1 via [OPERATIONS.md](OPERATIONS.md):
 
 1. Build from tagged release: `npm run build` → `npm run verify:kpz` (must show **1.3.1**)
 2. Upload on production; confirm version on Plugins home
@@ -25,3 +27,4 @@ See [RELEASE_NOTES_1.3.1.md](RELEASE_NOTES_1.3.1.md) for the install/upload fix 
 
 - Further locales below Koha Weblate threshold
 - Production monitoring beyond Koha action log / Plack error log
+- **Staff UX:** Koha-native warning screens when staff lack `erm` or login-editing rights (Tools deny pages / toolbar)

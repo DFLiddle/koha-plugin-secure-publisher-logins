@@ -1,6 +1,6 @@
 {
   "name": "koha-secure-publisher-logins",
-  "version": "1.3.1",
+  "version": "1.4.13",
   "kpzFilename": "koha-plugin-secure-publisher-logins.kpz",
   "description": "Koha plugin for secure publisher login sharing",
   "private": true,

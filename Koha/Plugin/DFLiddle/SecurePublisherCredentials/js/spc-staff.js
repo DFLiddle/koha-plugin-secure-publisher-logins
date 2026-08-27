@@ -225,7 +225,7 @@
     var view = document.querySelector(".spc-view-login");
     if (view && res.label) {
       view.innerHTML =
-        '<i class="fa fa-lock" aria-hidden="true"></i> ' + res.label;
+        '<i class="fa-solid fa-unlock" aria-hidden="true"></i> ' + res.label;
     }
     var manage = document.querySelector(".spc-manage-login");
     if (manage && res.manage && res.manage_label) {
@@ -266,7 +266,7 @@
           a.href = "#";
           a.setAttribute("data-biblionumber", biblionumber);
           a.innerHTML =
-            '<i class="fa fa-lock" aria-hidden="true"></i> ' + (res.label || VIEW_LABEL);
+            '<i class="fa-solid fa-unlock" aria-hidden="true"></i> ' + (res.label || VIEW_LABEL);
           container.appendChild(a);
         }
 

@@ -58,6 +58,8 @@ Securely store shared publisher login credentials (encrypted at rest), match the
 5. Inactive credentials excluded from detail pages; visible only in management UI.
 6. If **multiple** credentials match, select the **most restrictive** scope: `library` (1) beats `library_group` (2) beats `all` (3).
 
+OPAC patron access states (v1.4.0+): see [OPAC_ACCESS_STATES.md](OPAC_ACCESS_STATES.md). Phase 1 adds API `state`; OPAC UI unchanged until Phase 2.
+
 ## Permissions
 
 | Action | Patron | Staff (no erm) | Staff (erm) | Superlibrarian |

@@ -11,6 +11,12 @@ use Koha::Plugin::DFLiddle::SecurePublisherCredentials::AccessLogs;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants qw(
     VIEW_LOGIN_LABEL
     MANAGE_LOGIN_LABEL
+    LOGIN_TO_CHECK_ACCESS_LABEL
+    LIBRARY_NOT_SUBSCRIBED_LABEL
+    LOGIN_INFO_NOT_AVAILABLE_LABEL
+    SCOPE_DENIED_MESSAGE
+    SUGGEST_FOR_PURCHASE_LABEL
+    ACCOUNT_BLOCKED_MESSAGE
 );
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Credentials;
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Domain qw(extract_registrable_domain);
@@ -52,78 +58,191 @@ sub availability {
     my $biblionumber = $c->param('biblionumber');
     my $interface    = $c->param('interface') // 'opac';
 
-    my $empty = {
-        show          => 0,
-        label         => '',
-        manage        => 0,
-        manage_label  => '',
-        manage_url    => '',
+    unless ( _plugin_enabled_in_koha() ) {
+        return $c->render(
+            status  => 200,
+            openapi => _availability_empty_payload( $interface, 'hidden' )
+        );
+    }
+
+    if ( $interface eq 'staff' ) {
+        return $c->render(
+            status  => 200,
+            openapi => _staff_availability_payload( $c, $biblionumber )
+        );
+    }
+
+    return $c->render(
+        status  => 200,
+        openapi => _opac_availability_payload( $c, $biblionumber )
+    );
+}
+
+sub _availability_empty_payload {
+    my ( $interface, $state ) = @_;
+    $state //= 'hidden';
+
+    return {
+        show            => 0,
+        label           => '',
+        state           => $state,
+        suggestion_url  => '',
+        help_email      => '',
+        modal_message   => '',
+        suggestion_link_label => '',
+        manage          => 0,
+        manage_label    => '',
+        manage_url      => '',
         credential_id => 0,
     };
+}
 
-    unless ( _plugin_enabled_in_koha() ) {
-        return $c->render( status => 200, openapi => $empty );
-    }
+sub _staff_availability_payload {
+    my ( $c, $biblionumber ) = @_;
 
-    my $viewer = _viewer_from_context( $c, $interface );
+    my $payload = _availability_empty_payload( 'staff', 'hidden' );
+
+    my $viewer = _viewer_from_context( $c, 'staff' );
     unless ($viewer) {
-        return $c->render( status => 200, openapi => $empty );
-    }
-
-    if ( $interface eq 'opac' ) {
-        unless ( Access->system_healthy_for_opac && Access->patron_may_access_opac($viewer) ) {
-            return $c->render( status => 200, openapi => $empty );
-        }
+        return $payload;
     }
 
     my $cred = eval { Matcher->matching_credentials_for_biblio( $biblionumber, $viewer ) };
     if ($@) {
         warn "SPC availability match error: $@";
-        return $c->render( status => 200, openapi => $empty );
+        return $payload;
     }
 
-    my $payload = {
-        show          => $cred ? 1 : 0,
-        label         => $cred ? _t(VIEW_LOGIN_LABEL) : '',
-        manage        => 0,
-        manage_label  => '',
-        manage_url    => '',
-        credential_id => $cred ? ( 0 + $cred->id ) : 0,
-    };
+    unless ($cred) {
+        return $payload;
+    }
 
-    if ( $cred && $interface eq 'staff' ) {
-        my $can_manage = Access->staff_has_erm($viewer)
-            && ( $viewer->is_superlibrarian || Access->staff_may_manage_scope( $viewer, $cred ) );
-        if ($can_manage) {
-            $payload->{manage}        = 1;
-            $payload->{manage_label}  = _t(MANAGE_LOGIN_LABEL);
-            $payload->{manage_url} =
-                  '/cgi-bin/koha/plugins/run.pl?class=Koha::Plugin::DFLiddle::SecurePublisherCredentials'
-                . '&method=tool&edit_id='
-                . ( 0 + $cred->id );
-        }
+    $payload->{show}            = 1;
+    $payload->{state}           = 'view_allowed';
+    $payload->{label}           = _t(VIEW_LOGIN_LABEL);
+    $payload->{credential_id}   = 0 + $cred->id;
+
+    my $can_manage = Access->staff_has_erm($viewer)
+        && ( $viewer->is_superlibrarian || Access->staff_may_manage_scope( $viewer, $cred ) );
+    if ($can_manage) {
+        $payload->{manage}       = 1;
+        $payload->{manage_label} = _t(MANAGE_LOGIN_LABEL);
+        $payload->{manage_url} =
+              '/cgi-bin/koha/plugins/run.pl?class=Koha::Plugin::DFLiddle::SecurePublisherCredentials'
+            . '&method=tool&edit_id='
+            . ( 0 + $cred->id );
     }
 
     if ( $c->param('debug') && $viewer->is_superlibrarian ) {
-        my $urls = Matcher->biblio_856_urls($biblionumber) || [];
-        my @domains = grep {$_} map { extract_registrable_domain($_) } @{$urls};
-        $payload->{debug} = {
-            biblionumber      => 0 + $biblionumber,
-            interface         => $interface,
-            viewer_id         => 0 + $viewer->borrowernumber,
-            viewer_branch     => $viewer->branchcode // '',
-            is_superlibrarian => $viewer->is_superlibrarian ? 1 : 0,
-            i18n              => eval {
-                require Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N;
-                I18N->debug_info;
-            } // {},
-            urls_from_856     => $urls,
-            record_domains    => \@domains,
-            login_count       => scalar @{ Credentials->search( { not_inactive => 1 } ) },
-        };
+        $payload->{debug} = _availability_debug( $c, $biblionumber, 'staff', $viewer );
     }
 
-    return $c->render( status => 200, openapi => $payload );
+    return $payload;
+}
+
+sub _apply_scope_denied_payload {
+    my ( $payload, $biblionumber ) = @_;
+
+    $payload->{state}                  = 'scope_denied';
+    $payload->{label}                 = _t(LIBRARY_NOT_SUBSCRIBED_LABEL);
+    $payload->{suggestion_url}        = Access->opac_suggestion_url_for_biblio($biblionumber);
+    $payload->{modal_message}         = _t(SCOPE_DENIED_MESSAGE);
+    $payload->{suggestion_link_label} = _t(SUGGEST_FOR_PURCHASE_LABEL);
+    return $payload;
+}
+
+sub _apply_account_blocked_payload {
+    my ( $payload, $patron ) = @_;
+
+    my $email = Access->patron_help_email($patron);
+    $payload->{state}       = 'account_blocked';
+    $payload->{label}       = _t(LOGIN_INFO_NOT_AVAILABLE_LABEL);
+    $payload->{help_email}  = $email // '';
+    $payload->{modal_message} = sprintf(
+        _t(ACCOUNT_BLOCKED_MESSAGE),
+        $email ? $email : _t('your library')
+    );
+    return $payload;
+}
+
+sub _opac_availability_payload {
+    my ( $c, $biblionumber ) = @_;
+
+    my $payload = _availability_empty_payload( 'opac', 'hidden' );
+
+    unless ( Access->system_healthy_for_opac ) {
+        return $payload;
+    }
+
+    my $domain_creds = eval { Matcher->credentials_for_biblio_domains($biblionumber) };
+    if ($@) {
+        warn "SPC availability domain match error: $@";
+        return $payload;
+    }
+    if ( !$domain_creds || !@{$domain_creds} ) {
+        return $payload;
+    }
+
+    my $patron = Access->current_patron;
+    unless ($patron) {
+        $payload->{state}  = 'login_required';
+        $payload->{label} = _t(LOGIN_TO_CHECK_ACCESS_LABEL);
+        return $payload;
+    }
+
+    unless ( Access->patron_may_access_opac($patron) ) {
+        if ( Access->patron_matches_any_credential_scope( $patron, $domain_creds ) ) {
+            _apply_account_blocked_payload( $payload, $patron );
+        }
+        else {
+            _apply_scope_denied_payload( $payload, $biblionumber );
+        }
+        return $payload;
+    }
+
+    my $cred = eval { Matcher->matching_credentials_for_biblio( $biblionumber, $patron ) };
+    if ($@) {
+        warn "SPC availability match error: $@";
+        return $payload;
+    }
+
+    if ($cred) {
+        $payload->{show}          = 1;
+        $payload->{state}          = 'view_allowed';
+        $payload->{label}          = _t(VIEW_LOGIN_LABEL);
+        $payload->{credential_id}  = 0 + $cred->id;
+    }
+    else {
+        _apply_scope_denied_payload( $payload, $biblionumber );
+    }
+
+    if ( $c->param('debug') && $patron->is_superlibrarian ) {
+        $payload->{debug} = _availability_debug( $c, $biblionumber, 'opac', $patron );
+    }
+
+    return $payload;
+}
+
+sub _availability_debug {
+    my ( $c, $biblionumber, $interface, $viewer ) = @_;
+
+    my $urls = Matcher->biblio_856_urls($biblionumber) || [];
+    my @domains = grep {$_} map { extract_registrable_domain($_) } @{$urls};
+
+    return {
+        biblionumber      => 0 + $biblionumber,
+        interface         => $interface,
+        viewer_id         => 0 + $viewer->borrowernumber,
+        viewer_branch     => $viewer->branchcode // '',
+        is_superlibrarian => $viewer->is_superlibrarian ? 1 : 0,
+        i18n              => eval {
+            require Koha::Plugin::DFLiddle::SecurePublisherCredentials::I18N;
+            I18N->debug_info;
+        } // {},
+        urls_from_856     => $urls,
+        record_domains    => \@domains,
+        login_count       => scalar @{ Credentials->search( { not_inactive => 1 } ) },
+    };
 }
 
 sub view {
@@ -168,7 +287,8 @@ sub view {
 
     if ( $interface eq 'opac' ) {
         AccessLogs->log_patron_view( $cred->id, $biblionumber );
-    } else {
+    }
+    else {
         AccessLogs->log_staff_view( $viewer, $cred->id, $biblionumber );
     }
 

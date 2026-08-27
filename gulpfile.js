@@ -12,10 +12,15 @@ const pkg = require('./package.json');
 
 function build_kpz() {
   const kpzName = pkg.kpzFilename || 'koha-plugin-secure-publisher-logins.kpz';
-  return gulp.src([
-    pm_file_path + '/**',
-    '!' + pm_file_path + '/**/node_modules/**',
-  ], { base: '.' })
+  const pluginDir = path.join(pm_file_path, pm_name);
+  return gulp.src(
+    [
+      path.join(pm_file_path, pm_file),
+      path.join(pluginDir, '**'),
+      '!' + path.join(pluginDir, '/**/node_modules/**'),
+    ],
+    { base: '.' }
+  )
     .pipe(replace('{VERSION}', pkg.version))
     .pipe(zip(kpzName))
     .pipe(gulp.dest('dist'));

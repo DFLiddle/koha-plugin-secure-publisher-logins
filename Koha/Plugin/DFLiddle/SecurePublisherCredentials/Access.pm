@@ -154,6 +154,59 @@ sub system_healthy_for_opac {
     return $health->{ok};
 }
 
+sub _valid_help_email {
+    my ( $class, $email ) = @_;
+    return unless defined $email && $email =~ /\S/;
+    $email =~ s/^\s+|\s+$//g;
+    return $email =~ /\A[^\s@]+@[^\s@]+\.[^\s@]+\z/;
+}
+
+# Patron account-blocked modal: branch replyto, branch email, then sysprefs.
+sub patron_help_email {
+    my ( $class, $patron ) = @_;
+    return '' unless $patron;
+
+    my $branch = $patron->branchcode;
+    if ($branch) {
+        require Koha::Libraries;
+        my $library = Koha::Libraries->find($branch);
+        if ($library) {
+            for my $field (qw(branchreplyto branchemail)) {
+                my $email = $library->$field;
+                return $email if $class->_valid_help_email($email);
+            }
+        }
+    }
+
+    for my $pref (qw(ReplytoDefault KohaAdminEmailAddress)) {
+        my $email = C4::Context->preference($pref);
+        return $email if $class->_valid_help_email($email);
+    }
+
+    return '';
+}
+
+sub opac_suggestion_url_for_biblio {
+    my ( $class, $biblionumber ) = @_;
+    return '' unless defined $biblionumber && $biblionumber =~ /\A\d+\z/;
+
+    my $base = C4::Context->preference('OPACBaseURL');
+    return '' unless defined $base && $base =~ /\S/;
+    $base =~ s/\s+//g;
+    $base =~ s/\/+\z//;
+    return "$base/cgi-bin/koha/opac-suggestions.pl?op=add_form&biblionumber="
+        . ( 0 + $biblionumber );
+}
+
+sub patron_matches_any_credential_scope {
+    my ( $class, $patron, $credentials ) = @_;
+    return 0 unless $patron && $credentials && @{$credentials};
+    for my $cred ( @{$credentials} ) {
+        return 1 if $class->viewer_matches_credential_scope( $patron, $cred );
+    }
+    return 0;
+}
+
 sub anonymous_borrowernumber {
     my ($class) = @_;
     return C4::Context->preference('AnonymousPatron');
