@@ -129,3 +129,21 @@ msgstr "Uppsetning nauðsynleg:"
 
 msgid "Login info"
 msgstr "Innskráningarupplýsingar"
+
+msgid "Log in to check access"
+msgstr "Skráðu þig inn til að athuga aðgang"
+
+msgid "Library not subscribed"
+msgstr "Bókasafnið á ekki áskrift"
+
+msgid "Login info not available"
+msgstr "Innskráningarupplýsingar ekki tiltækar"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "Bókasafnið þitt á ekki áskrift að þessum netauðlind. Smelltu á tengilinn hér að neðan til að leggja til kaup."
+
+msgid "Suggest for purchase"
+msgstr "Leggja til kaup"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "Reikningurinn þinn þarf athygli áður en hægt er að sýna innskráningarupplýsingar. Skrifaðu til %s til að fá aðstoð."

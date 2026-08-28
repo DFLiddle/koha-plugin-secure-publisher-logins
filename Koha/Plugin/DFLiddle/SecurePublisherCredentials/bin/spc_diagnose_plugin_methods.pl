@@ -7,7 +7,12 @@ use lib "$Bin/../../../../../";
 
 use Koha::Script;
 
-use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants qw( PLUGIN_NAME );
+use File::Spec;
+
+use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants qw(
+    API_BASE_PATH
+    PLUGIN_NAME
+);
 use Koha::Plugin::DFLiddle::SecurePublisherCredentials ();
 
 =head1 NAME
@@ -103,6 +108,40 @@ eval {
     }
     else {
         print "(no rows)\n";
+    }
+
+    my @rest_hooks = qw( api_namespace api_routes static_routes );
+  HOOK:
+    for my $hook (@rest_hooks) {
+        next HOOK if grep { $_ eq $hook } @rows;
+        print "\nWARNING: plugin_methods missing '$hook' (REST/static routes may 404 until repaired + Plack restart).\n";
+    }
+
+    print "\n=== Static bundle (served from bundle_path + route path) ===\n";
+    my $bundle = $plugin->bundle_path;
+    if ( !$bundle || !-d $bundle ) {
+        print "bundle_path: (missing or not a directory)\n";
+    }
+    else {
+        print "bundle_path: $bundle\n";
+        my @static_files = qw(
+            staticapi.json
+            css/spc.css
+            js/spc-config.js
+            js/spc-opac.js
+            js/spc-staff.js
+        );
+        for my $rel (@static_files) {
+            my $path = File::Spec->catfile( $bundle, split m{/}, $rel );
+            my $ok   = -f $path;
+            print ( $ok ? 'OK  ' : 'MISS' ), "  $rel\n";
+            print "      -> $path\n" unless $ok;
+        }
+    }
+
+    print "\n=== Static URLs (expect HTTP 200 after repair + koha-plack --restart) ===\n";
+    for my $rel (qw( css/spc.css js/spc-config.js js/spc-opac.js )) {
+        print API_BASE_PATH . '/static/' . $rel . "\n";
     }
 
     1;

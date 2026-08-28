@@ -129,3 +129,21 @@ msgstr "Yapılandırma gerekli:"
 
 msgid "Login info"
 msgstr "Giriş bilgileri"
+
+msgid "Log in to check access"
+msgstr "Erişimi kontrol etmek için giriş yapın"
+
+msgid "Library not subscribed"
+msgstr "Kütüphane abone değil"
+
+msgid "Login info not available"
+msgstr "Giriş bilgileri kullanılamıyor"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "Kütüphaneniz bu çevrimiçi kaynağa abone değil. Satın alma önermek için aşağıdaki bağlantıya tıklayın."
+
+msgid "Suggest for purchase"
+msgstr "Satın alma için öner"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "Giriş bilgileri gösterilmeden önce hesabınızın ilgilenilmesi gerekir. Yardım için %s adresine yazın."

@@ -2,7 +2,7 @@
 
 Design for patron-facing login-info links on `opac-detail.pl`. Staff toolbar behaviour is **unchanged** (view button only when scope matches).
 
-**Status:** Phase 4 signed off in v1.4.4. Phase 5 (i18n/release) pending.
+**Status:** Phase 4 signed off in v1.4.4. Phase 5 i18n prep shipped in v1.4.15 (runtime PO catalogs; de/fr hand-maintained).
 
 ## State machine (`interface=opac`)
 

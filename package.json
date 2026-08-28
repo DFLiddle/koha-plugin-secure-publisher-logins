@@ -1,6 +1,6 @@
 {
   "name": "koha-secure-publisher-logins",
-  "version": "1.4.13",
+  "version": "1.4.15",
   "kpzFilename": "koha-plugin-secure-publisher-logins.kpz",
   "description": "Koha plugin for secure publisher login sharing",
   "private": true,
@@ -9,6 +9,8 @@
     "version:check": "node scripts/check-version.js",
     "verify:kpz": "node scripts/verify-kpz.js",
     "i18n:po": "node scripts/generate-po-catalogs.mjs",
+    "i18n:patch-access-states": "node scripts/patch-opac-access-states-i18n.mjs",
+    "i18n:fix-suggest": "node scripts/fix-suggest-for-purchase-i18n.mjs",
     "i18n:verify": "node scripts/verify-po-catalogs.js"
   },
   "devDependencies": {

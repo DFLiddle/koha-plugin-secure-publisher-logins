@@ -129,3 +129,21 @@ msgstr "נדרשת הגדרה:"
 
 msgid "Login info"
 msgstr "מידע התחברות"
+
+msgid "Log in to check access"
+msgstr "התחבר כדי לבדוק גישה"
+
+msgid "Library not subscribed"
+msgstr "הספרייה אינה מנויה"
+
+msgid "Login info not available"
+msgstr "פרטי ההתחברות אינם זמינים"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "הספרייה שלך אינה מנויה למשאב מקוון זה. לחץ על הקישור למטה כדי להציע רכישה."
+
+msgid "Suggest for purchase"
+msgstr "הצע לרכישה"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "החשבון שלך דורש טיפול לפני שניתן להציג את פרטי ההתחברות. כתוב ל-%s לעזרה."

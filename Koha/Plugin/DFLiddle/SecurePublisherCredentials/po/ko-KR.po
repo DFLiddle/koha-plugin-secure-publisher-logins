@@ -129,3 +129,21 @@ msgstr "설정이 필요합니다:"
 
 msgid "Login info"
 msgstr "로그인 정보"
+
+msgid "Log in to check access"
+msgstr "로그인하여 액세스 확인"
+
+msgid "Library not subscribed"
+msgstr "도서관이 구독하지 않음"
+
+msgid "Login info not available"
+msgstr "로그인 정보를 사용할 수 없음"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "귀하의 도서관은 이 온라인 자료를 구독하지 않습니다. 아래 링크를 클릭하여 구매를 제안하세요."
+
+msgid "Suggest for purchase"
+msgstr "구매 제안"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "로그인 정보를 표시하기 전에 계정 조치가 필요합니다. 도움이 필요하면 %s(으)로 문의하세요."

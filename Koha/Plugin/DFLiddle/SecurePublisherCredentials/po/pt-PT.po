@@ -129,3 +129,21 @@ msgstr "Configuração necessária:"
 
 msgid "Login info"
 msgstr "Informações de login"
+
+msgid "Log in to check access"
+msgstr "Iniciar sessão para verificar o acesso"
+
+msgid "Library not subscribed"
+msgstr "Biblioteca não subscrita"
+
+msgid "Login info not available"
+msgstr "Informações de login indisponíveis"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "A sua biblioteca não subscreve este recurso online. Clique na ligação abaixo para sugerir a compra."
+
+msgid "Suggest for purchase"
+msgstr "Fazer uma sugestão de compra"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "A sua conta requer atenção antes de as informações de login poderem ser mostradas. Escreva para %s para obter ajuda."

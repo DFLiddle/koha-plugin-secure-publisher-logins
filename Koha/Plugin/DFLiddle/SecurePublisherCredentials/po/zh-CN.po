@@ -129,3 +129,21 @@ msgstr "需要配置:"
 
 msgid "Login info"
 msgstr "登录信息"
+
+msgid "Log in to check access"
+msgstr "登录以检查访问权限"
+
+msgid "Library not subscribed"
+msgstr "图书馆未订阅"
+
+msgid "Login info not available"
+msgstr "登录信息不可用"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "您的图书馆未订阅此在线资源。请点击下方链接建议采购。"
+
+msgid "Suggest for purchase"
+msgstr "建议采购"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "您的账户需要处理后才能显示登录信息。请写信至 %s 寻求帮助。"

@@ -129,3 +129,21 @@ msgstr "التكوين مطلوب:"
 
 msgid "Login info"
 msgstr "معلومات تسجيل الدخول"
+
+msgid "Log in to check access"
+msgstr "سجّل الدخول للتحقق من الوصول"
+
+msgid "Library not subscribed"
+msgstr "المكتبة غير مشتركة"
+
+msgid "Login info not available"
+msgstr "معلومات تسجيل الدخول غير متاحة"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "مكتبتك غير مشتركة في هذا المورد عبر الإنترنت. انقر الرابط أدناه لاقتراح شرائه."
+
+msgid "Suggest for purchase"
+msgstr "اقترح للشراء"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "يتطلب حسابك اهتماماً قبل عرض معلومات تسجيل الدخول. يرجى الكتابة إلى %s للمساعدة."

@@ -129,3 +129,21 @@ msgstr "Vyžaduje sa konfigurácia:"
 
 msgid "Login info"
 msgstr "Prihlasovacie údaje"
+
+msgid "Log in to check access"
+msgstr "Prihláste sa na overenie prístupu"
+
+msgid "Library not subscribed"
+msgstr "Knižnica nie je predplatiteľ"
+
+msgid "Login info not available"
+msgstr "Prihlasovacie údaje nie sú k dispozícii"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "Vaša knižnica nemá predplatený tento online zdroj. Kliknite na odkaz nižšie a navrhnite jeho nákup."
+
+msgid "Suggest for purchase"
+msgstr "Navrhnúť na nákup"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "Váš účet vyžaduje pozornosť, kým možno zobraziť prihlasovacie údaje. Napíšte na %s o pomoc."

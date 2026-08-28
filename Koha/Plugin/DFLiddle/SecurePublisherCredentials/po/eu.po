@@ -129,3 +129,21 @@ msgstr "Konfigurazioa beharrezkoa:"
 
 msgid "Login info"
 msgstr "Saioa hasteko informazioa"
+
+msgid "Log in to check access"
+msgstr "Hasi saioa sarbidea egiaztatzeko"
+
+msgid "Library not subscribed"
+msgstr "Liburutegiak ez du harpidetza"
+
+msgid "Login info not available"
+msgstr "Saioa hasteko informazioa ez dago erabilgarri"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "Zure liburutegiak ez du lineako baliabide hau harpidetuta. Egin klik beheko estekan erosketa iradokitzeko."
+
+msgid "Suggest for purchase"
+msgstr "Egin erosketa-iradokizuna"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "Zure kontuak arreta behar du saioa hasteko informazioa erakutsi aurretik. Idatzi %s helbidera laguntza lortzeko."

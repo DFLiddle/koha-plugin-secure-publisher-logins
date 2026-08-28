@@ -12,6 +12,24 @@ OPAC access states ([OPAC_ACCESS_STATES.md](OPAC_ACCESS_STATES.md)): Phases 1–
 - Scope-denied and account-blocked trailing icon: `fa-regular fa-circle-question` (lighter than solid info)
 - Trailing icon weight fix in `spc.css` (see v1.4.9 for webfont loading on Koha 24.11)
 
+## v1.4.15 — Static asset diagnostics
+
+- `spc_diagnose_plugin_methods.pl` reports `bundle_path`, on-disk static files, and expected static URLs
+- Plugin warns in Plack log when bundle CSS/JS or `staticapi.json` is missing (common cause of static 404 while hooks still run)
+- `verify-kpz` also checks `staticapi.json` and `js/spc-config.js`
+- [OPERATIONS.md](OPERATIONS.md): recovery when static assets 404 but page source includes the tags; `koha-common restart` after upload if needed
+
+## v1.4.15 — OPAC access-state translations (prep)
+
+- Six new msgids (v1.4.x OPAC states) added to `de-DE.po`, `fr-FR.po`, and all entries in `po/catalogs.json`
+- **Suggest for purchase** uses the Koha OPAC actions-menu msgid; hand locales: de `Zur Anschaffung vorschlagen`, fr `Suggestion d'achat`
+- `scripts/patch-opac-access-states-i18n.mjs`, `scripts/fix-suggest-for-purchase-i18n.mjs`; `npm run i18n:patch-access-states` / `npm run i18n:fix-suggest`
+- After pull: run `npm run i18n:po && npm run i18n:verify` to regenerate generated `po/*.po` files from `catalogs.json`
+
+## v1.4.14 — OPAC header icon regression fix
+
+- `@font-face` for trailing `fa-circle-question` uses family name **SPC Font Awesome Regular** only (not `Font Awesome 6 Free`), so Koha header `fa` icons are not forced to the regular weight-400 face
+
 ## v1.4.13 — FA regular webfont URL
 
 - `@font-face` uses `/opac-tmpl/lib/fontawesome/webfonts/fa-regular-400.woff2` (shared `lib/`, not `bootstrap/lib/`)
@@ -56,7 +74,7 @@ OPAC access states ([OPAC_ACCESS_STATES.md](OPAC_ACCESS_STATES.md)): Phases 1–
 ## v1.4.3 — Phase 3
 
 - OPAC **Library not subscribed** when `state=scope_denied`
-- Info modal with subscription message and **Suggest for purchase** link (`suggestion_url`)
+- Info modal with subscription message and **Make a purchase suggestion** link (`suggestion_url`)
 - After **Log in to check access**, out-of-scope patrons see denial modal on return (not silent page)
 - `availability` adds `modal_message` and `suggestion_link_label`
 - `window.SPC` bootstrap: `LIBRARY_NOT_SUBSCRIBED_LABEL`, `SCOPE_DENIED_MESSAGE`, `SUGGEST_FOR_PURCHASE_LABEL`
@@ -76,12 +94,14 @@ OPAC access states ([OPAC_ACCESS_STATES.md](OPAC_ACCESS_STATES.md)): Phases 1–
 - `show` remains `1` only for `view_allowed`
 - Staff `availability` unchanged; adds `state` field
 
-## Not in this build
+## Not in v1.4.15
 
-Phase 5: full locale PO catalogs and production cutover packaging.
+- OPAC modal polish (native Koha button theming; mailto button label) — see [NEXT.md](NEXT.md)
+- Staff toolbar “Library not subscribed” — see [NEXT.md](NEXT.md)
+- Production cutover from v1.3.1 on subscribing libraries
 
 ## Upgrade notes
 
-Build v1.4.13, upload `.kpz`, smoke test per [MANUAL_TEST_PLAN.md](MANUAL_TEST_PLAN.md).
+Build v1.4.15, upload `.kpz`, smoke test per [MANUAL_TEST_PLAN.md](MANUAL_TEST_PLAN.md).
 
 Verify API with curl examples in [OPAC_ACCESS_STATES.md](OPAC_ACCESS_STATES.md).

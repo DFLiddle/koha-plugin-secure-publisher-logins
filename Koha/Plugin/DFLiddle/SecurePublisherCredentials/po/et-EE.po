@@ -129,3 +129,21 @@ msgstr "Seadistamine nõutav:"
 
 msgid "Login info"
 msgstr "Sisselogimisandmed"
+
+msgid "Log in to check access"
+msgstr "Logige sisse juurdepääsu kontrollimiseks"
+
+msgid "Library not subscribed"
+msgstr "Raamatukogu ei telli"
+
+msgid "Login info not available"
+msgstr "Sisselogimisandmed pole saadaval"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "Teie raamatukogu ei telli seda veebiressurssi. Klõpsake allolevat linki, et soovitada ostu."
+
+msgid "Suggest for purchase"
+msgstr "Soovita ostmiseks"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "Teie konto vajab tähelepanu enne sisselogimisandmete kuvamist. Kirjutage abi saamiseks aadressile %s."

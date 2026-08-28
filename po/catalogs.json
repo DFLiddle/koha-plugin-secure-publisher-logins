@@ -42,7 +42,13 @@
     "Biblionumber": "Nomor biblio",
     "Delete this publisher login?": "Hapus login penerbit ini?",
     "Configuration required:": "Konfigurasi diperlukan:",
-    "Login info": "Info login"
+    "Login info": "Info login",
+    "Log in to check access": "Masuk untuk memeriksa akses",
+    "Library not subscribed": "Perpustakaan tidak berlangganan",
+    "Login info not available": "Info login tidak tersedia",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Perpustakaan Anda tidak berlangganan sumber daring ini. Klik tautan di bawah untuk mengusulkan pembelian.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Akun Anda memerlukan perhatian sebelum info login dapat ditampilkan. Silakan tulis ke %s untuk bantuan.",
+    "Suggest for purchase": "Usulkan untuk dibeli"
   },
   "th-TH": {
     "View login info": "ดูข้อมูลการเข้าสู่ระบบ",
@@ -87,7 +93,13 @@
     "Biblionumber": "หมายเลขบิบลิโอ",
     "Delete this publisher login?": "ลบการเข้าสู่ระบบผู้พิมพ์นี้?",
     "Configuration required:": "ต้องกำหนดค่า:",
-    "Login info": "ข้อมูลการเข้าสู่ระบบ"
+    "Login info": "ข้อมูลการเข้าสู่ระบบ",
+    "Log in to check access": "เข้าสู่ระบบเพื่อตรวจสอบการเข้าถึง",
+    "Library not subscribed": "ห้องสมุดไม่ได้สมัครสมาชิก",
+    "Login info not available": "ไม่มีข้อมูลการเข้าสู่ระบบ",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "ห้องสมุดของคุณไม่ได้สมัครทรัพยากรออนไลน์นี้ คลิกลิงก์ด้านล่างเพื่อแนะนำให้จัดซื้อ",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "บัญชีของคุณต้องได้รับการดูแลก่อนจึงจะแสดงข้อมูลการเข้าสู่ระบบได้ โปรดเขียนถึง %s เพื่อขอความช่วยเหลือ",
+    "Suggest for purchase": "แนะนำให้จัดซื้อ"
   },
   "zh-Hans-CN": {
     "View login info": "查看登录信息",
@@ -132,7 +144,13 @@
     "Biblionumber": "书目编号",
     "Delete this publisher login?": "删除此出版商登录?",
     "Configuration required:": "需要配置:",
-    "Login info": "登录信息"
+    "Login info": "登录信息",
+    "Log in to check access": "登录以检查访问权限",
+    "Library not subscribed": "图书馆未订阅",
+    "Login info not available": "登录信息不可用",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "您的图书馆未订阅此在线资源。请点击下方链接建议采购。",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "您的账户需要处理后才能显示登录信息。请写信至 %s 寻求帮助。",
+    "Suggest for purchase": "建议采购"
   },
   "zh-Hant-TW": {
     "View login info": "檢視登入資訊",
@@ -177,7 +195,13 @@
     "Biblionumber": "書目編號",
     "Delete this publisher login?": "刪除此出版商登入?",
     "Configuration required:": "需要設定:",
-    "Login info": "登入資訊"
+    "Login info": "登入資訊",
+    "Log in to check access": "登入以檢查存取權",
+    "Library not subscribed": "圖書館未訂閱",
+    "Login info not available": "登入資訊不可用",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "您的圖書館未訂閱此線上資源。請點選下方連結建議採購。",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "您的帳戶需要處理後才能顯示登入資訊。請寫信至 %s 尋求協助。",
+    "Suggest for purchase": "建議採購"
   },
   "ca-ES": {
     "View login info": "Veure informació d'inici de sessió",
@@ -222,7 +246,13 @@
     "Biblionumber": "Número de biblio",
     "Delete this publisher login?": "Suprimir aquest inici de sessió d'editor?",
     "Configuration required:": "Configuració necessària:",
-    "Login info": "Informació d'inici de sessió"
+    "Login info": "Informació d'inici de sessió",
+    "Log in to check access": "Inicia sessió per comprovar l'accés",
+    "Library not subscribed": "Biblioteca no subscrita",
+    "Login info not available": "Informació d'inici de sessió no disponible",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "La vostra biblioteca no està subscrita a aquest recurs en línia. Feu clic a l'enllaç següent per suggerir-ne la compra.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "El vostre compte requereix atenció abans que es pugui mostrar la informació d'inici de sessió. Escriviu a %s per obtenir ajuda.",
+    "Suggest for purchase": "Fer un suggeriment de compra"
   },
   "cs-CZ": {
     "View login info": "Zobrazit přihlašovací údaje",
@@ -267,7 +297,13 @@
     "Biblionumber": "Číslo biblio",
     "Delete this publisher login?": "Smazat toto přihlášení vydavatele?",
     "Configuration required:": "Vyžadována konfigurace:",
-    "Login info": "Přihlašovací údaje"
+    "Login info": "Přihlašovací údaje",
+    "Log in to check access": "Přihlaste se pro ověření přístupu",
+    "Library not subscribed": "Knihovna není předplatitel",
+    "Login info not available": "Přihlašovací údaje nejsou k dispozici",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Vaše knihovna nemá předplacený tento online zdroj. Klikněte na odkaz níže a navrhněte jeho nákup.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Váš účet vyžaduje pozornost, než lze zobrazit přihlašovací údaje. Napište na %s pro pomoc.",
+    "Suggest for purchase": "Navrhnout k nákupu"
   },
   "da-DK": {
     "View login info": "Vis loginoplysninger",
@@ -312,7 +348,13 @@
     "Biblionumber": "Biblionummer",
     "Delete this publisher login?": "Slet dette forlag-login?",
     "Configuration required:": "Konfiguration påkrævet:",
-    "Login info": "Loginoplysninger"
+    "Login info": "Loginoplysninger",
+    "Log in to check access": "Log ind for at tjekke adgang",
+    "Library not subscribed": "Biblioteket abonnerer ikke",
+    "Login info not available": "Loginoplysninger ikke tilgængelige",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Dit bibliotek abonnerer ikke på denne online ressource. Klik på linket nedenfor for at foreslå køb.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Din konto kræver opmærksomhed, før loginoplysninger kan vises. Skriv til %s for hjælp.",
+    "Suggest for purchase": "Foreslå køb"
   },
   "es-ES": {
     "View login info": "Ver información de acceso",
@@ -357,7 +399,13 @@
     "Biblionumber": "Número de biblio",
     "Delete this publisher login?": "¿Eliminar este acceso de editor?",
     "Configuration required:": "Configuración requerida:",
-    "Login info": "Información de acceso"
+    "Login info": "Información de acceso",
+    "Log in to check access": "Iniciar sesión para comprobar el acceso",
+    "Library not subscribed": "Biblioteca no suscrita",
+    "Login info not available": "Información de acceso no disponible",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Su biblioteca no está suscrita a este recurso en línea. Haga clic en el enlace siguiente para sugerir su compra.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Su cuenta requiere atención antes de que se pueda mostrar la información de acceso. Escriba a %s para obtener ayuda.",
+    "Suggest for purchase": "Hacer una sugerencia de compra"
   },
   "fi-FI": {
     "View login info": "Näytä kirjautumistiedot",
@@ -402,7 +450,13 @@
     "Biblionumber": "Biblionumero",
     "Delete this publisher login?": "Poista tämä julkaisijakirjautuminen?",
     "Configuration required:": "Konfigurointi vaaditaan:",
-    "Login info": "Kirjautumistiedot"
+    "Login info": "Kirjautumistiedot",
+    "Log in to check access": "Kirjaudu sisään tarkistaaksesi käyttöoikeuden",
+    "Library not subscribed": "Kirjasto ei ole tilaaja",
+    "Login info not available": "Kirjautumistiedot eivät ole saatavilla",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Kirjastosi ei ole tilannut tätä verkkoresurssia. Napsauta alla olevaa linkkiä ehdottaaksesi hankintaa.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Tilisi vaatii huomiota ennen kuin kirjautumistiedot voidaan näyttää. Kirjoita osoitteeseen %s saadaksesi apua.",
+    "Suggest for purchase": "Ehdota hankittavaksi"
   },
   "fr-CA": {
     "View login info": "Voir les identifiants",
@@ -447,7 +501,13 @@
     "Biblionumber": "Numéro biblio",
     "Delete this publisher login?": "Supprimer cet identifiant éditeur ?",
     "Configuration required:": "Configuration requise :",
-    "Login info": "Identifiants"
+    "Login info": "Identifiants",
+    "Log in to check access": "Se connecter pour vérifier l'accès",
+    "Library not subscribed": "Bibliothèque non abonnée",
+    "Login info not available": "Informations de connexion non disponibles",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Votre bibliothèque n'est pas abonnée à cette ressource en ligne. Cliquez sur le lien ci-dessous pour la suggérer à l'achat.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Votre compte nécessite une attention avant que les informations de connexion puissent être affichées. Veuillez écrire à %s pour obtenir de l'aide.",
+    "Suggest for purchase": "Suggestion d'achat"
   },
   "gl-ES": {
     "View login info": "Ver información de acceso",
@@ -492,7 +552,13 @@
     "Biblionumber": "Número de biblio",
     "Delete this publisher login?": "Eliminar este acceso de editor?",
     "Configuration required:": "Configuración requerida:",
-    "Login info": "Información de acceso"
+    "Login info": "Información de acceso",
+    "Log in to check access": "Iniciar sesión para comprobar o acceso",
+    "Library not subscribed": "Biblioteca non subscrita",
+    "Login info not available": "Información de acceso non dispoñible",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "A súa biblioteca non está subscrita a este recurso en liña. Prema na ligazón de abaixo para suxerir a súa compra.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "A súa conta require atención antes de que se poida mostrar a información de acceso. Escriba a %s para obter axuda.",
+    "Suggest for purchase": "Facer unha suxestión de compra"
   },
   "hr-HR": {
     "View login info": "Prikaži podatke za prijavu",
@@ -537,7 +603,13 @@
     "Biblionumber": "Broj biblio",
     "Delete this publisher login?": "Izbrisati ovu prijavu izdavača?",
     "Configuration required:": "Potrebna konfiguracija:",
-    "Login info": "Podaci za prijavu"
+    "Login info": "Podaci za prijavu",
+    "Log in to check access": "Prijavite se za provjeru pristupa",
+    "Library not subscribed": "Knjižnica nije pretplatnik",
+    "Login info not available": "Podaci za prijavu nisu dostupni",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Vaša knjižnica nije pretplaćena na ovaj mrežni resurs. Kliknite poveznicu ispod kako biste predložili nabavu.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Vaš račun zahtijeva pažnju prije nego što se mogu prikazati podaci za prijavu. Pišite na %s za pomoć.",
+    "Suggest for purchase": "Predloži za nabavu"
   },
   "hu-HU": {
     "View login info": "Bejelentkezési adatok megtekintése",
@@ -582,7 +654,13 @@
     "Biblionumber": "Biblionszám",
     "Delete this publisher login?": "Törli ezt a kiadói bejelentkezést?",
     "Configuration required:": "Konfiguráció szükséges:",
-    "Login info": "Bejelentkezési adatok"
+    "Login info": "Bejelentkezési adatok",
+    "Log in to check access": "Jelentkezzen be a hozzáférés ellenőrzéséhez",
+    "Library not subscribed": "A könyvtár nem előfizető",
+    "Login info not available": "A bejelentkezési adatok nem érhetők el",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Könyvtára nem fizet elő erre az online forrásra. Kattintson az alábbi linkre a beszerzés javaslatához.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Fiókját rendezni kell, mielőtt a bejelentkezési adatok megjeleníthetők. Írjon a %s címre segítségért.",
+    "Suggest for purchase": "Javaslat beszerzésre"
   },
   "it-IT": {
     "View login info": "Visualizza credenziali",
@@ -627,7 +705,13 @@
     "Biblionumber": "Numero biblio",
     "Delete this publisher login?": "Eliminare questo accesso editore?",
     "Configuration required:": "Configurazione richiesta:",
-    "Login info": "Credenziali"
+    "Login info": "Credenziali",
+    "Log in to check access": "Accedi per verificare l'accesso",
+    "Library not subscribed": "Biblioteca non abbonata",
+    "Login info not available": "Informazioni di accesso non disponibili",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "La tua biblioteca non è abbonata a questa risorsa online. Fai clic sul link qui sotto per suggerirne l'acquisto.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Il tuo account richiede attenzione prima che le informazioni di accesso possano essere mostrate. Scrivi a %s per assistenza.",
+    "Suggest for purchase": "Fai un suggerimento di acquisto"
   },
   "nb-NO": {
     "View login info": "Vis innloggingsinfo",
@@ -672,7 +756,13 @@
     "Biblionumber": "Biblionummer",
     "Delete this publisher login?": "Slette denne forlagspåloggingen?",
     "Configuration required:": "Konfigurasjon kreves:",
-    "Login info": "Innloggingsinfo"
+    "Login info": "Innloggingsinfo",
+    "Log in to check access": "Logg inn for å sjekke tilgang",
+    "Library not subscribed": "Biblioteket abonnerer ikke",
+    "Login info not available": "Innloggingsinfo ikke tilgjengelig",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Biblioteket ditt abonnerer ikke på denne nettressursen. Klikk lenken nedenfor for å foreslå kjøp.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Kontoen din krever oppmerksomhet før innloggingsinfo kan vises. Skriv til %s for hjelp.",
+    "Suggest for purchase": "Foreslå kjøp"
   },
   "nn-NO": {
     "View login info": "Vis innloggingsinfo",
@@ -717,7 +807,13 @@
     "Biblionumber": "Biblionummer",
     "Delete this publisher login?": "Slette denne forlagspålogginga?",
     "Configuration required:": "Konfigurasjon krevst:",
-    "Login info": "Innloggingsinfo"
+    "Login info": "Innloggingsinfo",
+    "Log in to check access": "Logg inn for å sjekke tilgang",
+    "Library not subscribed": "Biblioteket abonnerer ikkje",
+    "Login info not available": "Innloggingsinfo ikkje tilgjengeleg",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Biblioteket ditt abonnerer ikkje på denne nettressursen. Klikk lenkja under for å foreslå kjøp.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Kontoen din krev oppmerksomheit før innloggingsinfo kan visast. Skriv til %s for hjelp.",
+    "Suggest for purchase": "Foreslå kjøp"
   },
   "nl-BE": {
     "View login info": "Inloggegevens bekijken",
@@ -762,7 +858,13 @@
     "Biblionumber": "Biblionummer",
     "Delete this publisher login?": "Deze uitgever-inloggegevens verwijderen?",
     "Configuration required:": "Configuratie vereist:",
-    "Login info": "Inloggegevens"
+    "Login info": "Inloggegevens",
+    "Log in to check access": "Aanmelden om toegang te controleren",
+    "Library not subscribed": "Bibliotheek niet geabonneerd",
+    "Login info not available": "Inloggegevens niet beschikbaar",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Uw bibliotheek is niet geabonneerd op deze online bron. Klik op de onderstaande link om aan te schaffen voor te stellen.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Uw account vereist aandacht voordat de inloggegevens kunnen worden getoond. Schrijf naar %s voor hulp.",
+    "Suggest for purchase": "Doe een aankoopsuggestie"
   },
   "nl-NL": {
     "View login info": "Inloggegevens bekijken",
@@ -807,7 +909,13 @@
     "Biblionumber": "Biblionummer",
     "Delete this publisher login?": "Deze uitgever-inloggegevens verwijderen?",
     "Configuration required:": "Configuratie vereist:",
-    "Login info": "Inloggegevens"
+    "Login info": "Inloggegevens",
+    "Log in to check access": "Aanmelden om toegang te controleren",
+    "Library not subscribed": "Bibliotheek niet geabonneerd",
+    "Login info not available": "Inloggegevens niet beschikbaar",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Uw bibliotheek is niet geabonneerd op deze online bron. Klik op de onderstaande link om aan te schaffen voor te stellen.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Uw account vereist aandacht voordat de inloggegevens kunnen worden getoond. Schrijf naar %s voor hulp.",
+    "Suggest for purchase": "Doe een aankoopsuggestie"
   },
   "pl-PL": {
     "View login info": "Wyświetl dane logowania",
@@ -852,7 +960,13 @@
     "Biblionumber": "Numer biblio",
     "Delete this publisher login?": "Usunąć to logowanie wydawcy?",
     "Configuration required:": "Wymagana konfiguracja:",
-    "Login info": "Dane logowania"
+    "Login info": "Dane logowania",
+    "Log in to check access": "Zaloguj się, aby sprawdzić dostęp",
+    "Library not subscribed": "Biblioteka nie subskrybuje",
+    "Login info not available": "Informacje logowania niedostępne",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Twoja biblioteka nie subskrybuje tego zasobu online. Kliknij poniższy link, aby zaproponować zakup.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Twoje konto wymaga uwagi, zanim można wyświetlić informacje logowania. Napisz na %s po pomoc.",
+    "Suggest for purchase": "Złóż sugestię zakupu"
   },
   "pt-BR": {
     "View login info": "Ver informações de login",
@@ -897,7 +1011,13 @@
     "Biblionumber": "Número biblio",
     "Delete this publisher login?": "Excluir este login de editora?",
     "Configuration required:": "Configuração necessária:",
-    "Login info": "Informações de login"
+    "Login info": "Informações de login",
+    "Log in to check access": "Entrar para verificar o acesso",
+    "Library not subscribed": "Biblioteca não assinante",
+    "Login info not available": "Informações de login indisponíveis",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Sua biblioteca não assina este recurso online. Clique no link abaixo para sugerir a compra.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Sua conta precisa de atenção antes que as informações de login possam ser exibidas. Escreva para %s para obter ajuda.",
+    "Suggest for purchase": "Fazer uma sugestão de compra"
   },
   "pt-PT": {
     "View login info": "Ver informações de login",
@@ -942,7 +1062,13 @@
     "Biblionumber": "Número biblio",
     "Delete this publisher login?": "Eliminar este login de editora?",
     "Configuration required:": "Configuração necessária:",
-    "Login info": "Informações de login"
+    "Login info": "Informações de login",
+    "Log in to check access": "Iniciar sessão para verificar o acesso",
+    "Library not subscribed": "Biblioteca não subscrita",
+    "Login info not available": "Informações de login indisponíveis",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "A sua biblioteca não subscreve este recurso online. Clique na ligação abaixo para sugerir a compra.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "A sua conta requer atenção antes de as informações de login poderem ser mostradas. Escreva para %s para obter ajuda.",
+    "Suggest for purchase": "Fazer uma sugestão de compra"
   },
   "ro-RO": {
     "View login info": "Vizualizare informații de autentificare",
@@ -987,7 +1113,13 @@
     "Biblionumber": "Număr biblio",
     "Delete this publisher login?": "Ștergeți această autentificare editor?",
     "Configuration required:": "Configurare necesară:",
-    "Login info": "Informații de autentificare"
+    "Login info": "Informații de autentificare",
+    "Log in to check access": "Conectați-vă pentru a verifica accesul",
+    "Library not subscribed": "Biblioteca nu este abonată",
+    "Login info not available": "Informațiile de conectare nu sunt disponibile",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Biblioteca dvs. nu este abonată la această resursă online. Faceți clic pe linkul de mai jos pentru a sugera achiziția.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Contul dvs. necesită atenție înainte ca informațiile de conectare să poată fi afișate. Scrieți la %s pentru ajutor.",
+    "Suggest for purchase": "Sugerați pentru achiziție"
   },
   "ru-RU": {
     "View login info": "Просмотр данных входа",
@@ -1032,7 +1164,13 @@
     "Biblionumber": "Номер библио",
     "Delete this publisher login?": "Удалить этот вход издателя?",
     "Configuration required:": "Требуется настройка:",
-    "Login info": "Данные входа"
+    "Login info": "Данные входа",
+    "Log in to check access": "Войдите, чтобы проверить доступ",
+    "Library not subscribed": "Библиотека не подписана",
+    "Login info not available": "Данные для входа недоступны",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Ваша библиотека не подписана на этот онлайн-ресурс. Нажмите ссылку ниже, чтобы предложить покупку.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Ваша учётная запись требует внимания, прежде чем можно показать данные для входа. Напишите на %s за помощью.",
+    "Suggest for purchase": "Предложить к покупке"
   },
   "sk-SK": {
     "View login info": "Zobraziť prihlasovacie údaje",
@@ -1077,7 +1215,13 @@
     "Biblionumber": "Číslo biblio",
     "Delete this publisher login?": "Odstrániť toto prihlásenie vydavateľa?",
     "Configuration required:": "Vyžaduje sa konfigurácia:",
-    "Login info": "Prihlasovacie údaje"
+    "Login info": "Prihlasovacie údaje",
+    "Log in to check access": "Prihláste sa na overenie prístupu",
+    "Library not subscribed": "Knižnica nie je predplatiteľ",
+    "Login info not available": "Prihlasovacie údaje nie sú k dispozícii",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Vaša knižnica nemá predplatený tento online zdroj. Kliknite na odkaz nižšie a navrhnite jeho nákup.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Váš účet vyžaduje pozornosť, kým možno zobraziť prihlasovacie údaje. Napíšte na %s o pomoc.",
+    "Suggest for purchase": "Navrhnúť na nákup"
   },
   "sl-SI": {
     "View login info": "Prikaži podatke za prijavo",
@@ -1122,7 +1266,13 @@
     "Biblionumber": "Številka biblio",
     "Delete this publisher login?": "Izbrisati to prijavo založnika?",
     "Configuration required:": "Potrebna konfiguracija:",
-    "Login info": "Podatki za prijavo"
+    "Login info": "Podatki za prijavo",
+    "Log in to check access": "Prijavite se za preverjanje dostopa",
+    "Library not subscribed": "Knjižnica ni naročnik",
+    "Login info not available": "Podatki za prijavo niso na voljo",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Vaša knjižnica ni naročena na ta spletni vir. Kliknite spodnjo povezavo, da predlagate nakup.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Vaš račun zahteva pozornost, preden je mogoče prikazati podatke za prijavo. Pišite na %s za pomoč.",
+    "Suggest for purchase": "Predlagaj za nakup"
   },
   "sv-SE": {
     "View login info": "Visa inloggningsinfo",
@@ -1167,7 +1317,13 @@
     "Biblionumber": "Biblionummer",
     "Delete this publisher login?": "Ta bort denna förlagsinloggning?",
     "Configuration required:": "Konfiguration krävs:",
-    "Login info": "Inloggningsinfo"
+    "Login info": "Inloggningsinfo",
+    "Log in to check access": "Logga in för att kontrollera åtkomst",
+    "Library not subscribed": "Biblioteket prenumererar inte",
+    "Login info not available": "Inloggningsinfo inte tillgänglig",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Ditt bibliotek prenumererar inte på denna onlineresurs. Klicka på länken nedan för att föreslå inköp.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Ditt konto kräver uppmärksamhet innan inloggningsinfo kan visas. Skriv till %s för hjälp.",
+    "Suggest for purchase": "Gör ett inköpsförslag"
   },
   "tr-TR": {
     "View login info": "Giriş bilgilerini görüntüle",
@@ -1212,7 +1368,13 @@
     "Biblionumber": "Biblio numarası",
     "Delete this publisher login?": "Bu yayıncı girişini sil?",
     "Configuration required:": "Yapılandırma gerekli:",
-    "Login info": "Giriş bilgileri"
+    "Login info": "Giriş bilgileri",
+    "Log in to check access": "Erişimi kontrol etmek için giriş yapın",
+    "Library not subscribed": "Kütüphane abone değil",
+    "Login info not available": "Giriş bilgileri kullanılamıyor",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Kütüphaneniz bu çevrimiçi kaynağa abone değil. Satın alma önermek için aşağıdaki bağlantıya tıklayın.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Giriş bilgileri gösterilmeden önce hesabınızın ilgilenilmesi gerekir. Yardım için %s adresine yazın.",
+    "Suggest for purchase": "Satın alma için öner"
   },
   "uk-UA": {
     "View login info": "Переглянути дані входу",
@@ -1257,7 +1419,13 @@
     "Biblionumber": "Номер бібліо",
     "Delete this publisher login?": "Видалити цей вхід видавця?",
     "Configuration required:": "Потрібна конфігурація:",
-    "Login info": "Дані входу"
+    "Login info": "Дані входу",
+    "Log in to check access": "Увійдіть, щоб перевірити доступ",
+    "Library not subscribed": "Бібліотека не підписана",
+    "Login info not available": "Дані для входу недоступні",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Ваша бібліотека не підписана на цей онлайн-ресурс. Натисніть посилання нижче, щоб запропонувати закупівлю.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Ваш обліковий запис потребує уваги, перш ніж можна показати дані для входу. Напишіть на %s за допомогою.",
+    "Suggest for purchase": "Запропонувати до закупівлі"
   },
   "cy-GB": {
     "View login info": "Gweld gwybodaeth mewngofnodi",
@@ -1302,7 +1470,13 @@
     "Biblionumber": "Rhif biblio",
     "Delete this publisher login?": "Dileu'r mewngofnodi cyhoeddwr hwn?",
     "Configuration required:": "Angen ffurfweddiad:",
-    "Login info": "Gwybodaeth mewngofnodi"
+    "Login info": "Gwybodaeth mewngofnodi",
+    "Log in to check access": "Mewngofnodi i wirio mynediad",
+    "Library not subscribed": "Nid yw'r llyfrgell yn tanysgrifio",
+    "Login info not available": "Nid yw gwybodaeth mewngofnodi ar gael",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Nid yw eich llyfrgell yn tanysgrifio i'r adnodd ar-lein hwn. Cliciwch y ddolen isod i awgrymu ei brynu.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Mae angen sylw ar eich cyfrif cyn y gellir dangos gwybodaeth mewngofnodi. Ysgrifennwch at %s am gymorth.",
+    "Suggest for purchase": "Awgrymu ar gyfer prynu"
   },
   "is-IS": {
     "View login info": "Skoða innskráningarupplýsingar",
@@ -1347,7 +1521,13 @@
     "Biblionumber": "Biblionúmer",
     "Delete this publisher login?": "Eyða þessari útgefandainnskráningu?",
     "Configuration required:": "Uppsetning nauðsynleg:",
-    "Login info": "Innskráningarupplýsingar"
+    "Login info": "Innskráningarupplýsingar",
+    "Log in to check access": "Skráðu þig inn til að athuga aðgang",
+    "Library not subscribed": "Bókasafnið á ekki áskrift",
+    "Login info not available": "Innskráningarupplýsingar ekki tiltækar",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Bókasafnið þitt á ekki áskrift að þessum netauðlind. Smelltu á tengilinn hér að neðan til að leggja til kaup.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Reikningurinn þinn þarf athygli áður en hægt er að sýna innskráningarupplýsingar. Skrifaðu til %s til að fá aðstoð.",
+    "Suggest for purchase": "Leggja til kaup"
   },
   "ar": {
     "View login info": "عرض معلومات تسجيل الدخول",
@@ -1392,7 +1572,13 @@
     "Biblionumber": "رقم الببليو",
     "Delete this publisher login?": "حذف تسجيل دخول الناشر هذا?",
     "Configuration required:": "التكوين مطلوب:",
-    "Login info": "معلومات تسجيل الدخول"
+    "Login info": "معلومات تسجيل الدخول",
+    "Log in to check access": "سجّل الدخول للتحقق من الوصول",
+    "Library not subscribed": "المكتبة غير مشتركة",
+    "Login info not available": "معلومات تسجيل الدخول غير متاحة",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "مكتبتك غير مشتركة في هذا المورد عبر الإنترنت. انقر الرابط أدناه لاقتراح شرائه.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "يتطلب حسابك اهتماماً قبل عرض معلومات تسجيل الدخول. يرجى الكتابة إلى %s للمساعدة.",
+    "Suggest for purchase": "اقترح للشراء"
   },
   "el-GR": {
     "View login info": "Προβολή πληροφοριών σύνδεσης",
@@ -1437,7 +1623,13 @@
     "Biblionumber": "Αριθμός biblio",
     "Delete this publisher login?": "Διαγραφή αυτής της σύνδεσης εκδότη?",
     "Configuration required:": "Απαιτείται ρύθμιση:",
-    "Login info": "Πληροφορίες σύνδεσης"
+    "Login info": "Πληροφορίες σύνδεσης",
+    "Log in to check access": "Συνδεθείτε για έλεγχο πρόσβασης",
+    "Library not subscribed": "Η βιβλιοθήκη δεν είναι συνδρομήτρια",
+    "Login info not available": "Οι πληροφορίες σύνδεσης δεν είναι διαθέσιμες",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Η βιβλιοθήκη σας δεν είναι συνδρομήτρια σε αυτόν τον διαδικτυακό πόρο. Κάντε κλικ στον παρακάτω σύνδεσμο για να προτείνετε αγορά.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Ο λογαριασμός σας χρειάζεται προσοχή πριν εμφανιστούν οι πληροφορίες σύνδεσης. Γράψτε στο %s για βοήθεια.",
+    "Suggest for purchase": "Πρόταση για αγορά"
   },
   "he-IL": {
     "View login info": "הצג מידע התחברות",
@@ -1482,7 +1674,13 @@
     "Biblionumber": "מספר ביבליו",
     "Delete this publisher login?": "מחק התחברות מוציא לאור זו?",
     "Configuration required:": "נדרשת הגדרה:",
-    "Login info": "מידע התחברות"
+    "Login info": "מידע התחברות",
+    "Log in to check access": "התחבר כדי לבדוק גישה",
+    "Library not subscribed": "הספרייה אינה מנויה",
+    "Login info not available": "פרטי ההתחברות אינם זמינים",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "הספרייה שלך אינה מנויה למשאב מקוון זה. לחץ על הקישור למטה כדי להציע רכישה.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "החשבון שלך דורש טיפול לפני שניתן להציג את פרטי ההתחברות. כתוב ל-%s לעזרה.",
+    "Suggest for purchase": "הצע לרכישה"
   },
   "ja-JP": {
     "View login info": "ログイン情報を表示",
@@ -1527,7 +1725,13 @@
     "Biblionumber": "書目番号",
     "Delete this publisher login?": "この出版社ログインを削除しますか?",
     "Configuration required:": "設定が必要:",
-    "Login info": "ログイン情報"
+    "Login info": "ログイン情報",
+    "Log in to check access": "ログインしてアクセスを確認",
+    "Library not subscribed": "図書館は未契約です",
+    "Login info not available": "ログイン情報は利用できません",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "お使いの図書館はこのオンラインリソースを契約していません。下のリンクをクリックして購入を提案してください。",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "ログイン情報を表示する前にアカウントへの対応が必要です。%s までお問い合わせください。",
+    "Suggest for purchase": "購入を提案"
   },
   "ko-KR": {
     "View login info": "로그인 정보 보기",
@@ -1572,7 +1776,13 @@
     "Biblionumber": "서지 번호",
     "Delete this publisher login?": "이 출판사 로그인을 삭제하시겠습니까?",
     "Configuration required:": "설정이 필요합니다:",
-    "Login info": "로그인 정보"
+    "Login info": "로그인 정보",
+    "Log in to check access": "로그인하여 액세스 확인",
+    "Library not subscribed": "도서관이 구독하지 않음",
+    "Login info not available": "로그인 정보를 사용할 수 없음",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "귀하의 도서관은 이 온라인 자료를 구독하지 않습니다. 아래 링크를 클릭하여 구매를 제안하세요.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "로그인 정보를 표시하기 전에 계정 조치가 필요합니다. 도움이 필요하면 %s(으)로 문의하세요.",
+    "Suggest for purchase": "구매 제안"
   },
   "et-EE": {
     "View login info": "Vaata sisselogimisandmeid",
@@ -1617,7 +1827,13 @@
     "Biblionumber": "Biblionumber",
     "Delete this publisher login?": "Kustuta see kirjastaja sisselogimine?",
     "Configuration required:": "Seadistamine nõutav:",
-    "Login info": "Sisselogimisandmed"
+    "Login info": "Sisselogimisandmed",
+    "Log in to check access": "Logige sisse juurdepääsu kontrollimiseks",
+    "Library not subscribed": "Raamatukogu ei telli",
+    "Login info not available": "Sisselogimisandmed pole saadaval",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Teie raamatukogu ei telli seda veebiressurssi. Klõpsake allolevat linki, et soovitada ostu.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Teie konto vajab tähelepanu enne sisselogimisandmete kuvamist. Kirjutage abi saamiseks aadressile %s.",
+    "Suggest for purchase": "Soovita ostmiseks"
   },
   "lv-LV": {
     "View login info": "Skatīt pieteikšanās informāciju",
@@ -1662,7 +1878,13 @@
     "Biblionumber": "Biblionumurs",
     "Delete this publisher login?": "Dzēst šo izdevniecības pieteikšanos?",
     "Configuration required:": "Nepieciešama konfigurācija:",
-    "Login info": "Pieteikšanās informācija"
+    "Login info": "Pieteikšanās informācija",
+    "Log in to check access": "Piesakieties, lai pārbaudītu piekļuvi",
+    "Library not subscribed": "Bibliotēka nav abonente",
+    "Login info not available": "Pieteikšanās informācija nav pieejama",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Jūsu bibliotēka nav abonējusi šo tiešsaistes resursu. Noklikšķiniet uz zemāk esošās saites, lai ieteiktu iegādi.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Jūsu kontam nepieciešama uzmanība, pirms var parādīt pieteikšanās informāciju. Rakstiet uz %s, lai saņemtu palīdzību.",
+    "Suggest for purchase": "Ieteikt iegādei"
   },
   "bg-BG": {
     "View login info": "Преглед на информация за вход",
@@ -1707,7 +1929,13 @@
     "Biblionumber": "Номер на библио",
     "Delete this publisher login?": "Изтриване на този вход на издател?",
     "Configuration required:": "Необходима конфигурация:",
-    "Login info": "Информация за вход"
+    "Login info": "Информация за вход",
+    "Log in to check access": "Влезте, за да проверите достъпа",
+    "Library not subscribed": "Библиотеката не е абонат",
+    "Login info not available": "Информацията за вход не е налична",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Вашата библиотека не е абонирана за този онлайн ресурс. Щракнете върху връзката по-долу, за да предложите покупка.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Вашият акаунт изисква внимание, преди да може да се покаже информацията за вход. Пишете на %s за помощ.",
+    "Suggest for purchase": "Предложи за покупка"
   },
   "sr-RS": {
     "View login info": "Прикажи податке за пријаву",
@@ -1752,7 +1980,13 @@
     "Biblionumber": "Број библио",
     "Delete this publisher login?": "Обрисати ову пријаву издавача?",
     "Configuration required:": "Потребна конфигурација:",
-    "Login info": "Подaci за пријаву"
+    "Login info": "Подaci за пријаву",
+    "Log in to check access": "Пријавите се да проверите приступ",
+    "Library not subscribed": "Библиотека није претплатник",
+    "Login info not available": "Подаци за пријаву нису доступни",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Ваша библиотека није претплаћена на овај мрежни ресурс. Кликните на везу испод да предложите набавку.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Ваш налог захтева пажњу пре него што се могу приказати подаци за пријаву. Пишите на %s за помоћ.",
+    "Suggest for purchase": "Предложи за набавку"
   },
   "fo-FO": {
     "View login info": "Vís innritanarupplýsingar",
@@ -1797,7 +2031,13 @@
     "Biblionumber": "Biblionúmer",
     "Delete this publisher login?": "Strika hesa útgefara innritan?",
     "Configuration required:": "Uppseting kravd:",
-    "Login info": "Innritanarupplýsingar"
+    "Login info": "Innritanarupplýsingar",
+    "Log in to check access": "Rita inn fyri at kanna atgongd",
+    "Library not subscribed": "Bókasavnið hevur ikki áskrift",
+    "Login info not available": "Innritanarupplýsingar ikki tøkar",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Títt bókasavn hevur ikki áskrift til hesa netútbúgvingina. Trýst á leinkjuna niðanfyri fyri at leggja til keyp.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Tín konto krevur umsorgan áðrenn innritanarupplýsingar kunnu vísast. Skriva til %s fyri hjálp.",
+    "Suggest for purchase": "Legg til keyp"
   },
   "eu": {
     "View login info": "Ikusi saioa hasteko informazioa",
@@ -1842,7 +2082,13 @@
     "Biblionumber": "Biblio zenbakia",
     "Delete this publisher login?": "Ezabatu argitaletxe saio hasiera hau?",
     "Configuration required:": "Konfigurazioa beharrezkoa:",
-    "Login info": "Saioa hasteko informazioa"
+    "Login info": "Saioa hasteko informazioa",
+    "Log in to check access": "Hasi saioa sarbidea egiaztatzeko",
+    "Library not subscribed": "Liburutegiak ez du harpidetza",
+    "Login info not available": "Saioa hasteko informazioa ez dago erabilgarri",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "Zure liburutegiak ez du lineako baliabide hau harpidetuta. Egin klik beheko estekan erosketa iradokitzeko.",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "Zure kontuak arreta behar du saioa hasteko informazioa erakutsi aurretik. Idatzi %s helbidera laguntza lortzeko.",
+    "Suggest for purchase": "Egin erosketa-iradokizuna"
   },
   "zh-CN": {
     "View login info": "查看登录信息",
@@ -1887,7 +2133,13 @@
     "Biblionumber": "书目编号",
     "Delete this publisher login?": "删除此出版商登录?",
     "Configuration required:": "需要配置:",
-    "Login info": "登录信息"
+    "Login info": "登录信息",
+    "Log in to check access": "登录以检查访问权限",
+    "Library not subscribed": "图书馆未订阅",
+    "Login info not available": "登录信息不可用",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "您的图书馆未订阅此在线资源。请点击下方链接建议采购。",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "您的账户需要处理后才能显示登录信息。请写信至 %s 寻求帮助。",
+    "Suggest for purchase": "建议采购"
   },
   "zh-TW": {
     "View login info": "檢視登入資訊",
@@ -1932,6 +2184,12 @@
     "Biblionumber": "書目編號",
     "Delete this publisher login?": "刪除此出版商登入?",
     "Configuration required:": "需要設定:",
-    "Login info": "登入資訊"
+    "Login info": "登入資訊",
+    "Log in to check access": "登入以檢查存取權",
+    "Library not subscribed": "圖書館未訂閱",
+    "Login info not available": "登入資訊不可用",
+    "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.": "您的圖書館未訂閱此線上資源。請點選下方連結建議採購。",
+    "Your account requires attention before the login info can be shown. Please write to %s for help.": "您的帳戶需要處理後才能顯示登入資訊。請寫信至 %s 尋求協助。",
+    "Suggest for purchase": "建議採購"
   }
 }

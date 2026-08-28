@@ -129,3 +129,21 @@ msgstr "Konfiguration krävs:"
 
 msgid "Login info"
 msgstr "Inloggningsinfo"
+
+msgid "Log in to check access"
+msgstr "Logga in för att kontrollera åtkomst"
+
+msgid "Library not subscribed"
+msgstr "Biblioteket prenumererar inte"
+
+msgid "Login info not available"
+msgstr "Inloggningsinfo inte tillgänglig"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "Ditt bibliotek prenumererar inte på denna onlineresurs. Klicka på länken nedan för att föreslå inköp."
+
+msgid "Suggest for purchase"
+msgstr "Gör ett inköpsförslag"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "Ditt konto kräver uppmärksamhet innan inloggningsinfo kan visas. Skriv till %s för hjälp."

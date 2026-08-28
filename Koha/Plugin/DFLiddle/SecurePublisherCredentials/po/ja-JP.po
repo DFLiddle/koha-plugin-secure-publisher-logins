@@ -129,3 +129,21 @@ msgstr "設定が必要:"
 
 msgid "Login info"
 msgstr "ログイン情報"
+
+msgid "Log in to check access"
+msgstr "ログインしてアクセスを確認"
+
+msgid "Library not subscribed"
+msgstr "図書館は未契約です"
+
+msgid "Login info not available"
+msgstr "ログイン情報は利用できません"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "お使いの図書館はこのオンラインリソースを契約していません。下のリンクをクリックして購入を提案してください。"
+
+msgid "Suggest for purchase"
+msgstr "購入を提案"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "ログイン情報を表示する前にアカウントへの対応が必要です。%s までお問い合わせください。"

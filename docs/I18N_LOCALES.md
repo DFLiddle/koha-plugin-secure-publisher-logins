@@ -63,4 +63,6 @@ npm run i18n:verify
 
 ## Master msgid list
 
-The canonical msgid list is `de-DE.po` (43 strings). When adding new UI strings in code, update `de-DE.po` and `fr-FR.po`, add entries to `catalogs.json` for every generated locale, then regenerate and verify.
+The canonical msgid list is `de-DE.po` (49 strings). When adding new UI strings in code, update `de-DE.po` and `fr-FR.po`, run `node scripts/patch-opac-access-states-i18n.mjs` or extend `po/catalogs.json`, add entries to `catalogs.json` for every generated locale, then regenerate and verify.
+
+For **Suggest for purchase**, use the Koha OPAC actions-menu msgid (`opac-detail-sidebar.inc`). Prefer Koha core translations where they exist (e.g. de `Zur Anschaffung vorschlagen`, fr `Suggestion d'achat`); otherwise add a concise plugin translation. Run `npm run i18n:fix-suggest` after correcting `po/catalogs.json`.

@@ -34,7 +34,7 @@ Run on **dev** (`dev.teamwork-global.net`) before production. Check each box.
 
 ## Matching — OPAC opac-detail.pl
 
-OPAC action icons (v1.4.5+, Font Awesome 6): lock before label except unlock for view; `fa-regular fa-circle-question` after label for scope-denied and account-blocked.
+OPAC action icons (v1.4.5+, Font Awesome 6): lock before label except unlock for view; `fa-regular fa-circle-question` after label for scope-denied and account-blocked. After upload, confirm OPAC header icons (cart, lists, login) still render (regression fixed in v1.4.14).
 
 - [ ] Logged-in patron (correct library): **View login info** (`fa-unlock`) in actions menu
 - [ ] Modal matches staff (without staff note)

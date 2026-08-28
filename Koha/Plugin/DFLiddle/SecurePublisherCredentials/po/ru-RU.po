@@ -129,3 +129,21 @@ msgstr "Требуется настройка:"
 
 msgid "Login info"
 msgstr "Данные входа"
+
+msgid "Log in to check access"
+msgstr "Войдите, чтобы проверить доступ"
+
+msgid "Library not subscribed"
+msgstr "Библиотека не подписана"
+
+msgid "Login info not available"
+msgstr "Данные для входа недоступны"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "Ваша библиотека не подписана на этот онлайн-ресурс. Нажмите ссылку ниже, чтобы предложить покупку."
+
+msgid "Suggest for purchase"
+msgstr "Предложить к покупке"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "Ваша учётная запись требует внимания, прежде чем можно показать данные для входа. Напишите на %s за помощью."

@@ -129,3 +129,21 @@ msgstr "Angen ffurfweddiad:"
 
 msgid "Login info"
 msgstr "Gwybodaeth mewngofnodi"
+
+msgid "Log in to check access"
+msgstr "Mewngofnodi i wirio mynediad"
+
+msgid "Library not subscribed"
+msgstr "Nid yw'r llyfrgell yn tanysgrifio"
+
+msgid "Login info not available"
+msgstr "Nid yw gwybodaeth mewngofnodi ar gael"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "Nid yw eich llyfrgell yn tanysgrifio i'r adnodd ar-lein hwn. Cliciwch y ddolen isod i awgrymu ei brynu."
+
+msgid "Suggest for purchase"
+msgstr "Awgrymu ar gyfer prynu"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "Mae angen sylw ar eich cyfrif cyn y gellir dangos gwybodaeth mewngofnodi. Ysgrifennwch at %s am gymorth."

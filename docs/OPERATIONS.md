@@ -92,7 +92,13 @@ If the staff UI is unresponsive or Plugins page errors:
 sudo koha-plack --restart library
 ```
 
-You do **not** need `sudo systemctl restart apache2` for a routine plugin upgrade unless your site policy requires it.
+For most uploads, Plack restart is enough. If page source includes `spc.css` / `spc-config.js` URLs but `curl` to those `/api/v1/contrib/…/static/…` paths returns **404** while the files exist on disk (see [static assets 404](#recovery-static-assets-404-hooks-present)), restart the full Koha stack:
+
+```bash
+sudo koha-common restart
+```
+
+On some Debian installs Apache must be bounced after Plack so `/api/v1/` proxying picks up the new OpenAPI routes.
 
 ### 4. Confirm version on Plugins home
 
@@ -124,6 +130,16 @@ If Plugins home still shows an old version after upload, see [Uploaded version d
 **D. OPAC (optional but recommended)**
 
 - Logged-in patron on matching `opac-detail.pl`: **View login info** in actions; modal works
+
+**E. Static assets (when testing OPAC/staff JS changes)**
+
+After upload, confirm the REST static route serves files (expect `200`):
+
+```bash
+curl -sI "https://YOUR-KOHA-HOST/api/v1/contrib/secure_publisher_credentials/static/css/spc.css"
+```
+
+If this is **404** but the file exists under `…/SecurePublisherCredentials/css/spc.css`, see [static assets 404](#recovery-static-assets-404-hooks-present) — try `sudo koha-common restart` after `koha-plack --restart`.
 
 If **B** fails (no `spc-` scripts in source), go to [Recovery: missing login links](#recovery-missing-login-links) — do not proceed to production.
 
@@ -253,6 +269,66 @@ Required for staff/OPAC UI:
 - `opac_head`
 
 Then hard-refresh detail pages and repeat smoke test **B** and **C**.
+
+## Recovery: static assets 404 (hooks present)
+
+**Symptoms**
+
+- OPAC or staff page source **includes** `<link … spc.css>` and `<script … spc-config.js>` / `spc-opac.js` / `spc-staff.js`
+- Browser network tab shows **404** for those `/api/v1/contrib/secure_publisher_credentials/static/…` URLs
+- Inline plugin output may still work (e.g. OPAC `@font-face` in `opac_head`) while CSS/JS files do not load
+- OPAC login links and staff View modal do not work (JS never ran)
+
+**Cause (most common)**
+
+1. **Bundle files missing on disk** — only `SecurePublisherCredentials.pm` uploaded, or an incomplete `.kpz` (rebuild with `npm run build` and re-upload).
+2. **`api_namespace` / `static_routes` not in `plugin_methods`** — REST routes were never injected into Plack’s OpenAPI spec (same family of issues as [missing login links](#recovery-missing-login-links)).
+3. **Plack not restarted** after repair or upload — Koha injects plugin static routes at Plack startup.
+
+**Diagnose on DEV**
+
+```bash
+sudo koha-shell library -c "perl /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/bin/spc_diagnose_plugin_methods.pl"
+```
+
+Look for `MISS` under **Static bundle** and warnings about missing `api_namespace` / `static_routes`.
+
+Confirm files exist:
+
+```bash
+ls -la /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/css/spc.css
+ls -la /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/js/spc-config.js
+ls -la /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/js/spc-opac.js
+ls -la /var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/staticapi.json
+```
+
+**Fix**
+
+1. If any file is missing: `npm run build` on your workstation, re-upload `dist/koha-plugin-secure-publisher-logins.kpz`, then restart Plack.
+2. Repair hooks (includes REST/static registration rows):
+
+   ```bash
+   koha-shell library -c "/var/lib/koha/library/plugins/Koha/Plugin/DFLiddle/SecurePublisherCredentials/bin/spc_repair_plugin_methods.pl"
+   sudo koha-plack --restart library
+   ```
+
+3. Verify (expect `HTTP/1.1 200` or `200 OK`):
+
+   ```bash
+   curl -sI "https://YOUR-KOHA-HOST/api/v1/contrib/secure_publisher_credentials/static/css/spc.css"
+   ```
+
+   If still **404** but the `ls` checks above show the files on disk, Plack may have reloaded without Apache picking up `/api/v1/` correctly. Restart the full stack:
+
+   ```bash
+   sudo koha-common restart
+   ```
+
+   Re-run `curl -sI` until you get **200**, then hard-refresh OPAC/staff (Ctrl+F5).
+
+4. Confirm login links and modals work.
+
+Check `/var/log/koha/library/plack-error.log` for `Plugin … route injection failed` if static URLs still 404 after `koha-common restart`.
 
 ### Self-repair on load (v1.2.22+)
 

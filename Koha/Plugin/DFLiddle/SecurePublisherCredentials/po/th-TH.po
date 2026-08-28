@@ -129,3 +129,21 @@ msgstr "ต้องกำหนดค่า:"
 
 msgid "Login info"
 msgstr "ข้อมูลการเข้าสู่ระบบ"
+
+msgid "Log in to check access"
+msgstr "เข้าสู่ระบบเพื่อตรวจสอบการเข้าถึง"
+
+msgid "Library not subscribed"
+msgstr "ห้องสมุดไม่ได้สมัครสมาชิก"
+
+msgid "Login info not available"
+msgstr "ไม่มีข้อมูลการเข้าสู่ระบบ"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "ห้องสมุดของคุณไม่ได้สมัครทรัพยากรออนไลน์นี้ คลิกลิงก์ด้านล่างเพื่อแนะนำให้จัดซื้อ"
+
+msgid "Suggest for purchase"
+msgstr "แนะนำให้จัดซื้อ"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "บัญชีของคุณต้องได้รับการดูแลก่อนจึงจะแสดงข้อมูลการเข้าสู่ระบบได้ โปรดเขียนถึง %s เพื่อขอความช่วยเหลือ"

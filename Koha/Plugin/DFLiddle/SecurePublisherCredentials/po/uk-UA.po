@@ -129,3 +129,21 @@ msgstr "Потрібна конфігурація:"
 
 msgid "Login info"
 msgstr "Дані входу"
+
+msgid "Log in to check access"
+msgstr "Увійдіть, щоб перевірити доступ"
+
+msgid "Library not subscribed"
+msgstr "Бібліотека не підписана"
+
+msgid "Login info not available"
+msgstr "Дані для входу недоступні"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "Ваша бібліотека не підписана на цей онлайн-ресурс. Натисніть посилання нижче, щоб запропонувати закупівлю."
+
+msgid "Suggest for purchase"
+msgstr "Запропонувати до закупівлі"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "Ваш обліковий запис потребує уваги, перш ніж можна показати дані для входу. Напишіть на %s за допомогою."

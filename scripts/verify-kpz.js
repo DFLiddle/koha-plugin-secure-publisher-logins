@@ -15,6 +15,8 @@ const requiredInZip = [
   'Koha/Plugin/DFLiddle/SecurePublisherCredentials/Constants.pm',
   'Koha/Plugin/DFLiddle/SecurePublisherCredentials/Controller.pm',
   'Koha/Plugin/DFLiddle/SecurePublisherCredentials/openapi.json',
+  'Koha/Plugin/DFLiddle/SecurePublisherCredentials/staticapi.json',
+  'Koha/Plugin/DFLiddle/SecurePublisherCredentials/js/spc-config.js',
   'Koha/Plugin/DFLiddle/SecurePublisherCredentials/js/spc-opac.js',
   'Koha/Plugin/DFLiddle/SecurePublisherCredentials/js/spc-staff.js',
   'Koha/Plugin/DFLiddle/SecurePublisherCredentials/css/spc.css',

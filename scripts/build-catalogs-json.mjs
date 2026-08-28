@@ -55,6 +55,12 @@ const MSGIDS = [
   'Delete this publisher login?',
   'Configuration required:',
   'Login info',
+  'Log in to check access',
+  'Library not subscribed',
+  'Login info not available',
+  'Your library is not subscribed to this online resource. Click the link below to suggest it for purchase.',
+  'Suggest for purchase',
+  'Your account requires attention before the login info can be shown. Please write to %s for help.',
 ];
 
 /** locale -> ordered msgstr array matching MSGIDS */

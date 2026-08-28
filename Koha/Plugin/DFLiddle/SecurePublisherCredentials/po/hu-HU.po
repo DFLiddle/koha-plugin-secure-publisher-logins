@@ -129,3 +129,21 @@ msgstr "Konfiguráció szükséges:"
 
 msgid "Login info"
 msgstr "Bejelentkezési adatok"
+
+msgid "Log in to check access"
+msgstr "Jelentkezzen be a hozzáférés ellenőrzéséhez"
+
+msgid "Library not subscribed"
+msgstr "A könyvtár nem előfizető"
+
+msgid "Login info not available"
+msgstr "A bejelentkezési adatok nem érhetők el"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "Könyvtára nem fizet elő erre az online forrásra. Kattintson az alábbi linkre a beszerzés javaslatához."
+
+msgid "Suggest for purchase"
+msgstr "Javaslat beszerzésre"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "Fiókját rendezni kell, mielőtt a bejelentkezési adatok megjeleníthetők. Írjon a %s címre segítségért."

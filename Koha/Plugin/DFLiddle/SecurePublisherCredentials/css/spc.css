@@ -4,14 +4,14 @@
   color: var(--bs-danger, #dc3545);
   word-break: break-all;
 }
-/* OPAC action links inherit bold weight from Koha/Bootstrap; FA uses weight to pick regular vs solid */
+/* Trailing hint icon: plugin-scoped FA regular face (see opac_head @font-face). */
+.spc-opac-login-link .spc-icon-trailing::before {
+  font-family: "SPC Font Awesome Regular", "Font Awesome 6 Free", "Font Awesome 7 Free";
+  font-weight: 400;
+}
 .spc-opac-login-link .spc-icon-trailing {
-  font-family: "Font Awesome 6 Free", "Font Awesome 7 Free";
   font-weight: 400;
   font-style: normal;
-}
-.spc-opac-login-link .spc-icon-trailing.fa-regular {
-  font-weight: 400;
 }
 .spc-opac-login-link .fa-solid {
   font-weight: 900;

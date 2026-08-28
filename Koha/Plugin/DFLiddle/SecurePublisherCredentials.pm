@@ -22,7 +22,7 @@ use Koha::Plugin::DFLiddle::SecurePublisherCredentials::Constants qw(
 
 use base qw(Koha::Plugins::Base);
 
-our $VERSION = '1.4.13';
+our $VERSION = '1.4.15';
 
 our $metadata = {
     name            => PLUGIN_NAME,
@@ -49,6 +49,7 @@ sub new {
     if ($self) {
         $self->_remove_deprecated_files;
         $self->_ensure_hook_methods_registered;
+        $self->_warn_if_static_bundle_incomplete;
     }
     return $self;
 }
@@ -150,6 +151,18 @@ sub upgrade {
 
 # Koha plugin upload only overwrites files present in the .kpz; removed paths from
 # older releases can linger (e.g. templates/spc_i18n.inc from the 1.2.15 i18n attempt).
+sub _warn_if_static_bundle_incomplete {
+    my ($self) = @_;
+    my $base = eval { $self->bundle_path };
+    return unless $base && -d $base;
+
+    for my $rel (qw( staticapi.json css/spc.css js/spc-config.js js/spc-opac.js js/spc-staff.js )) {
+        my $path = File::Spec->catfile( $base, split m{/}, $rel );
+        next if -f $path;
+        warn PLUGIN_NAME . " missing bundle file $rel (expected $path); static /api/ URLs will 404\n";
+    }
+}
+
 sub _remove_deprecated_files {
     my ($self) = @_;
     my $base = eval { $self->bundle_path };
@@ -384,8 +397,8 @@ sub opac_head {
         . $self->_stylesheet_tag('css/spc.css');
 }
 
-# Koha 24.11 OPAC ships solid/brands/fontawesome CSS only (no regular.min.css).
-# Regular glyphs use fa-regular-400 webfonts already on disk; register weight 400 locally.
+# Register regular FA glyphs under a plugin-only family name. Do not use
+# "Font Awesome 6 Free" here — that hijacks weight-400 icons site-wide (OPAC header).
 sub _opac_fa_regular_face_style {
     my ($self) = @_;
     my $woff2 = $self->_opac_shared_lib_url('lib/fontawesome/webfonts/fa-regular-400.woff2');
@@ -398,9 +411,11 @@ sub _opac_fa_regular_face_style {
     }
 
     my $src = 'url(' . $woff2 . ') format("woff2")';
+    my $family = 'SPC Font Awesome Regular';
 
     return '<style' . $attr
-        . '>@font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:400;font-display:block;src:'
+        . '>@font-face{font-family:"' . $family
+        . '";font-style:normal;font-weight:400;font-display:block;src:'
         . $src . '}</style>';
 }
 

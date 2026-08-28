@@ -129,3 +129,21 @@ msgstr "Konfigurasjon krevst:"
 
 msgid "Login info"
 msgstr "Innloggingsinfo"
+
+msgid "Log in to check access"
+msgstr "Logg inn for å sjekke tilgang"
+
+msgid "Library not subscribed"
+msgstr "Biblioteket abonnerer ikkje"
+
+msgid "Login info not available"
+msgstr "Innloggingsinfo ikkje tilgjengeleg"
+
+msgid "Your library is not subscribed to this online resource. Click the link below to suggest it for purchase."
+msgstr "Biblioteket ditt abonnerer ikkje på denne nettressursen. Klikk lenkja under for å foreslå kjøp."
+
+msgid "Suggest for purchase"
+msgstr "Foreslå kjøp"
+
+msgid "Your account requires attention before the login info can be shown. Please write to %s for help."
+msgstr "Kontoen din krev oppmerksomheit før innloggingsinfo kan visast. Skriv til %s for hjelp."
